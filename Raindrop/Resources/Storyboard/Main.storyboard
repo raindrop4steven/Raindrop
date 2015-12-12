@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QwE-QN-k9m">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -56,6 +57,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="297.5" y="403.5"/>
+        </scene>
+        <!--Hot View Controller-->
+        <scene sceneID="6T5-hc-4yU">
+            <objects>
+                <viewController id="9Nn-aQ-sy1" customClass="RDPHotViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2vd-FD-Sv9"/>
+                        <viewControllerLayoutGuide type="bottom" id="XN0-uH-tE4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GFE-np-kpH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-9K-LcX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hsR-xG-EWs">
+                                    <size key="itemSize" width="168" height="256"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RDPHotCollectionViewCellIdentifiter" id="Bsp-SI-9bh" customClass="RDPHotCollectionViewCell">
+                                        <rect key="frame" x="12" y="12" width="168" height="256"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="168" height="256"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gEG-9K-LcX" firstAttribute="leading" secondItem="GFE-np-kpH" secondAttribute="leading" id="7mg-YR-8WP"/>
+                            <constraint firstItem="gEG-9K-LcX" firstAttribute="top" secondItem="GFE-np-kpH" secondAttribute="top" id="7ye-L2-eoh"/>
+                            <constraint firstAttribute="trailing" secondItem="gEG-9K-LcX" secondAttribute="trailing" id="Pe2-su-VsM"/>
+                            <constraint firstItem="XN0-uH-tE4" firstAttribute="top" secondItem="gEG-9K-LcX" secondAttribute="bottom" id="kMv-wi-Dd4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="gEG-9K-LcX" id="TK4-TK-6xA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IcI-Fi-Aq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410" y="1124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h3H-QB-u3A">

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RDPHotCollectionViewCellIdentifiter" id="gTV-IL-0wX" customClass="RDPHotCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="292" height="420"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="292" height="420"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B8e-LR-KjN">
+                        <rect key="frame" x="0.0" y="0.0" width="292" height="183"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="183" id="881-I0-2ox"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-KN-Frv" userLabel="desc">
+                        <rect key="frame" x="6" y="193" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0n-Tv-vco" userLabel="heartno">
+                        <rect key="frame" x="57" y="248" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAE-60-OV2" userLabel="heart">
+                        <rect key="frame" x="6" y="244" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-Gj-bqS" userLabel="chat">
+                        <rect key="frame" x="111" y="244" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWw-Ug-4xW" userLabel="chatno">
+                        <rect key="frame" x="162" y="248" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="u0n-Tv-vco" firstAttribute="leading" secondItem="hAE-60-OV2" secondAttribute="trailing" constant="5" id="8Yz-eR-uUV"/>
+                <constraint firstItem="B8e-LR-KjN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GFi-75-Asg"/>
+                <constraint firstAttribute="trailing" secondItem="B8e-LR-KjN" secondAttribute="trailing" id="N4q-pl-ugU"/>
+                <constraint firstItem="hAE-60-OV2" firstAttribute="top" secondItem="c2c-KN-Frv" secondAttribute="bottom" constant="30" id="PEl-Ff-9jG"/>
+                <constraint firstItem="c2c-KN-Frv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="PeQ-fs-kb1"/>
+                <constraint firstItem="B8e-LR-KjN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TGS-mW-Ncn"/>
+                <constraint firstItem="vWw-Ug-4xW" firstAttribute="baseline" secondItem="Q3H-Gj-bqS" secondAttribute="baseline" id="UPF-mh-HMn"/>
+                <constraint firstItem="Q3H-Gj-bqS" firstAttribute="baseline" secondItem="u0n-Tv-vco" secondAttribute="baseline" id="WAE-GH-lRx"/>
+                <constraint firstItem="c2c-KN-Frv" firstAttribute="top" secondItem="B8e-LR-KjN" secondAttribute="bottom" constant="10" id="dq2-TA-FEL"/>
+                <constraint firstItem="u0n-Tv-vco" firstAttribute="baseline" secondItem="hAE-60-OV2" secondAttribute="baseline" id="ePh-OM-xGg"/>
+                <constraint firstItem="vWw-Ug-4xW" firstAttribute="leading" secondItem="Q3H-Gj-bqS" secondAttribute="trailing" constant="5" id="ojU-3d-G8Y"/>
+                <constraint firstItem="Q3H-Gj-bqS" firstAttribute="leading" secondItem="u0n-Tv-vco" secondAttribute="trailing" constant="12" id="qfB-qk-ApQ"/>
+                <constraint firstItem="hAE-60-OV2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="rVb-vs-wdH"/>
+            </constraints>
+            <size key="customSize" width="292" height="420"/>
+            <connections>
+                <outlet property="bgImage" destination="B8e-LR-KjN" id="w7h-ba-gYZ"/>
+                <outlet property="bgImageHeight" destination="881-I0-2ox" id="pvL-zv-f3e"/>
+                <outlet property="chatBtn" destination="Q3H-Gj-bqS" id="whX-F1-Ns1"/>
+                <outlet property="chatno" destination="vWw-Ug-4xW" id="pds-JR-QwG"/>
+                <outlet property="desc" destination="c2c-KN-Frv" id="WwC-N5-zUW"/>
+                <outlet property="heartBtn" destination="hAE-60-OV2" id="Z4k-hO-1pl"/>
+                <outlet property="heartno" destination="u0n-Tv-vco" id="5CP-Il-Dlo"/>
+            </connections>
+            <point key="canvasLocation" x="176" y="312"/>
+        </collectionViewCell>
+    </objects>
+</document>

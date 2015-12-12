@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "PureLayout.h"
+#import "RDPHotViewController.h"
+#import "RDPHotView.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -15,7 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidthConstraint;
 
-@property (assign, nonatomic) int totalPages;
+@property (assign, nonatomic) NSUInteger totalPages;
 @property (assign, nonatomic) NSUInteger currentPage;
 @end
 
@@ -34,8 +36,7 @@
 }
 
 - (void)generatePages {
-    int count = 3;
-    [self setupPages:count];
+    [self setupPages:3];
 }
 
 - (void)setupPages:(int)pages {
@@ -51,14 +52,62 @@
     
     UIView *preChild = nil;
     for (int i = 0; i < pages; i++) {
-        UIView *childView = [[UIView alloc] initWithFrame:self.scrollView.frame];
-        if (i == 1) {
-            childView.backgroundColor = [UIColor redColor];
-        } else if(i == 2) {
-            childView.backgroundColor = [UIColor blueColor];
+        RDPHotView *childView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame];
+        [childView setBackgroundColor:[UIColor grayColor]];
+//        if (i == 1) {
+//            childView.backgroundColor = [UIColor redColor];
+//        } else if(i == 2) {
+//            childView.backgroundColor = [UIColor blueColor];
+//        } else {
+//            childView.backgroundColor = [UIColor purpleColor];
+//        }
+        [self.contentView addSubview:childView];
+        
+        [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
+        [childView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+        [childView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+        
+        if (!preChild) {
+            // First childView will align to contentView
+            [childView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
         } else {
-            childView.backgroundColor = [UIColor purpleColor];
+            // Subsequent childviews just align to its previous one
+            [childView autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:preChild];
         }
+        
+        if (i == pages - 1) {
+            // Last page will align to right edge
+            [childView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+        }
+        
+        preChild = childView;
+    }
+    
+    self.scrollView.contentOffset = CGPointZero;
+    
+    [self.view setNeedsDisplay];
+    [self.view layoutIfNeeded];
+}
+
+// Set up subviews with array of viewcontrollers
+- (void)setupContentWith:(NSArray *)controllerArray {
+    NSUInteger pages = [controllerArray count];
+    self.totalPages = pages;
+    
+    // Clean any existing subviews
+    NSArray *subviews = self.contentView.subviews;
+    for (UIView *view in subviews) {
+        [view removeFromSuperview];
+    }
+    
+    [self.contentWidthConstraint autoRemove];
+    self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
+    UIView *preChild = nil;
+    for (int i = 0; i < pages; i++) {
+        RDPHotViewController *hotViewController = [controllerArray objectAtIndex:i];
+        
+        UIView *childView = hotViewController.view;
+        
         [self.contentView addSubview:childView];
         
         [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
