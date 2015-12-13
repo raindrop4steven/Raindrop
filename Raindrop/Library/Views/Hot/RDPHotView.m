@@ -27,11 +27,19 @@ static CGFloat cellFactor = 1.524;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    
+    // 1. Caculate cell's width
     self.cellWidth = (App_Frame_Width - All_Marin)/2;
+    
+    // 2. Set up collectionView
     [self setupCollectionView];
+    
+    // 3. Setup record button
+    [self setupRecordButton];
     
     return self;
 }
+
 // Initialize collection view
 - (void)setupCollectionView {
     // 1. Initialize collectionViewFlowLayout
@@ -46,7 +54,7 @@ static CGFloat cellFactor = 1.524;
     self.mainCollectionView.collectionViewLayout = flowlayout;
     self.mainCollectionView.dataSource = self;
     self.mainCollectionView.delegate = self;
-    //[self.mainCollectionView setBackgroundColor:[UIColor blueColor]];
+    [self.mainCollectionView setBackgroundColor:[UIColor raindropWhiteGreyBgColor]];
     
     // 3. Register our cell
     //[self.mainCollectionView registerClass:[RDPHotCollectionViewCell class] forCellWithReuseIdentifier:RDPHotViewCellIdentifier];
@@ -60,6 +68,34 @@ static CGFloat cellFactor = 1.524;
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+    
+    
+}
+
+// Setup record button
+- (void)setupRecordButton {
+    // 1. Initiliaze a round button
+    UIButton *recordButton = [UIButton new];
+
+    // 2. Make it float
+    [self addSubview:recordButton];
+    [self bringSubviewToFront:recordButton];
+    
+    // 3. Adjust positon
+    [recordButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:27];
+    [recordButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
+    // 4. Make rounded
+    [recordButton autoSetDimensionsToSize:CGSizeMake(45, 45)];
+    [recordButton.layer setCornerRadius:45/2];
+    [recordButton.layer setMasksToBounds:YES];
+    
+    // 5. Add background image
+    [recordButton setBackgroundColor:[UIColor raindropBlueColor]];
+    [recordButton setImage:[UIImage imageNamed:@"mic.png"] forState:UIControlStateNormal];
+    
+
+    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -102,18 +138,14 @@ static CGFloat cellFactor = 1.524;
     CGRect oldFrame = [cell.heartBtn frame];
     oldFrame.size = btnSize;
     [cell.heartBtn setFrame:oldFrame];
-    [cell.heartBtn setBackgroundImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    [cell.heartBtn setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
 
     oldFrame = [cell.chatBtn frame];
     oldFrame.size = btnSize;
     [cell.chatBtn setFrame:oldFrame];
-    [cell.chatBtn setBackgroundImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
+    [cell.chatBtn setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
     
-    // 6. Setup description
-//    [cell setNeedsDisplay];
-//    [cell layoutIfNeeded];
-    
-    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    //[collectionView reloadItemsAtIndexPaths:@[indexPath]];
     return cell;
 }
 

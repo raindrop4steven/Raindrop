@@ -10,7 +10,6 @@
 		0C563B3EB64422ECACEB729E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C26DA6318D1CD2D35E6B025 /* libPods.a */; };
 		CE65B6F51C1C178D00E8356B /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65B6D71C1C178D00E8356B /* favorite@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CE65B6F91C1C178D00E8356B /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65B6DB1C1C178D00E8356B /* message@2x.png */; settings = {ASSET_TAGS = (); }; };
-		CE65B70C1C1C1E7000E8356B /* RDPHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65B70A1C1C1E7000E8356B /* RDPHotViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CE65B7101C1C297B00E8356B /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE65B70F1C1C297B00E8356B /* bg.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65B7121C1C342100E8356B /* NSLayoutConstraint+Description.m */; settings = {ASSET_TAGS = (); }; };
 		CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66BAC01C1C63A1004D0E68 /* RDPHotCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -57,6 +56,7 @@
 		CEEA1D6E1C1D62D900B74DDB /* songs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D5C1C1D62D900B74DDB /* songs@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D6F1C1D62D900B74DDB /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D5D1C1D62D900B74DDB /* star@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D701C1D62D900B74DDB /* Trans-Play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D5E1C1D62D900B74DDB /* Trans-Play@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA1D761C1D994D00B74DDB /* UIColor+Raindrop.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +82,6 @@
 		9C26DA6318D1CD2D35E6B025 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE65B6D71C1C178D00E8356B /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
 		CE65B6DB1C1C178D00E8356B /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
-		CE65B7091C1C1E7000E8356B /* RDPHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotViewController.h; sourceTree = "<group>"; };
-		CE65B70A1C1C1E7000E8356B /* RDPHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHotViewController.m; sourceTree = "<group>"; };
 		CE65B70F1C1C297B00E8356B /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		CE65B7111C1C342100E8356B /* NSLayoutConstraint+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Description.h"; sourceTree = "<group>"; };
 		CE65B7121C1C342100E8356B /* NSLayoutConstraint+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+Description.m"; sourceTree = "<group>"; };
@@ -148,6 +146,8 @@
 		CEEA1D5C1C1D62D900B74DDB /* songs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "songs@2x.png"; sourceTree = "<group>"; };
 		CEEA1D5D1C1D62D900B74DDB /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		CEEA1D5E1C1D62D900B74DDB /* Trans-Play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trans-Play@2x.png"; sourceTree = "<group>"; };
+		CEEA1D751C1D994D00B74DDB /* UIColor+Raindrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Raindrop.h"; sourceTree = "<group>"; };
+		CEEA1D761C1D994D00B74DDB /* UIColor+Raindrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Raindrop.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,8 +264,6 @@
 		CE65B7081C1C1D5800E8356B /* Hot */ = {
 			isa = PBXGroup;
 			children = (
-				CE65B7091C1C1E7000E8356B /* RDPHotViewController.h */,
-				CE65B70A1C1C1E7000E8356B /* RDPHotViewController.m */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -490,6 +488,8 @@
 			children = (
 				CE65B7111C1C342100E8356B /* NSLayoutConstraint+Description.h */,
 				CE65B7121C1C342100E8356B /* NSLayoutConstraint+Description.m */,
+				CEEA1D751C1D994D00B74DDB /* UIColor+Raindrop.h */,
+				CEEA1D761C1D994D00B74DDB /* UIColor+Raindrop.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -727,9 +727,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE88D821C1BDF9200A4B62D /* NSLayoutConstraint+PureLayout.m in Sources */,
-				CE65B70C1C1C1E7000E8356B /* RDPHotViewController.m in Sources */,
 				CEE88D881C1BE05900A4B62D /* MainViewController.m in Sources */,
 				CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */,
+				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,

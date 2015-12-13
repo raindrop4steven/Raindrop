@@ -8,23 +8,35 @@
 
 #import "MainViewController.h"
 #import "PureLayout.h"
-#import "RDPHotViewController.h"
 #import "RDPHotView.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidthConstraint;
-
 @property (assign, nonatomic) NSUInteger totalPages;
 @property (assign, nonatomic) NSUInteger currentPage;
+
+@property (strong, nonatomic) UILabel *hotLabel;
+@property (strong, nonatomic) UILabel *nearLabel;
+@property (strong, nonatomic) UILabel *myLabel;
+
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 0. Setup delegate
+    self.scrollView.delegate = self;
+    // 1. Setup titleView
+    [self setupTitleView];
+    
+    // 2. Update title
+    self.currentPage = 0;
+    [self updateTitleWithcurrentPage:self.currentPage];
+    
     // Do any additional setup after loading the view.
     [self.scrollView setPagingEnabled:YES];
     [self generatePages];
@@ -35,8 +47,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupTitleView {
+    // 1. Setup titleView
+    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, App_Frame_Width * 0.384, 17.5)];
+    [self.navigationItem setTitleView:titleView];
+    
+    // 2. Setup our labels
+    self.hotLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.hotLabel setText:@"热门"];
+    [self.hotLabel layoutIfNeeded];
+    [titleView addSubview:self.hotLabel];
+    
+    self.nearLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.nearLabel setText:@"附近"];
+    [self.nearLabel layoutIfNeeded];
+    [titleView addSubview:self.nearLabel];
+    
+    self.myLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.myLabel setText:@"我的"];
+    [self.myLabel layoutIfNeeded];
+    [titleView addSubview:self.myLabel];
+    // 3. Setup contraints
+    [self.hotLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+    [self.hotLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [self.myLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+    [self.myLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [self.nearLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.nearLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+}
+
 - (void)generatePages {
     [self setupPages:3];
+}
+
+- (void)updateTitleWithcurrentPage:(NSUInteger)num {
+    switch (num) {
+        case 0:
+            [self.hotLabel setTextColor:[UIColor raindropBlueColor]];
+            [self.nearLabel setTextColor:[UIColor raindropBlackFontColor]];
+            [self.myLabel setTextColor:[UIColor raindropBlackFontColor]];
+            break;
+            
+        case 1:
+            [self.nearLabel setTextColor:[UIColor raindropBlueColor]];
+            [self.hotLabel setTextColor:[UIColor raindropBlackFontColor]];
+            [self.myLabel setTextColor:[UIColor raindropBlackFontColor]];
+            break;
+            
+        case 2:
+            [self.myLabel setTextColor:[UIColor raindropBlueColor]];
+            [self.hotLabel setTextColor:[UIColor raindropBlackFontColor]];
+            [self.nearLabel setTextColor:[UIColor raindropBlackFontColor]];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)setupPages:(int)pages {
@@ -54,13 +120,7 @@
     for (int i = 0; i < pages; i++) {
         RDPHotView *childView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame];
         [childView setBackgroundColor:[UIColor grayColor]];
-//        if (i == 1) {
-//            childView.backgroundColor = [UIColor redColor];
-//        } else if(i == 2) {
-//            childView.backgroundColor = [UIColor blueColor];
-//        } else {
-//            childView.backgroundColor = [UIColor purpleColor];
-//        }
+
         [self.contentView addSubview:childView];
         
         [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
@@ -89,6 +149,7 @@
     [self.view layoutIfNeeded];
 }
 
+#if 0
 // Set up subviews with array of viewcontrollers
 - (void)setupContentWith:(NSArray *)controllerArray {
     NSUInteger pages = [controllerArray count];
@@ -136,6 +197,7 @@
     [self.view layoutIfNeeded];
 }
 
+#endif
 /*
 #pragma mark - Navigation
 
@@ -148,11 +210,21 @@
 
 #pragma mark - UIScrollView delegate
 
+/* not used
 - (void)scrollViewWillEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     page = MIN(MAX(page, 0), self.totalPages);
     self.currentPage = page;
     self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * self.currentPage, 0.0);
+}
+*/
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
+    NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    page = MIN(MAX(page, 0), self.totalPages);
+    self.currentPage = page;
+    [self updateTitleWithcurrentPage:self.currentPage];
 }
 @end
