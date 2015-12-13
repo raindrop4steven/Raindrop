@@ -61,7 +61,7 @@
         <!--Hot View Controller-->
         <scene sceneID="6T5-hc-4yU">
             <objects>
-                <viewController id="9Nn-aQ-sy1" customClass="RDPHotViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9Nn-aQ-sy1" customClass="RDPHotViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2vd-FD-Sv9"/>
                         <viewControllerLayoutGuide type="bottom" id="XN0-uH-tE4"/>
@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IcI-Fi-Aq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="410" y="1124"/>
+            <point key="canvasLocation" x="410" y="1106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="h3H-QB-u3A">

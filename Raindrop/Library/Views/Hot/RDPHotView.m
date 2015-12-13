@@ -8,6 +8,7 @@
 
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
+#import "PureLayout.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 38;
@@ -41,11 +42,11 @@ static CGFloat cellFactor = 1.524;
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     // 2. Initialize collection view
-    self.mainCollectionView = [[UICollectionView alloc] initWithFrame:Application_Frame collectionViewLayout:flowlayout];
+    self.mainCollectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:flowlayout];
     self.mainCollectionView.collectionViewLayout = flowlayout;
     self.mainCollectionView.dataSource = self;
     self.mainCollectionView.delegate = self;
-    [self.mainCollectionView setBackgroundColor:[UIColor blueColor]];
+    //[self.mainCollectionView setBackgroundColor:[UIColor blueColor]];
     
     // 3. Register our cell
     //[self.mainCollectionView registerClass:[RDPHotCollectionViewCell class] forCellWithReuseIdentifier:RDPHotViewCellIdentifier];
@@ -54,6 +55,11 @@ static CGFloat cellFactor = 1.524;
     
     // 4. Add our collection view to our view
     [self addSubview:self.mainCollectionView];
+    
+    [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+    [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
 }
 
 #pragma mark - UICollectionViewDataSource
