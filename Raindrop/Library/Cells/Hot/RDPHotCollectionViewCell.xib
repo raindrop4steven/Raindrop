@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -19,30 +20,36 @@
                             <constraint firstAttribute="height" constant="183" id="881-I0-2ox"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-KN-Frv" userLabel="desc">
-                        <rect key="frame" x="6" y="193" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0n-Tv-vco" userLabel="heartno">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0n-Tv-vco" userLabel="heartno">
                         <rect key="frame" x="57" y="248" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAE-60-OV2" userLabel="heart">
-                        <rect key="frame" x="6" y="244" width="46" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAE-60-OV2" userLabel="heart">
+                        <rect key="frame" x="8" y="244" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-Gj-bqS" userLabel="chat">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3H-Gj-bqS" userLabel="chat">
                         <rect key="frame" x="111" y="244" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWw-Ug-4xW" userLabel="chatno">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWw-Ug-4xW" userLabel="chatno">
                         <rect key="frame" x="162" y="248" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-KN-Frv" userLabel="desc">
+                        <rect key="frame" x="8" y="193" width="276" height="47"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -52,9 +59,10 @@
             <constraints>
                 <constraint firstItem="u0n-Tv-vco" firstAttribute="leading" secondItem="hAE-60-OV2" secondAttribute="trailing" constant="5" id="8Yz-eR-uUV"/>
                 <constraint firstItem="B8e-LR-KjN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GFi-75-Asg"/>
+                <constraint firstItem="c2c-KN-Frv" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="23:35" id="N26-MT-dbv"/>
                 <constraint firstAttribute="trailing" secondItem="B8e-LR-KjN" secondAttribute="trailing" id="N4q-pl-ugU"/>
-                <constraint firstItem="hAE-60-OV2" firstAttribute="top" secondItem="c2c-KN-Frv" secondAttribute="bottom" constant="30" id="PEl-Ff-9jG"/>
-                <constraint firstItem="c2c-KN-Frv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="PeQ-fs-kb1"/>
+                <constraint firstItem="c2c-KN-Frv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="PeQ-fs-kb1"/>
+                <constraint firstItem="hAE-60-OV2" firstAttribute="top" secondItem="c2c-KN-Frv" secondAttribute="bottom" constant="4" id="Sul-2q-i2z"/>
                 <constraint firstItem="B8e-LR-KjN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TGS-mW-Ncn"/>
                 <constraint firstItem="vWw-Ug-4xW" firstAttribute="baseline" secondItem="Q3H-Gj-bqS" secondAttribute="baseline" id="UPF-mh-HMn"/>
                 <constraint firstItem="Q3H-Gj-bqS" firstAttribute="baseline" secondItem="u0n-Tv-vco" secondAttribute="baseline" id="WAE-GH-lRx"/>

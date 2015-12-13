@@ -10,31 +10,19 @@
 #import "RDPHotCollectionViewCell.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
-
 static NSUInteger All_Marin = 38;
+static CGFloat imageFactor = 1.023f;
+static CGFloat cellFactor = 1.524;
 
 @interface RDPHotView()
 
 @property (nonatomic, assign) CGFloat cellWidth;
-@property (nonatomic, strong) NSMutableArray *heightArray;
+
 @end
 
 @implementation RDPHotView
 
 @synthesize mainCollectionView;
-
-- (id)init {
-    self = [super init];
-    // array
-    self.heightArray = [[NSMutableArray alloc] init];
-    
-    // Initialize collection view
-    [self setupCollectionView];
-    
-    self.cellWidth = (App_Frame_Width - All_Marin)/2;
-    
-    return self;
-}
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -47,14 +35,13 @@ static NSUInteger All_Marin = 38;
 - (void)setupCollectionView {
     // 1. Initialize collectionViewFlowLayout
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
-    //[flowlayout setItemSize:CGSizeMake(self.cellWidth, 256)];
+    [flowlayout setItemSize:CGSizeMake(self.cellWidth, self.cellWidth * cellFactor)];
     [flowlayout setSectionInset:UIEdgeInsetsMake(12, 12, 12, 12)];
     [flowlayout setMinimumLineSpacing:10];
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     // 2. Initialize collection view
     self.mainCollectionView = [[UICollectionView alloc] initWithFrame:Application_Frame collectionViewLayout:flowlayout];
-//    self.mainCollectionView = [UICollectionView new];
     self.mainCollectionView.collectionViewLayout = flowlayout;
     self.mainCollectionView.dataSource = self;
     self.mainCollectionView.delegate = self;
@@ -80,7 +67,6 @@ static NSUInteger All_Marin = 38;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Cell");
     
     // 1. Register nib file for the cell
 //    UINib *nib = [UINib nibWithNibName:@"RDPHotCollectionViewCell" bundle:[NSBundle mainBundle]];
@@ -91,7 +77,7 @@ static NSUInteger All_Marin = 38;
     
     // 3. Check cell
     if (cell == nil) {
-        cell = [[RDPHotCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 168, 256)];
+        cell = [[RDPHotCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, self.cellWidth, self.cellWidth * cellFactor)];
     }
     
     // 4. Setup contents
@@ -99,24 +85,35 @@ static NSUInteger All_Marin = 38;
     [cell.desc setText:@"这是一个测试, with some english"];
     [cell.heartno setText:@"30"];
     [cell.chatno setText:@"14"];
-    [cell.bgImageHeight setConstant:172];
+    [cell.bgImageHeight setConstant:self.cellWidth * imageFactor];
+
+    // 5. Setup button size
+    [cell.heartBtn setTitle:@"" forState:UIControlStateNormal];
+    [cell.chatBtn setTitle:@"" forState:UIControlStateNormal];
     
-    NSNumber *num = [NSNumber numberWithFloat:cell.frame.size.height + [indexPath row] * 4];
+    CGSize btnSize = CGSizeMake(15, 14);
     
-    [self.heightArray addObject: num];
+    CGRect oldFrame = [cell.heartBtn frame];
+    oldFrame.size = btnSize;
+    [cell.heartBtn setFrame:oldFrame];
+    [cell.heartBtn setBackgroundImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+
+    oldFrame = [cell.chatBtn frame];
+    oldFrame.size = btnSize;
+    [cell.chatBtn setFrame:oldFrame];
+    [cell.chatBtn setBackgroundImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
     
-    [cell setNeedsDisplay];
-    [cell layoutIfNeeded];
+    // 6. Setup description
+//    [cell setNeedsDisplay];
+//    [cell layoutIfNeeded];
     
-     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"size");
-    NSNumber *height = [self.heightArray objectAtIndex:[indexPath row]];
-    return CGSizeMake(self.cellWidth, height.floatValue);
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    return CGSizeMake(self.cellWidth, 256+15);
+//}
 
 
 @end
