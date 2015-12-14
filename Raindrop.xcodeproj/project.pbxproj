@@ -60,6 +60,8 @@
 		CEEA1D7A1C1DB80B00B74DDB /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D791C1DB80B00B74DDB /* Back@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D7C1C1DB9F800B74DDB /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE861C1EEB49009255EE /* NSDate+Utils.m */; settings = {ASSET_TAGS = (); }; };
+		CEECFE891C1EF87B009255EE /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECFE881C1EF87B009255EE /* next@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,9 @@
 		CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		CEECFE851C1EEB49009255EE /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		CEECFE861C1EEB49009255EE /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		CEECFE881C1EF87B009255EE /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
+		CEECFE8A1C1F0490009255EE /* RDPRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordingViewController.h; sourceTree = "<group>"; };
+		CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEA1D791C1DB80B00B74DDB /* Back@2x.png */,
+				CEECFE881C1EF87B009255EE /* next@2x.png */,
 				CEEA1D431C1D62BD00B74DDB /* Close@2x.png */,
 				CEEA1D451C1D62BD00B74DDB /* r-Alarm@2x.png */,
 				CEEA1D461C1D62BD00B74DDB /* r-Search@2x.png */,
@@ -542,6 +548,8 @@
 			children = (
 				CEE6DEB41C1E4874008BBC19 /* RDPRecordMotionViewController.h */,
 				CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */,
+				CEECFE8A1C1F0490009255EE /* RDPRecordingViewController.h */,
+				CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -685,6 +693,7 @@
 				CEEA1D691C1D62D900B74DDB /* Play@2x.png in Resources */,
 				CE66BAC31C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib in Resources */,
 				CEEA1D3E1C1D62B200B74DDB /* surprise@2x.png in Resources */,
+				CEECFE891C1EF87B009255EE /* next@2x.png in Resources */,
 				CEEA1D661C1D62D900B74DDB /* music@2x.png in Resources */,
 				CEEA1D5F1C1D62D900B74DDB /* Arrow@2x.png in Resources */,
 				CE65B6F91C1C178D00E8356B /* message@2x.png in Resources */,
@@ -759,6 +768,7 @@
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
+				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
 				CEE88D811C1BDF9200A4B62D /* NSArray+PureLayout.m in Sources */,
 				CEE88D751C1BDECE00A4B62D /* main.m in Sources */,
 			);
