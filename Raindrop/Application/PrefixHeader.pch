@@ -21,5 +21,7 @@
 
 // Raindrop color
 #import "UIColor+Raindrop.h"
+// Formated date
+#import "NSDate+Utils.h"
 
 #endif

@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "PureLayout.h"
+#import "RDPRecordMotionViewController.h"
 #import "RDPHotView.h"
 
 @interface MainViewController ()
@@ -36,6 +37,9 @@
     // 2. Update title
     self.currentPage = 0;
     [self updateTitleWithcurrentPage:self.currentPage];
+    
+    // 3. Setup record button
+    [self setupRecordButton];
     
     // Do any additional setup after loading the view.
     [self.scrollView setPagingEnabled:YES];
@@ -80,6 +84,43 @@
     [self setupPages:3];
 }
 
+// Setup record button
+- (void)setupRecordButton {
+    // 1. Initiliaze a round button
+    UIButton *recordButton = [UIButton new];
+    
+    // 2. Make it float
+    [self.view addSubview:recordButton];
+    [self.view bringSubviewToFront:recordButton];
+    
+    // 3. Adjust positon
+    [recordButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:27];
+    [recordButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
+    // 4. Make rounded
+    [recordButton autoSetDimensionsToSize:CGSizeMake(45, 45)];
+    [recordButton.layer setCornerRadius:45/2];
+    [recordButton.layer setMasksToBounds:YES];
+    
+    // 5. Add background image
+    [recordButton setBackgroundColor:[UIColor raindropBlueColor]];
+    [recordButton setImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
+    
+    // 6. Add action selector
+    [recordButton addTarget:self action:@selector(chooseMotion) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+// Show up choose motion viewcontroller
+- (void)chooseMotion {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    RDPRecordMotionViewController *recordMotionController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMotionViewController"];
+    UINavigationController *recordNavigationController = [[UINavigationController alloc] initWithRootViewController:recordMotionController];
+    [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
+}
+
+
 - (void)updateTitleWithcurrentPage:(NSUInteger)num {
     switch (num) {
         case 0:
@@ -118,7 +159,7 @@
     
     UIView *preChild = nil;
     for (int i = 0; i < pages; i++) {
-        RDPHotView *childView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame];
+        RDPHotView *childView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame ParentController:self];
         [childView setBackgroundColor:[UIColor grayColor]];
 
         [self.contentView addSubview:childView];

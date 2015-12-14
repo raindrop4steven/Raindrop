@@ -8,7 +8,6 @@
 
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
-#import "RDPRecordMotionViewController.h"
 #import "PureLayout.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
@@ -19,6 +18,8 @@ static CGFloat cellFactor = 1.524;
 @interface RDPHotView()
 
 @property (nonatomic, assign) CGFloat cellWidth;
+
+@property (nonatomic, strong) UIViewController *parentController;
 
 @end
 
@@ -34,9 +35,13 @@ static CGFloat cellFactor = 1.524;
     
     // 2. Set up collectionView
     [self setupCollectionView];
-    
-    // 3. Setup record button
-    [self setupRecordButton];
+
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame ParentController:(UIViewController *)parentController {
+    self = [self initWithFrame:frame];
+    self.parentController = parentController;
     
     return self;
 }
@@ -73,38 +78,6 @@ static CGFloat cellFactor = 1.524;
     
 }
 
-// Setup record button
-- (void)setupRecordButton {
-    // 1. Initiliaze a round button
-    UIButton *recordButton = [UIButton new];
-
-    // 2. Make it float
-    [self addSubview:recordButton];
-    [self bringSubviewToFront:recordButton];
-    
-    // 3. Adjust positon
-    [recordButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:27];
-    [recordButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    
-    // 4. Make rounded
-    [recordButton autoSetDimensionsToSize:CGSizeMake(45, 45)];
-    [recordButton.layer setCornerRadius:45/2];
-    [recordButton.layer setMasksToBounds:YES];
-    
-    // 5. Add background image
-    [recordButton setBackgroundColor:[UIColor raindropBlueColor]];
-    [recordButton setImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
-    
-    // 6. Add action selector
-    [recordButton addTarget:self action:@selector(chooseMotion) forControlEvents:UIControlEventTouchUpInside];
-    
-}
-
-- (void)chooseMotion {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    RDPRecordMotionViewController *recordMotionController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMotionViewController"];
-}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -157,9 +130,14 @@ static CGFloat cellFactor = 1.524;
     return cell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    return CGSizeMake(self.cellWidth, 256+15);
-//}
-
+#pragma mark - UICollectionView delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Clicked at cell : %ld", [indexPath row]);
+    
+//    UIViewController *test = [[UIViewController alloc] init];
+//    [test.view setBackgroundColor:[UIColor redColor]];
+//    
+//    [self.parentController presentViewController:test animated:YES  completion:nil];
+}
 
 @end

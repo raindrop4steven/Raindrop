@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
 
+- (id)initWithFrame:(CGRect)frame ParentController:(UIViewController *)parentController;
+
 @end
