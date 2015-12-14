@@ -8,6 +8,7 @@
 
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
+#import "RDPRecordMotionViewController.h"
 #import "PureLayout.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
@@ -92,10 +93,17 @@ static CGFloat cellFactor = 1.524;
     
     // 5. Add background image
     [recordButton setBackgroundColor:[UIColor raindropBlueColor]];
-    [recordButton setImage:[UIImage imageNamed:@"mic.png"] forState:UIControlStateNormal];
+    [recordButton setImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
     
+    // 6. Add action selector
+    [recordButton addTarget:self action:@selector(chooseMotion) forControlEvents:UIControlEventTouchUpInside];
+    
+}
 
+- (void)chooseMotion {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    RDPRecordMotionViewController *recordMotionController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMotionViewController"];
 }
 
 #pragma mark - UICollectionViewDataSource
