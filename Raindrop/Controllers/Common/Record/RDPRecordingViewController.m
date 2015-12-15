@@ -14,6 +14,12 @@
 
 @implementation RDPRecordingViewController
 
+@synthesize username;
+
+- (void)viewDidLoad {
+    self.userLabel.text = self.username;
+}
+
 - (IBAction)startRecord:(id)sender {
 }
 

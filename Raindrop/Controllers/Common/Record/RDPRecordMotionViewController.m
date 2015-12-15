@@ -7,6 +7,7 @@
 //
 
 #import "RDPRecordMotionViewController.h"
+#import "RDPRecordingViewController.h"
 
 @interface RDPRecordMotionViewController ()
 
@@ -76,5 +77,12 @@
 - (IBAction)sad:(id)sender {
     self.myMotion = @"伤心";
     [self setMotionLabelWith:self.myMotion];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"RDPStartRecordSegue"]) {
+        RDPRecordingViewController *recordingController = (RDPRecordingViewController *)segue.destinationViewController;
+        recordingController.username = self.myMotion;
+    }
 }
 @end

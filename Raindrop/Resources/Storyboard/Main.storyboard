@@ -195,7 +195,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="next.png" id="maM-br-EHW">
                             <connections>
-                                <segue destination="GCb-V2-rR5" kind="show" id="Obn-k4-WQd"/>
+                                <segue destination="GCb-V2-rR5" kind="show" identifier="RDPStartRecordSegue" id="Obn-k4-WQd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

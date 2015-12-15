@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
+@property (strong, nonatomic) NSString *username;
 
 - (IBAction)startRecord:(id)sender;
 - (IBAction)resetRecord:(id)sender;
