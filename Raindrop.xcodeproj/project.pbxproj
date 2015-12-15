@@ -29,6 +29,9 @@
 		CEE88D8D1C1BE2D800A4B62D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEE88D951C1BE40D00A4B62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D8E1C1BE40D00A4B62D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D901C1BE40D00A4B62D /* Raindrop.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D3E1C1D62B200B74DDB /* surprise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D391C1D62B200B74DDB /* surprise@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D3F1C1D62B200B74DDB /* angry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D3A1C1D62B200B74DDB /* angry@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D401C1D62B200B74DDB /* laugh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D3B1C1D62B200B74DDB /* laugh@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -125,6 +128,12 @@
 		CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CEE88D8E1C1BE40D00A4B62D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE88D911C1BE40D00A4B62D /* Raindrop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Raindrop.xcdatamodel; sourceTree = "<group>"; };
+		CEE9A3D11C203FBC009D1993 /* RDPRecordCustomizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordCustomizeViewController.h; sourceTree = "<group>"; };
+		CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordCustomizeViewController.m; sourceTree = "<group>"; };
+		CEE9A3D41C204418009D1993 /* RDPRecordMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMusicViewController.h; sourceTree = "<group>"; };
+		CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMusicViewController.m; sourceTree = "<group>"; };
+		CEE9A3D71C204442009D1993 /* RDPRecordPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordPhotoViewController.h; sourceTree = "<group>"; };
+		CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordPhotoViewController.m; sourceTree = "<group>"; };
 		CEEA1D391C1D62B200B74DDB /* surprise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "surprise@2x.png"; sourceTree = "<group>"; };
 		CEEA1D3A1C1D62B200B74DDB /* angry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angry@2x.png"; sourceTree = "<group>"; };
 		CEEA1D3B1C1D62B200B74DDB /* laugh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "laugh@2x.png"; sourceTree = "<group>"; };
@@ -550,6 +559,12 @@
 				CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */,
 				CEECFE8A1C1F0490009255EE /* RDPRecordingViewController.h */,
 				CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */,
+				CEE9A3D11C203FBC009D1993 /* RDPRecordCustomizeViewController.h */,
+				CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */,
+				CEE9A3D41C204418009D1993 /* RDPRecordMusicViewController.h */,
+				CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */,
+				CEE9A3D71C204442009D1993 /* RDPRecordPhotoViewController.h */,
+				CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -763,6 +778,7 @@
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
 				CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */,
+				CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */,
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
@@ -770,6 +786,8 @@
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
 				CEE88D811C1BDF9200A4B62D /* NSArray+PureLayout.m in Sources */,
+				CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */,
+				CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */,
 				CEE88D751C1BDECE00A4B62D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
