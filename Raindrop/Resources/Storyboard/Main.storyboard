@@ -255,7 +255,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="icon.png"/>
                                 <connections>
-                                    <segue destination="Phg-jM-nNZ" kind="show" id="4HC-uq-u7q"/>
+                                    <segue destination="Phg-jM-nNZ" kind="show" identifier="RDPRecordToCustomizeSegue" id="4HC-uq-u7q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLV-eI-EMQ" userLabel="Reset">

@@ -8,6 +8,7 @@
 
 #import "RDPRecordingViewController.h"
 #import "Mp3Recorder.h"
+#import "RDPRecordCustomizeViewController.h"
 
 @interface RDPRecordingViewController ()<Mp3RecorderDelegate>
 
@@ -18,12 +19,16 @@
 @property NSInteger playTime;
 @property (nonatomic, strong) NSTimer *playTimer;
 
+// recorded data
+@property (nonatomic, strong)NSData *recordData;
+
 @end
 
 @implementation RDPRecordingViewController
 
 @synthesize username;
 @synthesize recordingTime;
+@synthesize recordData;
 
 - (void)viewDidLoad {
     self.userLabel.text = self.username;
@@ -34,6 +39,8 @@
     // 3. Setup record state
     self.recordState = RDPRecordStateReady;
     [self setUpRecordStateWith: self.recordState];
+    // 4. setup mp3
+    _mp3Recorder = [[Mp3Recorder alloc] initWithDelegate:self];
 }
 
 
@@ -139,7 +146,7 @@
 - (void)countVoiceTime
 {
     _playTime ++;
-    self.recordingTime.text = [NSString stringWithFormat:@"%ld",_playTime];
+    self.recordingTime.text = [NSString stringWithFormat:@"%ld",(long)_playTime];
     if (_playTime>=60) {
         [self endRecordVoice];
     }
@@ -150,7 +157,12 @@
 //回调录音资料
 - (void)endConvertWithData:(NSData *)voiceData
 {
+    self.recordData = voiceData;
+}
 
+// Begin convert to other form audio, for android example
+- (void)beginConvert {
+    
 }
 
 - (void)failRecord
@@ -162,6 +174,14 @@
         self.btnVoiceRecord.enabled = YES;
     });
 #endif
+}
+
+// transfer data to customize
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"RDPRecordToCustomizeSegue"]) {
+        RDPRecordCustomizeViewController *customizeController = (RDPRecordCustomizeViewController *)segue.destinationViewController;
+        customizeController.voiceData = self.recordData;
+    }
 }
 
 - (IBAction)resetRecord:(id)sender {

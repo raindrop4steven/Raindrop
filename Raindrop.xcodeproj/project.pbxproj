@@ -33,6 +33,7 @@
 		CEE933F91C219790000199A5 /* stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE933F81C219790000199A5 /* stop@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEE933FF1C219FA9000199A5 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE933FC1C219FA9000199A5 /* libmp3lame.a */; settings = {ASSET_TAGS = (); }; };
 		CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */; settings = {ASSET_TAGS = (); }; };
+		CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE934031C21AD6D000199A5 /* UUAVAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -138,6 +139,8 @@
 		CEE933FC1C219FA9000199A5 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		CEE933FD1C219FA9000199A5 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
 		CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		CEE934021C21AD6D000199A5 /* UUAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAVAudioPlayer.h; sourceTree = "<group>"; };
+		CEE934031C21AD6D000199A5 /* UUAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUAVAudioPlayer.m; sourceTree = "<group>"; };
 		CEE9A3D11C203FBC009D1993 /* RDPRecordCustomizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordCustomizeViewController.h; sourceTree = "<group>"; };
 		CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordCustomizeViewController.m; sourceTree = "<group>"; };
 		CEE9A3D41C204418009D1993 /* RDPRecordMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMusicViewController.h; sourceTree = "<group>"; };
@@ -432,6 +435,7 @@
 		CEE88D6E1C1BDDE500A4B62D /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				CEE934011C21AD6D000199A5 /* UUChat */,
 				CEE933FA1C219FA9000199A5 /* VoiceLib */,
 				CEE88D761C1BDF9200A4B62D /* PureLayout */,
 			);
@@ -575,6 +579,15 @@
 				CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */,
 			);
 			path = VoiceLib;
+			sourceTree = "<group>";
+		};
+		CEE934011C21AD6D000199A5 /* UUChat */ = {
+			isa = PBXGroup;
+			children = (
+				CEE934021C21AD6D000199A5 /* UUAVAudioPlayer.h */,
+				CEE934031C21AD6D000199A5 /* UUAVAudioPlayer.m */,
+			);
+			path = UUChat;
 			sourceTree = "<group>";
 		};
 		CEEA1D781C1DB65800B74DDB /* Record */ = {
@@ -809,6 +822,7 @@
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
+				CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */,
 				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
@@ -937,6 +951,7 @@
 			baseConfigurationReference = 092668A65C8626C9C28DFF81 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Raindrop/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Raindrop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -954,6 +969,7 @@
 			baseConfigurationReference = 1E7905685E6441BD4574FC61 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Raindrop/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Raindrop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
