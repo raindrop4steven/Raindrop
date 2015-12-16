@@ -247,17 +247,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-zl-xSs" userLabel="Mic">
-                                <rect key="frame" x="155" y="521" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="80i-Eo-LCQ"/>
-                                    <constraint firstAttribute="height" constant="64" id="MOo-zQ-7Wc"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="startRecord:" destination="GCb-V2-rR5" eventType="touchUpInside" id="Ada-Z7-ehv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjV-8Q-zTz" userLabel="next">
                                 <rect key="frame" x="278" y="542" width="73" height="22"/>
                                 <constraints>
@@ -279,6 +268,16 @@
                                 <connections>
                                     <action selector="resetRecord:" destination="GCb-V2-rR5" eventType="touchUpInside" id="LxJ-bc-Mz2"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-zl-xSs" userLabel="Mic">
+                                <rect key="frame" x="155" y="521" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="80i-Eo-LCQ"/>
+                                    <constraint firstAttribute="height" constant="64" id="MOo-zQ-7Wc"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

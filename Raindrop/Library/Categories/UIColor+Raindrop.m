@@ -29,4 +29,9 @@
 + (UIColor *)raindropGreyFontColor {
     return RGBACOLOR(88, 88, 88, 1.0);
 }
+
+// Record button bg color
++ (UIColor *)raindropRedColor {
+    return RGBACOLOR(255, 44, 66, 1.0);
+}
 @end

@@ -14,4 +14,5 @@
 + (UIColor *)raindropBlueColor;
 + (UIColor *)raindropBlackFontColor;
 + (UIColor *)raindropGreyFontColor;
++ (UIColor *)raindropRedColor;
 @end

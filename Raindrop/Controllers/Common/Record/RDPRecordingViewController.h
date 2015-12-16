@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, RDPRecordState) {
+    RDPRecordStateReady      = 0 , // Ready
+    RDPRecordStateRecording  = 1 , // On recording
+    RDPRecordStateStop       = 2   // Stop
+};
+
 @interface RDPRecordingViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -19,7 +25,6 @@
 
 @property (strong, nonatomic) NSString *username;
 
-- (IBAction)startRecord:(id)sender;
 - (IBAction)resetRecord:(id)sender;
 - (IBAction)goback:(id)sender;
 

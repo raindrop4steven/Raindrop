@@ -10,7 +10,7 @@
 		0C563B3EB64422ECACEB729E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C26DA6318D1CD2D35E6B025 /* libPods.a */; };
 		CE65B6F51C1C178D00E8356B /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65B6D71C1C178D00E8356B /* favorite@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CE65B6F91C1C178D00E8356B /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65B6DB1C1C178D00E8356B /* message@2x.png */; settings = {ASSET_TAGS = (); }; };
-		CE65B7101C1C297B00E8356B /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE65B70F1C1C297B00E8356B /* bg.jpg */; settings = {ASSET_TAGS = (); }; };
+		CE65B7101C1C297B00E8356B /* bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE65B70F1C1C297B00E8356B /* bg@2x.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65B7121C1C342100E8356B /* NSLayoutConstraint+Description.m */; settings = {ASSET_TAGS = (); }; };
 		CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66BAC01C1C63A1004D0E68 /* RDPHotCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CE66BAC31C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE66BAC11C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +29,10 @@
 		CEE88D8D1C1BE2D800A4B62D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEE88D951C1BE40D00A4B62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D8E1C1BE40D00A4B62D /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D901C1BE40D00A4B62D /* Raindrop.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		CEE933F71C218FFE000199A5 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE933F61C218FFE000199A5 /* user@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEE933F91C219790000199A5 /* stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE933F81C219790000199A5 /* stop@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEE933FF1C219FA9000199A5 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE933FC1C219FA9000199A5 /* libmp3lame.a */; settings = {ASSET_TAGS = (); }; };
+		CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -90,7 +94,7 @@
 		9C26DA6318D1CD2D35E6B025 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE65B6D71C1C178D00E8356B /* favorite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite@2x.png"; sourceTree = "<group>"; };
 		CE65B6DB1C1C178D00E8356B /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
-		CE65B70F1C1C297B00E8356B /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		CE65B70F1C1C297B00E8356B /* bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg@2x.jpg"; sourceTree = "<group>"; };
 		CE65B7111C1C342100E8356B /* NSLayoutConstraint+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Description.h"; sourceTree = "<group>"; };
 		CE65B7121C1C342100E8356B /* NSLayoutConstraint+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+Description.m"; sourceTree = "<group>"; };
 		CE66BABF1C1C63A1004D0E68 /* RDPHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotCollectionViewCell.h; sourceTree = "<group>"; };
@@ -128,6 +132,12 @@
 		CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CEE88D8E1C1BE40D00A4B62D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE88D911C1BE40D00A4B62D /* Raindrop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Raindrop.xcdatamodel; sourceTree = "<group>"; };
+		CEE933F61C218FFE000199A5 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		CEE933F81C219790000199A5 /* stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop@2x.png"; sourceTree = "<group>"; };
+		CEE933FB1C219FA9000199A5 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		CEE933FC1C219FA9000199A5 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		CEE933FD1C219FA9000199A5 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
 		CEE9A3D11C203FBC009D1993 /* RDPRecordCustomizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordCustomizeViewController.h; sourceTree = "<group>"; };
 		CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordCustomizeViewController.m; sourceTree = "<group>"; };
 		CEE9A3D41C204418009D1993 /* RDPRecordMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMusicViewController.h; sourceTree = "<group>"; };
@@ -178,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C563B3EB64422ECACEB729E /* libPods.a in Frameworks */,
+				CEE933FF1C219FA9000199A5 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +271,7 @@
 		CE65B6D41C1C178D00E8356B /* page */ = {
 			isa = PBXGroup;
 			children = (
+				CEE933F81C219790000199A5 /* stop@2x.png */,
 				CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */,
 				CEEA1D4D1C1D62D900B74DDB /* Arrow@2x.png */,
 				CEEA1D4E1C1D62D900B74DDB /* chat@2x.png */,
@@ -295,7 +307,8 @@
 		CE65B70E1C1C297300E8356B /* test */ = {
 			isa = PBXGroup;
 			children = (
-				CE65B70F1C1C297B00E8356B /* bg.jpg */,
+				CE65B70F1C1C297B00E8356B /* bg@2x.jpg */,
+				CEE933F61C218FFE000199A5 /* user@2x.png */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -419,6 +432,7 @@
 		CEE88D6E1C1BDDE500A4B62D /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				CEE933FA1C219FA9000199A5 /* VoiceLib */,
 				CEE88D761C1BDF9200A4B62D /* PureLayout */,
 			);
 			path = Vendors;
@@ -550,6 +564,17 @@
 				CE66BAC61C1C6E9C004D0E68 /* Hot */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CEE933FA1C219FA9000199A5 /* VoiceLib */ = {
+			isa = PBXGroup;
+			children = (
+				CEE933FB1C219FA9000199A5 /* lame.h */,
+				CEE933FC1C219FA9000199A5 /* libmp3lame.a */,
+				CEE933FD1C219FA9000199A5 /* Mp3Recorder.h */,
+				CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */,
+			);
+			path = VoiceLib;
 			sourceTree = "<group>";
 		};
 		CEEA1D781C1DB65800B74DDB /* Record */ = {
@@ -688,15 +713,17 @@
 				CEEA1D421C1D62B200B74DDB /* sad@2x.png in Resources */,
 				CEEA1D3F1C1D62B200B74DDB /* angry@2x.png in Resources */,
 				CEEA1D401C1D62B200B74DDB /* laugh@2x.png in Resources */,
+				CEE933F71C218FFE000199A5 /* user@2x.png in Resources */,
 				CEEA1D6B1C1D62D900B74DDB /* refresh@2x.png in Resources */,
 				CEEA1D651C1D62D900B74DDB /* more@2x.png in Resources */,
+				CEE933F91C219790000199A5 /* stop@2x.png in Resources */,
 				CEEA1D481C1D62BD00B74DDB /* Close@2x.png in Resources */,
 				CEEA1D7C1C1DB9F800B74DDB /* clock@2x.png in Resources */,
 				CEEA1D4A1C1D62BD00B74DDB /* r-Alarm@2x.png in Resources */,
 				CEEA1D6F1C1D62D900B74DDB /* star@2x.png in Resources */,
 				CEEA1D4B1C1D62BD00B74DDB /* r-Search@2x.png in Resources */,
 				CEEA1D671C1D62D900B74DDB /* pause@2x.png in Resources */,
-				CE65B7101C1C297B00E8356B /* bg.jpg in Resources */,
+				CE65B7101C1C297B00E8356B /* bg@2x.jpg in Resources */,
 				CEE88D8C1C1BE2D800A4B62D /* LaunchScreen.storyboard in Resources */,
 				CEEA1D621C1D62D900B74DDB /* little-songs@2x.png in Resources */,
 				CE65B6F51C1C178D00E8356B /* favorite@2x.png in Resources */,
@@ -782,6 +809,7 @@
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
+				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
@@ -912,6 +940,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Raindrop/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Raindrop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Raindrop/Vendors/VoiceLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = steven.raindrop.Raindrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -925,6 +957,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Raindrop/Application/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Raindrop/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Raindrop/Vendors/VoiceLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = steven.raindrop.Raindrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
