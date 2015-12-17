@@ -22,10 +22,12 @@
 @interface UUAVAudioPlayer : NSObject
 @property (nonatomic ,strong)  AVAudioPlayer *player;
 @property (nonatomic, assign)id <UUAVAudioPlayerDelegate>delegate;
-+ (UUAVAudioPlayer *)sharedInstance;
 
++ (UUAVAudioPlayer *)sharedInstance;
 -(void)playSongWithUrl:(NSString *)songUrl;
+
 -(void)playSongWithData:(NSData *)songData;
+- (void)playMixWithVoice:(NSData *)voiceData bgMusic:(NSURL *)bgMusic;
 
 - (void)stopSound;
 @end

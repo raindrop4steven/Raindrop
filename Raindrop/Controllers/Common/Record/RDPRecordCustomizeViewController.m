@@ -23,7 +23,17 @@
 - (void)viewDidLoad {
     // play our voice, of couse it's only for now,
     // later will automatically compose with background music
-    [self playSongWithData:self.voiceData];
+    //[self playSongWithData:self.voiceData];
+    
+    
+    
+#if 1
+    // play song with bg music
+    NSString *str=[[NSBundle mainBundle] pathForResource:@"bird" ofType:@"caf"];
+    NSURL *bgURL = [NSURL fileURLWithPath:str];
+    //NSData *bgmusic = [NSData dataWithContentsOfURL:bgURL];
+    [self playSongWithVoice:self.voiceData bgMusic:bgURL];
+#endif
 }
 
 // Play our voice
@@ -32,6 +42,13 @@
     _player = [UUAVAudioPlayer sharedInstance];
     _player.delegate = self;
     [_player playSongWithData:data];
+}
+
+- (void)playSongWithVoice:(NSData *)data bgMusic:(NSURL *)music {
+    _contentVoiceIsPlaying = YES;
+    _player = [UUAVAudioPlayer sharedInstance];
+    _player.delegate = self;
+    [_player playMixWithVoice:data bgMusic:music];
 }
 
 #pragma mark - UUAVAudioPlayerDelegate

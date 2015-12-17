@@ -12,6 +12,9 @@
 
 @interface UUAVAudioPlayer ()<AVAudioPlayerDelegate>
 
+@property (nonatomic, strong) NSMutableArray *palyerArray;
+@property (nonatomic, strong)AVAudioPlayer *voicePlayer;
+@property (nonatomic, strong)AVAudioPlayer *bgPlayer;
 @end
 
 @implementation UUAVAudioPlayer
@@ -43,6 +46,32 @@
 {
     [self setupPlaySound];
     [self playSoundWithData:songData];
+}
+
+// Added for play two songs simulatelly
+- (void)playMixWithVoice:(NSData *)voiceData bgMusic:(NSURL *)bgMusic {
+    [self setupPlaySound];
+    
+    NSError *bgError;
+    _bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bgMusic error:&bgError];
+    _bgPlayer.volume = 1.0f;
+    if (_bgPlayer == nil) {
+        NSLog(@"Error creating bg Music player: %@", [bgError description]);
+    }
+    NSError *voiceError;
+    _voicePlayer = [[AVAudioPlayer alloc] initWithData:voiceData error:&voiceError];
+    _voicePlayer.volume = 1.0f;
+    if (_voicePlayer == nil) {
+        NSLog(@"Error creating bg Music player: %@", [voiceError description]);
+    }
+
+    _bgPlayer.delegate = self;
+    [_bgPlayer play];
+    
+    _voicePlayer.delegate = self;
+    [_voicePlayer play];
+    [self.delegate UUAVAudioPlayerBeiginPlay];
+    
 }
 
 -(void)playSoundWithData:(NSData *)soundData{
