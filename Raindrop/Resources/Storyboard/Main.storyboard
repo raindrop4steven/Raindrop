@@ -334,21 +334,20 @@
                                     <constraint firstAttribute="width" secondItem="JrQ-pF-csB" secondAttribute="height" multiplier="375:254" id="CMa-Yb-ZRB"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aki-R6-RaQ">
-                                <rect key="frame" x="0.0" y="318" width="375" height="133"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-m9-vOR">
+                                <rect key="frame" x="167" y="570" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="aki-R6-RaQ" secondAttribute="height" multiplier="375:133" id="NN3-Xi-sl6"/>
+                                    <constraint firstAttribute="height" constant="40" id="3H3-28-uNy"/>
+                                    <constraint firstAttribute="width" constant="40" id="m5o-TR-5V3"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-m9-vOR">
-                                <rect key="frame" x="140" y="575" width="94" height="40"/>
                                 <state key="normal" title="Button" image="preview.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Sh-ggx">
-                                <rect key="frame" x="20" y="575" width="73" height="23"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Sh-ggx">
+                                <rect key="frame" x="43" y="579" width="19" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="dSg-4a-tuR"/>
+                                    <constraint firstAttribute="width" constant="19" id="hW9-Hq-jqA"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="music.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-br-9g8">
@@ -383,9 +382,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Sp-Akm">
-                                <rect key="frame" x="281" y="575" width="77" height="23"/>
+                                <rect key="frame" x="308" y="579" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23.5" id="0hF-ik-hTe"/>
+                                    <constraint firstAttribute="height" constant="23" id="UoM-33-ODC"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="sent.png"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aki-R6-RaQ">
+                                <rect key="frame" x="0.0" y="318" width="375" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aki-R6-RaQ" secondAttribute="height" multiplier="375:133" id="NN3-Xi-sl6"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
