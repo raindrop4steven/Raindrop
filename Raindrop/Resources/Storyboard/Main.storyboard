@@ -316,7 +316,7 @@
             </objects>
             <point key="canvasLocation" x="786.5" y="1241.5"/>
         </scene>
-        <!--Title-->
+        <!--定制-->
         <scene sceneID="06i-xr-Q9v">
             <objects>
                 <viewController id="Phg-jM-nNZ" customClass="RDPRecordCustomizeViewController" sceneMemberID="viewController">
@@ -328,7 +328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JrQ-pF-csB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surface.png" translatesAutoresizingMaskIntoConstraints="NO" id="JrQ-pF-csB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="254"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JrQ-pF-csB" secondAttribute="height" multiplier="375:254" id="CMa-Yb-ZRB"/>
@@ -343,48 +343,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-m9-vOR">
-                                <rect key="frame" x="164" y="580" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-m9-vOR">
+                                <rect key="frame" x="140" y="575" width="94" height="40"/>
+                                <state key="normal" title="Button" image="preview.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Sh-ggx">
-                                <rect key="frame" x="33" y="572" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Sh-ggx">
+                                <rect key="frame" x="20" y="575" width="73" height="23"/>
+                                <state key="normal" title="Button" image="music.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-br-9g8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="音乐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-br-9g8">
                                 <rect key="frame" x="35" y="626" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-xV-p1q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="预览" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGl-xV-p1q">
                                 <rect key="frame" x="166" y="626" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxw-aL-r5L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="发布" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxw-aL-r5L">
                                 <rect key="frame" x="298" y="626" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-HD-fXU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photos.png" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-HD-fXU">
                                 <rect key="frame" x="130" y="281" width="20" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="QZb-v4-IXy"/>
                                     <constraint firstAttribute="width" constant="20" id="aja-mk-BIk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xk-v0-iIc">
-                                <rect key="frame" x="161" y="276" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置封面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xk-v0-iIc">
+                                <rect key="frame" x="161" y="281" width="60" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Sp-Akm">
-                                <rect key="frame" x="296" y="572" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Sp-Akm">
+                                <rect key="frame" x="281" y="575" width="77" height="23"/>
+                                <state key="normal" title="Button" image="sent.png"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -395,6 +395,7 @@
                             <constraint firstItem="LGl-xV-p1q" firstAttribute="centerX" secondItem="GmO-mj-QCy" secondAttribute="centerX" id="KnO-al-Gtk"/>
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="top" secondItem="1Xk-v0-iIc" secondAttribute="bottom" constant="21" id="LBx-yX-60X"/>
                             <constraint firstItem="PmY-yW-elk" firstAttribute="top" secondItem="LGl-xV-p1q" secondAttribute="bottom" constant="20" id="NVk-mn-KVJ"/>
+                            <constraint firstItem="1Xk-v0-iIc" firstAttribute="centerY" secondItem="cwk-HD-fXU" secondAttribute="centerY" id="Onu-OK-IUP"/>
                             <constraint firstItem="PmY-yW-elk" firstAttribute="top" secondItem="Yif-br-9g8" secondAttribute="bottom" constant="20" id="RVO-RZ-Ur9"/>
                             <constraint firstItem="LGl-xV-p1q" firstAttribute="top" secondItem="bZ5-m9-vOR" secondAttribute="bottom" constant="16" id="VI2-SH-1t8"/>
                             <constraint firstItem="bZ5-m9-vOR" firstAttribute="centerX" secondItem="GmO-mj-QCy" secondAttribute="centerX" id="Wze-RC-frJ"/>
@@ -414,7 +415,7 @@
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="leading" secondItem="GmO-mj-QCy" secondAttribute="leading" id="zhi-ze-PMa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="8hG-zd-e5O">
+                    <navigationItem key="navigationItem" title="定制" id="8hG-zd-e5O">
                         <barButtonItem key="leftBarButtonItem" image="Back.png" id="XdE-H8-BDi">
                             <connections>
                                 <action selector="goBack:" destination="Phg-jM-nNZ" id="BEb-oF-TO2"/>
@@ -608,9 +609,14 @@
         <image name="happy.png" width="56" height="56"/>
         <image name="icon.png" width="19" height="14"/>
         <image name="laugh.png" width="56" height="56"/>
+        <image name="music.png" width="19" height="23"/>
         <image name="next.png" width="20" height="20"/>
+        <image name="photos.png" width="22" height="17"/>
+        <image name="preview.png" width="40" height="40"/>
         <image name="refresh.png" width="21" height="25"/>
         <image name="sad.png" width="56" height="56"/>
+        <image name="sent.png" width="23" height="23"/>
+        <image name="surface.png" width="750" height="581"/>
         <image name="surprise.png" width="56" height="56"/>
     </resources>
 </document>
