@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QwE-QN-k9m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ibf-gM-cjw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -536,6 +536,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="te1-gD-RLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308.5" y="2811.5"/>
+        </scene>
+        <!--Voice Test View Controller-->
+        <scene sceneID="dOe-A9-fwn">
+            <objects>
+                <viewController storyboardIdentifier="RDPVoiceTestViewController" id="ibf-gM-cjw" customClass="RDPVoiceTestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ajT-9W-Ybg"/>
+                        <viewControllerLayoutGuide type="bottom" id="MOq-BB-vdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eun-og-Pr4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="53y-Bt-aDx">
+                                <rect key="frame" x="48" y="285" width="504" height="31"/>
+                                <connections>
+                                    <action selector="sliderDidChanged:" destination="ibf-gM-cjw" eventType="valueChanged" id="OF2-PY-fGj"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odh-RS-u9T">
+                                <rect key="frame" x="279" y="145" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-gv-C3t">
+                                <rect key="frame" x="277" y="437" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="record:" destination="ibf-gM-cjw" eventType="touchUpInside" id="QzE-sb-VcJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="odh-RS-u9T" firstAttribute="centerX" secondItem="Eun-og-Pr4" secondAttribute="centerX" id="15z-Yp-YvE"/>
+                            <constraint firstItem="53y-Bt-aDx" firstAttribute="leading" secondItem="Eun-og-Pr4" secondAttribute="leading" constant="50" id="Aqd-bi-G3O"/>
+                            <constraint firstItem="sBb-gv-C3t" firstAttribute="centerX" secondItem="Eun-og-Pr4" secondAttribute="centerX" id="N3H-7t-sUn"/>
+                            <constraint firstItem="53y-Bt-aDx" firstAttribute="top" secondItem="odh-RS-u9T" secondAttribute="bottom" constant="119" id="hJh-Fc-1f2"/>
+                            <constraint firstAttribute="trailing" secondItem="53y-Bt-aDx" secondAttribute="trailing" constant="50" id="jSR-F5-8FG"/>
+                            <constraint firstItem="53y-Bt-aDx" firstAttribute="centerX" secondItem="Eun-og-Pr4" secondAttribute="centerX" id="nwF-Yk-mY6"/>
+                            <constraint firstItem="sBb-gv-C3t" firstAttribute="top" secondItem="53y-Bt-aDx" secondAttribute="bottom" constant="122" id="wp3-DJ-mzE"/>
+                            <constraint firstItem="53y-Bt-aDx" firstAttribute="centerY" secondItem="Eun-og-Pr4" secondAttribute="centerY" id="x7n-Tf-MEf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="sBb-gv-C3t" id="pfG-R4-Bag"/>
+                        <outlet property="slider" destination="53y-Bt-aDx" id="ePC-fC-Dz7"/>
+                        <outlet property="volume" destination="odh-RS-u9T" id="6Sv-PV-JMZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLe-7e-pH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421" y="3578"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3WL-CM-XS2">
