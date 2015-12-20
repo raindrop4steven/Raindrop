@@ -20,8 +20,16 @@
 		CE83294C1C18586A004D12C8 /* RaindropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83294B1C18586A004D12C8 /* RaindropTests.m */; };
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */ = {isa = PBXBuildFile; fileRef = CEE718DC1C26D22C00EA2C37 /* fire.caf */; };
 		CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */; settings = {ASSET_TAGS = (); }; };
+		CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CB71C26A0390007FF1E /* RDPMusicTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CEE87CBA1C26A0390007FF1E /* RDPMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE87CB81C26A0390007FF1E /* RDPMusicTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		CEE87CBD1C26A5730007FF1E /* Checked-Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE87CBB1C26A5730007FF1E /* Checked-Active@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEE87CBE1C26A5730007FF1E /* Checked-Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE87CBC1C26A5730007FF1E /* Checked-Inactive@2x.png */; settings = {ASSET_TAGS = (); }; };
+		CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CC11C26B3490007FF1E /* RDPBgMusic.m */; settings = {ASSET_TAGS = (); }; };
+		CEE87CC61C26BD8A0007FF1E /* cell2.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE87CC41C26BD8A0007FF1E /* cell2.png */; settings = {ASSET_TAGS = (); }; };
+		CEE87CC81C26C7440007FF1E /* cell1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE87CC71C26C7440007FF1E /* cell1.png */; settings = {ASSET_TAGS = (); }; };
 		CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D701C1BDE6E00A4B62D /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		CEE88D741C1BDECE00A4B62D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D721C1BDECE00A4B62D /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		CEE88D751C1BDECE00A4B62D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D731C1BDECE00A4B62D /* main.m */; settings = {ASSET_TAGS = (); }; };
@@ -121,10 +129,20 @@
 		CE8329581C18586A004D12C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE6DEB41C1E4874008BBC19 /* RDPRecordMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMotionViewController.h; sourceTree = "<group>"; };
 		CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMotionViewController.m; sourceTree = "<group>"; };
+		CEE718DC1C26D22C00EA2C37 /* fire.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.caf; sourceTree = "<group>"; };
 		CEE87CA91C267A6E0007FF1E /* RDPMixAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioPlayer.h; sourceTree = "<group>"; };
 		CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioPlayer.m; sourceTree = "<group>"; };
 		CEE87CAC1C26808E0007FF1E /* RDPMixAudioMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioMachine.h; sourceTree = "<group>"; };
 		CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioMachine.m; sourceTree = "<group>"; };
+		CEE87CB61C26A0390007FF1E /* RDPMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMusicTableViewCell.h; sourceTree = "<group>"; };
+		CEE87CB71C26A0390007FF1E /* RDPMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMusicTableViewCell.m; sourceTree = "<group>"; };
+		CEE87CB81C26A0390007FF1E /* RDPMusicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPMusicTableViewCell.xib; sourceTree = "<group>"; };
+		CEE87CBB1C26A5730007FF1E /* Checked-Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-Active@2x.png"; sourceTree = "<group>"; };
+		CEE87CBC1C26A5730007FF1E /* Checked-Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-Inactive@2x.png"; sourceTree = "<group>"; };
+		CEE87CC01C26B3490007FF1E /* RDPBgMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPBgMusic.h; sourceTree = "<group>"; };
+		CEE87CC11C26B3490007FF1E /* RDPBgMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPBgMusic.m; sourceTree = "<group>"; };
+		CEE87CC41C26BD8A0007FF1E /* cell2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell2.png; sourceTree = "<group>"; };
+		CEE87CC71C26C7440007FF1E /* cell1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell1.png; sourceTree = "<group>"; };
 		CEE88D6F1C1BDE6E00A4B62D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEE88D701C1BDE6E00A4B62D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEE88D721C1BDECE00A4B62D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -245,6 +263,7 @@
 		CE4A21DB1C230BDF0001C592 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				CEE718DC1C26D22C00EA2C37 /* fire.caf */,
 				CE4A21DC1C230BDF0001C592 /* bird.caf */,
 			);
 			path = Music;
@@ -295,6 +314,8 @@
 		CE65B6D41C1C178D00E8356B /* page */ = {
 			isa = PBXGroup;
 			children = (
+				CEE87CBB1C26A5730007FF1E /* Checked-Active@2x.png */,
+				CEE87CBC1C26A5730007FF1E /* Checked-Inactive@2x.png */,
 				CEE933F81C219790000199A5 /* stop@2x.png */,
 				CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */,
 				CEEA1D4D1C1D62D900B74DDB /* Arrow@2x.png */,
@@ -331,6 +352,8 @@
 		CE65B70E1C1C297300E8356B /* test */ = {
 			isa = PBXGroup;
 			children = (
+				CEE87CC71C26C7440007FF1E /* cell1.png */,
+				CEE87CC41C26BD8A0007FF1E /* cell2.png */,
 				CE65B70F1C1C297B00E8356B /* bg@2x.jpg */,
 				CEE933F61C218FFE000199A5 /* user@2x.png */,
 				CE4A21E01C230FEF0001C592 /* surface.png */,
@@ -411,6 +434,25 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		CEE87CB01C269F5E0007FF1E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				CEE87CB61C26A0390007FF1E /* RDPMusicTableViewCell.h */,
+				CEE87CB71C26A0390007FF1E /* RDPMusicTableViewCell.m */,
+				CEE87CB81C26A0390007FF1E /* RDPMusicTableViewCell.xib */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		CEE87CBF1C26B32E0007FF1E /* BgMusic */ = {
+			isa = PBXGroup;
+			children = (
+				CEE87CC01C26B3490007FF1E /* RDPBgMusic.h */,
+				CEE87CC11C26B3490007FF1E /* RDPBgMusic.m */,
+			);
+			path = BgMusic;
+			sourceTree = "<group>";
+		};
 		CEE88D691C1BDDE500A4B62D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +491,7 @@
 		CEE88D6C1C1BDDE500A4B62D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEE87CBF1C26B32E0007FF1E /* BgMusic */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -579,6 +622,7 @@
 		CEE88D981C1BE4D300A4B62D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CEE87CB01C269F5E0007FF1E /* Music */,
 				CE65B6A81C1C091900E8356B /* Base */,
 				CE65B6A91C1C091900E8356B /* Hot */,
 			);
@@ -752,11 +796,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */,
 				CEEA1D6D1C1D62D900B74DDB /* plus@2x.png in Resources */,
 				CEE88D741C1BDECE00A4B62D /* Info.plist in Resources */,
 				CEEA1D6C1C1D62D900B74DDB /* sent@2x.png in Resources */,
 				CEEA1D4C1C1D62BD00B74DDB /* r-Settings@2x.png in Resources */,
 				CEEA1D6A1C1D62D900B74DDB /* preview@2x.png in Resources */,
+				CEE87CC61C26BD8A0007FF1E /* cell2.png in Resources */,
 				CEEA1D631C1D62D900B74DDB /* location@2x.png in Resources */,
 				CEE88D8D1C1BE2D800A4B62D /* Main.storyboard in Resources */,
 				CEEA1D601C1D62D900B74DDB /* chat@2x.png in Resources */,
@@ -766,6 +812,7 @@
 				CEE933F71C218FFE000199A5 /* user@2x.png in Resources */,
 				CEEA1D6B1C1D62D900B74DDB /* refresh@2x.png in Resources */,
 				CEEA1D651C1D62D900B74DDB /* more@2x.png in Resources */,
+				CEE87CBE1C26A5730007FF1E /* Checked-Inactive@2x.png in Resources */,
 				CEE933F91C219790000199A5 /* stop@2x.png in Resources */,
 				CEEA1D481C1D62BD00B74DDB /* Close@2x.png in Resources */,
 				CEEA1D7C1C1DB9F800B74DDB /* clock@2x.png in Resources */,
@@ -774,6 +821,7 @@
 				CEEA1D4B1C1D62BD00B74DDB /* r-Search@2x.png in Resources */,
 				CE4A21DD1C230BDF0001C592 /* bird.caf in Resources */,
 				CEEA1D671C1D62D900B74DDB /* pause@2x.png in Resources */,
+				CEE87CBD1C26A5730007FF1E /* Checked-Active@2x.png in Resources */,
 				CE65B7101C1C297B00E8356B /* bg@2x.jpg in Resources */,
 				CEE88D8C1C1BE2D800A4B62D /* LaunchScreen.storyboard in Resources */,
 				CEEA1D621C1D62D900B74DDB /* little-songs@2x.png in Resources */,
@@ -786,7 +834,9 @@
 				CEEA1D411C1D62B200B74DDB /* happy@2x.png in Resources */,
 				CEEA1D691C1D62D900B74DDB /* Play@2x.png in Resources */,
 				CE66BAC31C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib in Resources */,
+				CEE87CC81C26C7440007FF1E /* cell1.png in Resources */,
 				CEEA1D3E1C1D62B200B74DDB /* surprise@2x.png in Resources */,
+				CEE87CBA1C26A0390007FF1E /* RDPMusicTableViewCell.xib in Resources */,
 				CEECFE891C1EF87B009255EE /* next@2x.png in Resources */,
 				CEEA1D661C1D62D900B74DDB /* music@2x.png in Resources */,
 				CEEA1D5F1C1D62D900B74DDB /* Arrow@2x.png in Resources */,
@@ -862,9 +912,11 @@
 				CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
+				CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */,
 				CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */,
 				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
+				CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */,
 				CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */,

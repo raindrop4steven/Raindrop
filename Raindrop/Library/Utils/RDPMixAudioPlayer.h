@@ -12,4 +12,5 @@
 
 - (void)playOcastraWithBgMusic:(NSString *)bgName voice:(NSData *)voice;
 
+- (void)stop;
 @end

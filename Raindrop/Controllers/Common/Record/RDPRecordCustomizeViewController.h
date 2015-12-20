@@ -13,6 +13,9 @@
 @property (nonatomic, strong)NSData *voiceData;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
+
+- (IBAction)chooseMusic:(id)sender;
+
 - (IBAction)goBack:(id)sender;
 - (IBAction)upload:(id)sender;
 @end

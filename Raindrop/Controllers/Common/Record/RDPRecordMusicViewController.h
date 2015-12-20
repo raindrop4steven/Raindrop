@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RDPRecordMusicViewController : UIViewController
+@interface RDPRecordMusicViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong)NSData *voiceData;
+@property (weak, nonatomic) IBOutlet UITableView *songTableView;
 
 @end

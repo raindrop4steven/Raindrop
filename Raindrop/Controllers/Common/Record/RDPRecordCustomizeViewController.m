@@ -7,6 +7,7 @@
 //
 
 #import "RDPRecordCustomizeViewController.h"
+#import "RDPRecordMusicViewController.h"
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
 
@@ -39,9 +40,20 @@
 }
 
 
+- (IBAction)chooseMusic:(id)sender {
+    [_mixPlayer stop];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    RDPRecordMusicViewController *recordMusicController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMusicViewController"];
+    recordMusicController.voiceData = self.voiceData;
+    
+    UINavigationController *recordNavigationController = [[UINavigationController alloc] initWithRootViewController:recordMusicController];
+    [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
+}
+
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 @end
