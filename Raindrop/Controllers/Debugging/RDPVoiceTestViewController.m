@@ -147,7 +147,7 @@
     // Background Music Track
     AVMutableCompositionTrack *mutableCompBgTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
     // User's Voice
-    //AVMutableCompositionTrack *mutableCompVoiceTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    AVMutableCompositionTrack *mutableCompVoiceTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
     
     /************** Step 2 : Convert Audio Files To AVSAssets ************/
     CMTime currentCMTime = kCMTimeZero;
@@ -180,7 +180,7 @@
         
         // Crate Voice Assert
         NSError *voiceError;
-        [mutableCompBgTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, voiceAssert .duration)
+        [mutableCompVoiceTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, voiceAssert .duration)
                                        ofTrack:[[voiceAssert tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0]
                                         atTime:currentCMTime
                                          error:&voiceError];
@@ -215,6 +215,7 @@
                 case AVAssetExportSessionStatusCompleted:
                 {
                     NSLog(@"Export complete!");
+                    NSLog(@"%@", exportSession.outputURL);
                     break;
                 }
                 default:
