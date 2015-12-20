@@ -13,8 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *volume;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
+@property (weak, nonatomic) IBOutlet UIButton *mixButton;
 
 
 - (IBAction)sliderDidChanged:(id)sender;
 - (IBAction)record:(id)sender;
+- (IBAction)mixAudio:(id)sender;
 @end

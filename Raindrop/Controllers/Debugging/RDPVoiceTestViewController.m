@@ -137,10 +137,101 @@
     }
 }
 
+// Mix bgMusic and voice data
+- (IBAction)mixAudio:(id)sender {
+    [self.mixButton setTitle:@"Mixing..." forState:UIControlStateNormal];
+    NSLog(@"Mixing...");
+    /************** Step 1 : Create AVMutableComposition + AVMutableCompositionTracks ************/
+    // AudioMutableComposition
+    AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
+    // Background Music Track
+    AVMutableCompositionTrack *mutableCompBgTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    // User's Voice
+    //AVMutableCompositionTrack *mutableCompVoiceTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    
+    /************** Step 2 : Convert Audio Files To AVSAssets ************/
+    CMTime currentCMTime = kCMTimeZero;
+    
+    // Add Background Music First
+    // Get Song Path
+    NSString *str=[[NSBundle mainBundle] pathForResource:@"bird" ofType:@"caf"];
+    NSURL *bgURL = [NSURL fileURLWithPath:str];
+    // Create Background Music Assert
+    AVAsset *bgAssert = [AVAsset assetWithURL:bgURL];
+    [mutableCompBgTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, bgAssert.duration)
+                                ofTrack:[[bgAssert tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0]
+                                 atTime:currentCMTime
+                                  error:nil];
+    // Create Voice Assert
+    NSString *documentsDir = (NSString *)[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *voicePath = [documentsDir stringByAppendingPathComponent:@"voice.caf"];
+    
+    // Write Voice Data To Disk
+    NSError *writeError;
+    [_myVoice writeToFile:voicePath options:NSAtomicWrite error:&writeError];
+    if (writeError) {
+        NSLog(@"Write Error : %@", [writeError description]);
+    } else {
+        NSURL *voiceURL = [NSURL fileURLWithPath:voicePath];
+        // Avoice Assert
+        AVAsset *voiceAssert = [AVAsset assetWithURL:voiceURL];
+        
+        NSArray *tracks = [voiceAssert tracksWithMediaType:AVMediaTypeAudio];
+        
+        // Crate Voice Assert
+        NSError *voiceError;
+        [mutableCompBgTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, voiceAssert .duration)
+                                       ofTrack:[[voiceAssert tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0]
+                                        atTime:currentCMTime
+                                         error:&voiceError];
+        NSLog(@"Error Make Voice Track : %@", [voiceError description]);
+        
+        currentCMTime = CMTimeAdd(currentCMTime, bgAssert.duration);
+        
+        /************** Step 3 : Export Merged Audio File ************/
+        NSString *mixedPath = [documentsDir stringByAppendingPathComponent:@"mix.mov"];
+        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
+        exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+        exportSession.outputURL = [NSURL fileURLWithPath:mixedPath];
+        
+        CMTimeValue val = mixComposition.duration.value;
+        CMTime start = CMTimeMake(0, 1);
+        CMTime duration = CMTimeMake(val, 1);
+        CMTimeRange range = CMTimeRangeMake(start, duration);
+        exportSession.timeRange = range;
+        
+        [exportSession exportAsynchronouslyWithCompletionHandler:^{
+            switch ([exportSession status]) {
+                case AVAssetExportSessionStatusFailed:
+                {
+                    NSLog(@"Export failed: %@ %@", [[exportSession error] localizedDescription],[[exportSession error]debugDescription]);
+                    break;
+                }
+                case AVAssetExportSessionStatusCancelled:
+                {
+                    NSLog(@"Export canceled");
+                    break;
+                }
+                case AVAssetExportSessionStatusCompleted:
+                {
+                    NSLog(@"Export complete!");
+                    break;
+                }
+                default:
+                {
+                    NSLog(@"default");
+                    break;
+                }
+            }
+        }];
+    }
+    
+}
+
 #pragma mark - MP3Delegate
 - (void)endConvertWithData:(NSData *)voiceData {
     _myVoice = voiceData;
-    [self playOcastra];
+    //[self playOcastra];
 }
 
 - (void)beginConvert {
