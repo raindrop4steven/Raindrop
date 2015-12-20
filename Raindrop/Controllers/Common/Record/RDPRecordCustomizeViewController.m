@@ -25,15 +25,12 @@
     // later will automatically compose with background music
     //[self playSongWithData:self.voiceData];
     
-    
-    
-#if 1
     // play song with bg music
     NSString *str=[[NSBundle mainBundle] pathForResource:@"bird" ofType:@"caf"];
     NSURL *bgURL = [NSURL fileURLWithPath:str];
     //NSData *bgmusic = [NSData dataWithContentsOfURL:bgURL];
     [self playSongWithVoice:self.voiceData bgMusic:bgURL];
-#endif
+
 }
 
 // Play our voice

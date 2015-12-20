@@ -189,9 +189,9 @@
         currentCMTime = CMTimeAdd(currentCMTime, bgAssert.duration);
         
         /************** Step 3 : Export Merged Audio File ************/
-        NSString *mixedPath = [documentsDir stringByAppendingPathComponent:@"mix.mov"];
-        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
-        exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+        NSString *mixedPath = [documentsDir stringByAppendingPathComponent:@"mix.m4a"];
+        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
+        exportSession.outputFileType = AVFileTypeAppleM4A;
         exportSession.outputURL = [NSURL fileURLWithPath:mixedPath];
         
         CMTimeValue val = mixComposition.duration.value;
