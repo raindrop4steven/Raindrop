@@ -15,8 +15,6 @@ static NSString *kRDPCellIdentifier = @"RDPMusicTableViewCell";
 
 @interface RDPRecordMusicViewController ()<RDPMusicTableCellDelegate>
 
-@property (nonatomic, strong)NSString *selectedBgMusic;
-
 @property (nonatomic, strong)NSMutableArray *songSource;
 
 // Mix player for preview
@@ -26,7 +24,7 @@ static NSString *kRDPCellIdentifier = @"RDPMusicTableViewCell";
 
 @implementation RDPRecordMusicViewController
 
-@synthesize voiceData;
+@synthesize voiceData, selectedBgMusic;
 @synthesize songTableView;
 
 - (void)viewDidLoad {
@@ -77,6 +75,7 @@ static NSString *kRDPCellIdentifier = @"RDPMusicTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Click cell at row : %ld", [indexPath row]);
+    
 }
 
 #pragma mark - RDPMusicTableCellDelegate
@@ -87,6 +86,7 @@ static NSString *kRDPCellIdentifier = @"RDPMusicTableViewCell";
     // Get song name
     NSString *bgMusic = cell.songName;
     [_mixPlayer playOcastraWithBgMusic:bgMusic voice:self.voiceData];
+    self.selectedBgMusic = bgMusic;
 }
 
 - (void)RDPMusicCell:(RDPMusicTableViewCell *)cell CheckButtonPressed:(UIButton *)button {
@@ -110,6 +110,8 @@ static NSString *kRDPCellIdentifier = @"RDPMusicTableViewCell";
     elegant.songCategory = @"古典";
     elegant.imageName = @"cell2.png";
     [_songSource addObject:elegant];
-    
+}
+- (IBAction)goback:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -19,16 +19,19 @@
 // Mix machine for output
 @property (nonatomic, strong)RDPMixAudioMachine *mixMachine;
 
+@property (nonatomic, strong)NSString *selectedBgMusic;
+
 @end
 
 @implementation RDPRecordCustomizeViewController
 
-@synthesize voiceData;
+@synthesize voiceData, selectedBgMusic;
 
 - (void)viewDidLoad {
     // Initialize mix player
+    self.selectedBgMusic = @"bird";
     _mixPlayer = [[RDPMixAudioPlayer alloc] init];
-    [_mixPlayer playOcastraWithBgMusic:@"bird" voice:self.voiceData];
+    [_mixPlayer playOcastraWithBgMusic:self.selectedBgMusic voice:self.voiceData];
     
     // Initialize mix machine
     _mixMachine = [[RDPMixAudioMachine alloc] init];
@@ -36,7 +39,7 @@
 
 
 - (IBAction)upload:(id)sender {
-    [_mixMachine mixAudioWithBgMusic:@"bird" voice:self.voiceData];
+    [_mixMachine mixAudioWithBgMusic:self.selectedBgMusic voice:self.voiceData];
 }
 
 
@@ -55,5 +58,16 @@
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue
+{
+    NSLog(@"unwind from music");
+    if ([segue.sourceViewController isKindOfClass:[RDPRecordMusicViewController class]]) {
+        RDPRecordMusicViewController *sourceViewController = segue.sourceViewController;
+        self.selectedBgMusic = sourceViewController.selectedBgMusic;
+        NSLog(@"%@", self.selectedBgMusic);
+    }
+}
+
 
 @end

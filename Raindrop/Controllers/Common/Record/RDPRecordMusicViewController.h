@@ -11,6 +11,9 @@
 @interface RDPRecordMusicViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong)NSData *voiceData;
+@property (nonatomic, strong)NSString *selectedBgMusic;
+
 @property (weak, nonatomic) IBOutlet UITableView *songTableView;
 
+- (IBAction)goback:(id)sender;
 @end
