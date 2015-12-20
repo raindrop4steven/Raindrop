@@ -188,11 +188,41 @@
         
         currentCMTime = CMTimeAdd(currentCMTime, bgAssert.duration);
         
-        /************** Step 3 : Export Merged Audio File ************/
+        /************** Step 3 : Mix Audio ************/
+        // 获取composition中的tracks，对每个tracks进行参数设置，获得audioMix，用来在转换时赋给exportAsset。
+        NSArray *tracksToDuck = [mixComposition tracksWithMediaType:AVMediaTypeAudio];
+        // 获取混音器
+        AVMutableAudioMix *audioMix = [AVMutableAudioMix audioMix];
+        //
+        NSMutableArray *trackMixArray = [NSMutableArray array];
+#if 0
+        for (int i = 0; i < [tracksToDuck count]; i++) {
+            AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:[tracksToDuck objectAtIndex:i]];
+            [trackMix setVolume:volume atTime:kCMTimeZero];
+            [trackMixArray addObject:trackMix];
+        }
+#endif
+        // 背景音乐音轨参数设置
+        AVMutableAudioMixInputParameters *bgTrackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:[tracksToDuck objectAtIndex:0]];
+        [bgTrackMix setVolume:1.0f atTime:kCMTimeZero];
+        [bgTrackMix setVolumeRampFromStartVolume:1.0f toEndVolume:0.4f timeRange:CMTimeRangeMake(CMTimeMakeWithSeconds(5.0f, 600), CMTimeMakeWithSeconds(8.0f, 699))];
+        [trackMixArray addObject:bgTrackMix];
+        
+        // 声音参数设置，不大
+        AVMutableAudioMixInputParameters *voiceTrackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:[tracksToDuck objectAtIndex:1]];
+        [voiceTrackMix setVolume:1.0f atTime:kCMTimeZero];
+        [trackMixArray addObject:voiceTrackMix];
+        
+        // 参数汇总
+        audioMix.inputParameters = trackMixArray;
+        
+        /************** Step 4 : Export Merged Audio File ************/
         NSString *mixedPath = [documentsDir stringByAppendingPathComponent:@"mix.m4a"];
         AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];
         exportSession.outputFileType = AVFileTypeAppleM4A;
         exportSession.outputURL = [NSURL fileURLWithPath:mixedPath];
+        // Track Mix arg
+        exportSession.audioMix = audioMix;
         
         CMTimeValue val = mixComposition.duration.value;
         CMTime start = CMTimeMake(0, 1);
