@@ -381,14 +381,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Sp-Akm">
-                                <rect key="frame" x="308" y="579" width="23" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="23.5" id="0hF-ik-hTe"/>
-                                    <constraint firstAttribute="height" constant="23" id="UoM-33-ODC"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="sent.png"/>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aki-R6-RaQ">
                                 <rect key="frame" x="0.0" y="318" width="375" height="133"/>
                                 <constraints>
@@ -398,6 +390,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-Sp-Akm">
+                                <rect key="frame" x="308" y="579" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23.5" id="0hF-ik-hTe"/>
+                                    <constraint firstAttribute="height" constant="23" id="UoM-33-ODC"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="sent.png"/>
+                                <connections>
+                                    <action selector="upload:" destination="Phg-jM-nNZ" eventType="touchUpInside" id="iwb-1I-qt7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

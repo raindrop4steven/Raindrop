@@ -14,4 +14,5 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 - (IBAction)goBack:(id)sender;
+- (IBAction)upload:(id)sender;
 @end
