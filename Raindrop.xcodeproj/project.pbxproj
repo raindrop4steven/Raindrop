@@ -21,6 +21,7 @@
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
+		CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */; settings = {ASSET_TAGS = (); }; };
 		CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D701C1BDE6E00A4B62D /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		CEE88D741C1BDECE00A4B62D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEE88D721C1BDECE00A4B62D /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		CEE88D751C1BDECE00A4B62D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE88D731C1BDECE00A4B62D /* main.m */; settings = {ASSET_TAGS = (); }; };
@@ -122,6 +123,8 @@
 		CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMotionViewController.m; sourceTree = "<group>"; };
 		CEE87CA91C267A6E0007FF1E /* RDPMixAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioPlayer.h; sourceTree = "<group>"; };
 		CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioPlayer.m; sourceTree = "<group>"; };
+		CEE87CAC1C26808E0007FF1E /* RDPMixAudioMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioMachine.h; sourceTree = "<group>"; };
+		CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioMachine.m; sourceTree = "<group>"; };
 		CEE88D6F1C1BDE6E00A4B62D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEE88D701C1BDE6E00A4B62D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEE88D721C1BDECE00A4B62D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 			children = (
 				CEE87CA91C267A6E0007FF1E /* RDPMixAudioPlayer.h */,
 				CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */,
+				CEE87CAC1C26808E0007FF1E /* RDPMixAudioMachine.h */,
+				CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -862,6 +867,7 @@
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */,
+				CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */,
 				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
 				CEE88D811C1BDF9200A4B62D /* NSArray+PureLayout.m in Sources */,
 				CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */,
