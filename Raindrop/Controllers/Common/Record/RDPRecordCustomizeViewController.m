@@ -7,11 +7,16 @@
 //
 
 #import "RDPRecordCustomizeViewController.h"
-#import "UUAVAudioPlayer.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface RDPRecordCustomizeViewController ()<UUAVAudioPlayerDelegate>
+@interface RDPRecordCustomizeViewController ()<AVAudioPlayerDelegate>
 
-@property(nonatomic, strong)UUAVAudioPlayer *player;
+// Player
+@property (nonatomic, strong)AVAudioPlayer *bgPlayer;
+@property (nonatomic, strong)AVAudioPlayer *voicePlayer;
+// NStimer
+@property (nonatomic, strong)NSTimer *timer;
+
 @property BOOL contentVoiceIsPlaying;
 
 @end
@@ -21,44 +26,58 @@
 @synthesize voiceData;
 
 - (void)viewDidLoad {
-    // play our voice, of couse it's only for now,
-    // later will automatically compose with background music
-    //[self playSongWithData:self.voiceData];
-    
-    // play song with bg music
+    [self playOcastra];
+}
+
+// Play background music
+- (void)playBgMusic {
+    // Get Song Path
     NSString *str=[[NSBundle mainBundle] pathForResource:@"bird" ofType:@"caf"];
     NSURL *bgURL = [NSURL fileURLWithPath:str];
-    //NSData *bgmusic = [NSData dataWithContentsOfURL:bgURL];
-    [self playSongWithVoice:self.voiceData bgMusic:bgURL];
-
-}
-
-// Play our voice
--(void)playSongWithData:(NSData *)data {
-    _contentVoiceIsPlaying = YES;
-    _player = [UUAVAudioPlayer sharedInstance];
-    _player.delegate = self;
-    [_player playSongWithData:data];
-}
-
-- (void)playSongWithVoice:(NSData *)data bgMusic:(NSURL *)music {
-    _contentVoiceIsPlaying = YES;
-    _player = [UUAVAudioPlayer sharedInstance];
-    _player.delegate = self;
-    [_player playMixWithVoice:data bgMusic:music];
-}
-
-#pragma mark - UUAVAudioPlayerDelegate
-- (void)UUAVAudioPlayerBeiginLoadVoice {
     
-}
-- (void)UUAVAudioPlayerBeiginPlay {
+    // Initliaze Audio Player
+    NSError *bgError;
+    _bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bgURL error:&bgError];
     
+    if (bgError) {
+        // Fail Create Audio Player
+        NSLog(@"Error create bgPlayer : %@", [bgError description]);
+    } else {
+        _bgPlayer.delegate = self;
+        // Configure Audio Volume
+        _bgPlayer.volume = 0.5f;
+        [_bgPlayer prepareToPlay];
+        [_bgPlayer play];
+        NSLog(@"bgPlayer start playing");
+    }
 }
-- (void)UUAVAudioPlayerDidFinishPlay
-{
-    _contentVoiceIsPlaying = NO;
-    [[UUAVAudioPlayer sharedInstance]stopSound];
+
+// Play my voice
+- (void)playVoice {
+    NSError *voiceError;
+    _voicePlayer = [[AVAudioPlayer alloc] initWithData:self.voiceData error:&voiceError];
+    
+    if (voiceError) {
+        NSLog(@"Error create voice Player : %@", [voiceError description]);
+    } else {
+        _voicePlayer.delegate = self;
+        _voicePlayer.volume = 1.0f;
+        [_voicePlayer prepareToPlay];
+        [_voicePlayer play];
+        NSLog(@"voicePlay playing");
+    }
+}
+
+// Play bgMusic and myVoice after n s
+- (void)playOcastra {
+    // Play bg music first
+    [self playBgMusic];
+    
+    // Play after 3.0 s
+    CGFloat interval = 5.0f;
+    
+    // NSTimer
+    _timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(playVoice) userInfo:nil repeats:NO];
 }
 
 - (IBAction)goBack:(id)sender {

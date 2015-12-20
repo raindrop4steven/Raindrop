@@ -97,7 +97,6 @@
 
 // Play bgMusic and myVoice after n s
 - (void)playOcastra {
-#if 1
     // Play bg music first
     [self playBgMusic];
     
@@ -106,7 +105,6 @@
     
     // NSTimer
     _timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(playVoice) userInfo:nil repeats:NO];
-#endif
 }
 
 
