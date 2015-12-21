@@ -10,4 +10,7 @@
 
 @interface RDPRecordPhotoViewController : UIViewController
 
+@property (nonatomic, strong)NSString *selectedPhoto;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *phohtoCollectionView;
 @end

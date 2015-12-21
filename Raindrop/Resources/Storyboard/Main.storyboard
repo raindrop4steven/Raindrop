@@ -404,6 +404,12 @@
                                     <action selector="chooseMusic:" destination="Phg-jM-nNZ" eventType="touchUpInside" id="GSb-9X-K25"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-5Q-i0L" userLabel="chooseButton">
+                                <rect key="frame" x="0.0" y="64" width="375" height="254"/>
+                                <connections>
+                                    <action selector="choosePhoto:" destination="Phg-jM-nNZ" eventType="touchUpInside" id="uy9-b0-hR7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -414,21 +420,25 @@
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="top" secondItem="1Xk-v0-iIc" secondAttribute="bottom" constant="21" id="LBx-yX-60X"/>
                             <constraint firstItem="PmY-yW-elk" firstAttribute="top" secondItem="LGl-xV-p1q" secondAttribute="bottom" constant="20" id="NVk-mn-KVJ"/>
                             <constraint firstItem="1Xk-v0-iIc" firstAttribute="centerY" secondItem="cwk-HD-fXU" secondAttribute="centerY" id="Onu-OK-IUP"/>
+                            <constraint firstItem="Nla-5Q-i0L" firstAttribute="top" secondItem="WhT-vc-cZR" secondAttribute="bottom" id="Qg0-JL-TPE"/>
                             <constraint firstItem="PmY-yW-elk" firstAttribute="top" secondItem="Yif-br-9g8" secondAttribute="bottom" constant="20" id="RVO-RZ-Ur9"/>
                             <constraint firstItem="LGl-xV-p1q" firstAttribute="top" secondItem="bZ5-m9-vOR" secondAttribute="bottom" constant="16" id="VI2-SH-1t8"/>
                             <constraint firstItem="bZ5-m9-vOR" firstAttribute="centerX" secondItem="GmO-mj-QCy" secondAttribute="centerX" id="Wze-RC-frJ"/>
                             <constraint firstItem="dXO-Sh-ggx" firstAttribute="centerX" secondItem="Yif-br-9g8" secondAttribute="centerX" id="ZP8-hZ-Q01"/>
+                            <constraint firstItem="Nla-5Q-i0L" firstAttribute="leading" secondItem="GmO-mj-QCy" secondAttribute="leading" id="aDY-tX-r6H"/>
                             <constraint firstItem="Yif-br-9g8" firstAttribute="top" secondItem="dXO-Sh-ggx" secondAttribute="bottom" constant="24" id="bdg-zI-dik"/>
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="top" secondItem="cwk-HD-fXU" secondAttribute="bottom" constant="21" id="gO5-pK-9m0"/>
                             <constraint firstItem="FVF-Sp-Akm" firstAttribute="centerX" secondItem="xxw-aL-r5L" secondAttribute="centerX" id="kXk-Pg-kKC"/>
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="top" secondItem="JrQ-pF-csB" secondAttribute="bottom" id="kzd-tH-UGl"/>
                             <constraint firstAttribute="trailing" secondItem="JrQ-pF-csB" secondAttribute="trailing" id="lgM-H0-dbN"/>
+                            <constraint firstItem="Nla-5Q-i0L" firstAttribute="width" secondItem="JrQ-pF-csB" secondAttribute="width" id="miR-qL-gl2"/>
                             <constraint firstAttribute="trailing" secondItem="aki-R6-RaQ" secondAttribute="trailing" id="mpN-VH-kO4"/>
                             <constraint firstAttribute="trailing" secondItem="xxw-aL-r5L" secondAttribute="trailing" constant="35" id="ntF-Pr-TLr"/>
                             <constraint firstItem="JrQ-pF-csB" firstAttribute="width" secondItem="GmO-mj-QCy" secondAttribute="width" id="o5f-YL-6tP"/>
                             <constraint firstItem="JrQ-pF-csB" firstAttribute="leading" secondItem="GmO-mj-QCy" secondAttribute="leading" id="tqz-cg-5XW"/>
                             <constraint firstItem="PmY-yW-elk" firstAttribute="top" secondItem="xxw-aL-r5L" secondAttribute="bottom" constant="20" id="u44-IZ-QnE"/>
                             <constraint firstItem="JrQ-pF-csB" firstAttribute="top" secondItem="WhT-vc-cZR" secondAttribute="bottom" id="ugo-tu-dnf"/>
+                            <constraint firstItem="Nla-5Q-i0L" firstAttribute="height" secondItem="JrQ-pF-csB" secondAttribute="height" id="y99-EO-M1B"/>
                             <constraint firstItem="Yif-br-9g8" firstAttribute="leading" secondItem="GmO-mj-QCy" secondAttribute="leading" constant="35" id="ypB-Go-5FK"/>
                             <constraint firstItem="aki-R6-RaQ" firstAttribute="leading" secondItem="GmO-mj-QCy" secondAttribute="leading" id="zhi-ze-PMa"/>
                         </constraints>
@@ -442,6 +452,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="XdE-H8-BDi" id="aRE-0S-tWP"/>
+                        <outlet property="chooseButton" destination="Nla-5Q-i0L" id="0w6-SW-2Sl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8G6-nQ-JIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -498,7 +509,7 @@
         <!--图片-->
         <scene sceneID="aJu-fr-LeV">
             <objects>
-                <viewController storyboardIdentifier="RDPRecordPhotoViewController" id="t6q-0H-t4f" customClass="RDPRecordPhotoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RDPRecordPhotoViewController" automaticallyAdjustsScrollViewInsets="NO" id="t6q-0H-t4f" customClass="RDPRecordPhotoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ZR-5r-qlY"/>
                         <viewControllerLayoutGuide type="bottom" id="gKX-8x-LpT"/>
@@ -508,7 +519,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ozn-qM-aNa">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="gK8-uI-dgq">
                                     <size key="itemSize" width="115" height="115"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -516,8 +527,8 @@
                                     <inset key="sectionInset" minX="7.5" minY="7.5" maxX="7.5" maxY="7.5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2ip-ey-vAz">
-                                        <rect key="frame" x="8" y="72" width="115" height="115"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RDPPhotoCollectionViewCell" id="2ip-ey-vAz" customClass="RDPPhotoCollectionViewCell">
+                                        <rect key="frame" x="8" y="8" width="115" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
@@ -532,16 +543,25 @@
                         <constraints>
                             <constraint firstItem="Ozn-qM-aNa" firstAttribute="leading" secondItem="bRH-7n-6Yd" secondAttribute="leading" id="0cf-yV-eDI"/>
                             <constraint firstAttribute="trailing" secondItem="Ozn-qM-aNa" secondAttribute="trailing" id="2sD-OR-Ir9"/>
-                            <constraint firstItem="Ozn-qM-aNa" firstAttribute="top" secondItem="7ZR-5r-qlY" secondAttribute="bottom" constant="8" id="6Bv-fy-P7x"/>
                             <constraint firstItem="gKX-8x-LpT" firstAttribute="top" secondItem="Ozn-qM-aNa" secondAttribute="bottom" id="Y2c-BC-cCY"/>
+                            <constraint firstItem="Ozn-qM-aNa" firstAttribute="top" secondItem="7ZR-5r-qlY" secondAttribute="bottom" id="qW6-1j-Bja"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="图片" id="kA2-10-aT8">
                         <barButtonItem key="leftBarButtonItem" image="Back.png" id="rY5-xL-iZs"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon.png" id="F1i-1n-AGE">
+                            <connections>
+                                <segue destination="GaP-tW-4bd" kind="unwind" identifier="RDPPhotoUnwindSegue" unwindAction="unwindFromModalViewController:" id="IzJ-SB-WZc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="phohtoCollectionView" destination="Ozn-qM-aNa" id="P0B-Vq-daV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="te1-gD-RLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GaP-tW-4bd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2344.5" y="1241.5"/>
         </scene>

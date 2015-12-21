@@ -8,6 +8,7 @@
 
 #import "RDPRecordCustomizeViewController.h"
 #import "RDPRecordMusicViewController.h"
+#import "RDPRecordPhotoViewController.h"
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
 
@@ -20,12 +21,12 @@
 @property (nonatomic, strong)RDPMixAudioMachine *mixMachine;
 
 @property (nonatomic, strong)NSString *selectedBgMusic;
-
+@property (nonatomic, strong)NSString *selectedPhoto;
 @end
 
 @implementation RDPRecordCustomizeViewController
 
-@synthesize voiceData, selectedBgMusic;
+@synthesize voiceData, selectedBgMusic, selectedPhoto;
 
 - (void)viewDidLoad {
     // Initialize mix player
@@ -55,6 +56,16 @@
     [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
 }
 
+// Go to choose photos
+- (IBAction)choosePhoto:(id)sender {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    RDPRecordPhotoViewController *recordPhotoController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordPhotoViewController"];
+    
+    UINavigationController *recordNavigationController = [[UINavigationController alloc] initWithRootViewController:recordPhotoController];
+    [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
+}
+
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -66,6 +77,10 @@
         RDPRecordMusicViewController *sourceViewController = segue.sourceViewController;
         self.selectedBgMusic = sourceViewController.selectedBgMusic;
         NSLog(@"%@", self.selectedBgMusic);
+    } else if([segue.sourceViewController isKindOfClass:[RDPRecordPhotoViewController class]]) {
+        RDPRecordPhotoViewController *sourceViewController = segue.sourceViewController;
+        self.selectedPhoto = sourceViewController.selectedPhoto;
+        NSLog(@"%@", self.selectedPhoto);
     }
 }
 

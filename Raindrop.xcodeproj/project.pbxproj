@@ -17,6 +17,11 @@
 		CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66BAC01C1C63A1004D0E68 /* RDPHotCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CE66BAC31C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE66BAC11C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66BAC81C1C6EBD004D0E68 /* RDPHotView.m */; settings = {ASSET_TAGS = (); }; };
+		CE6B24261C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24241C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CE6B24271C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24251C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		CE6B24291C28305400AB0F6F /* sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24281C28305400AB0F6F /* sunset.jpg */; settings = {ASSET_TAGS = (); }; };
+		CE6B242D1C28351B00AB0F6F /* RDPPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6B242C1C28351B00AB0F6F /* RDPPhoto.m */; settings = {ASSET_TAGS = (); }; };
+		CE6B242F1C2835EA00AB0F6F /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE6B242E1C2835EA00AB0F6F /* dog.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE83294C1C18586A004D12C8 /* RaindropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83294B1C18586A004D12C8 /* RaindropTests.m */; };
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -120,6 +125,13 @@
 		CE66BAC51C1C692A004D0E68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CE66BAC71C1C6EBD004D0E68 /* RDPHotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotView.h; sourceTree = "<group>"; };
 		CE66BAC81C1C6EBD004D0E68 /* RDPHotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHotView.m; sourceTree = "<group>"; };
+		CE6B24231C282FF300AB0F6F /* RDPPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		CE6B24241C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		CE6B24251C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE6B24281C28305400AB0F6F /* sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunset.jpg; sourceTree = "<group>"; };
+		CE6B242B1C28351B00AB0F6F /* RDPPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPPhoto.h; sourceTree = "<group>"; };
+		CE6B242C1C28351B00AB0F6F /* RDPPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPPhoto.m; sourceTree = "<group>"; };
+		CE6B242E1C2835EA00AB0F6F /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
 		CE83292B1C18586A004D12C8 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8329471C18586A004D12C8 /* RaindropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE83294B1C18586A004D12C8 /* RaindropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaindropTests.m; sourceTree = "<group>"; };
@@ -352,6 +364,8 @@
 		CE65B70E1C1C297300E8356B /* test */ = {
 			isa = PBXGroup;
 			children = (
+				CE6B242E1C2835EA00AB0F6F /* dog.jpg */,
+				CE6B24281C28305400AB0F6F /* sunset.jpg */,
 				CEE87CC71C26C7440007FF1E /* cell1.png */,
 				CEE87CC41C26BD8A0007FF1E /* cell2.png */,
 				CE65B70F1C1C297B00E8356B /* bg@2x.jpg */,
@@ -368,6 +382,25 @@
 				CE66BAC81C1C6EBD004D0E68 /* RDPHotView.m */,
 			);
 			path = Hot;
+			sourceTree = "<group>";
+		};
+		CE6B24221C282FF300AB0F6F /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B24231C282FF300AB0F6F /* RDPPhotoCollectionViewCell.h */,
+				CE6B24241C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m */,
+				CE6B24251C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		CE6B242A1C28350300AB0F6F /* photoModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B242B1C28351B00AB0F6F /* RDPPhoto.h */,
+				CE6B242C1C28351B00AB0F6F /* RDPPhoto.m */,
+			);
+			path = photoModel;
 			sourceTree = "<group>";
 		};
 		CE8329221C18586A004D12C8 = {
@@ -491,6 +524,7 @@
 		CEE88D6C1C1BDDE500A4B62D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE6B242A1C28350300AB0F6F /* photoModel */,
 				CEE87CBF1C26B32E0007FF1E /* BgMusic */,
 			);
 			path = Models;
@@ -622,6 +656,7 @@
 		CEE88D981C1BE4D300A4B62D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CE6B24221C282FF300AB0F6F /* Photo */,
 				CEE87CB01C269F5E0007FF1E /* Music */,
 				CE65B6A81C1C091900E8356B /* Base */,
 				CE65B6A91C1C091900E8356B /* Hot */,
@@ -798,6 +833,7 @@
 			files = (
 				CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */,
 				CEEA1D6D1C1D62D900B74DDB /* plus@2x.png in Resources */,
+				CE6B24291C28305400AB0F6F /* sunset.jpg in Resources */,
 				CEE88D741C1BDECE00A4B62D /* Info.plist in Resources */,
 				CEEA1D6C1C1D62D900B74DDB /* sent@2x.png in Resources */,
 				CEEA1D4C1C1D62BD00B74DDB /* r-Settings@2x.png in Resources */,
@@ -805,6 +841,7 @@
 				CEE87CC61C26BD8A0007FF1E /* cell2.png in Resources */,
 				CEEA1D631C1D62D900B74DDB /* location@2x.png in Resources */,
 				CEE88D8D1C1BE2D800A4B62D /* Main.storyboard in Resources */,
+				CE6B242F1C2835EA00AB0F6F /* dog.jpg in Resources */,
 				CEEA1D601C1D62D900B74DDB /* chat@2x.png in Resources */,
 				CEEA1D421C1D62B200B74DDB /* sad@2x.png in Resources */,
 				CEEA1D3F1C1D62B200B74DDB /* angry@2x.png in Resources */,
@@ -812,6 +849,7 @@
 				CEE933F71C218FFE000199A5 /* user@2x.png in Resources */,
 				CEEA1D6B1C1D62D900B74DDB /* refresh@2x.png in Resources */,
 				CEEA1D651C1D62D900B74DDB /* more@2x.png in Resources */,
+				CE6B24271C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib in Resources */,
 				CEE87CBE1C26A5730007FF1E /* Checked-Inactive@2x.png in Resources */,
 				CEE933F91C219790000199A5 /* stop@2x.png in Resources */,
 				CEEA1D481C1D62BD00B74DDB /* Close@2x.png in Resources */,
@@ -906,6 +944,7 @@
 				CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */,
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
+				CE6B242D1C28351B00AB0F6F /* RDPPhoto.m in Sources */,
 				CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */,
 				CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */,
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
@@ -915,6 +954,7 @@
 				CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */,
 				CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */,
 				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
+				CE6B24261C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
