@@ -328,7 +328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="surface.png" translatesAutoresizingMaskIntoConstraints="NO" id="JrQ-pF-csB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JrQ-pF-csB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="254"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JrQ-pF-csB" secondAttribute="height" multiplier="375:254" id="CMa-Yb-ZRB"/>
@@ -451,6 +451,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="albumView" destination="JrQ-pF-csB" id="H7m-FK-RDx"/>
                         <outlet property="backBtn" destination="XdE-H8-BDi" id="aRE-0S-tWP"/>
                         <outlet property="chooseButton" destination="Nla-5Q-i0L" id="0w6-SW-2Sl"/>
                     </connections>
@@ -720,7 +721,6 @@
         <image name="refresh.png" width="21" height="25"/>
         <image name="sad.png" width="56" height="56"/>
         <image name="sent.png" width="23" height="23"/>
-        <image name="surface.png" width="750" height="581"/>
         <image name="surprise.png" width="56" height="56"/>
     </resources>
 </document>

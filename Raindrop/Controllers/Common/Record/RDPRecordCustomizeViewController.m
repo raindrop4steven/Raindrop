@@ -27,10 +27,13 @@
 @implementation RDPRecordCustomizeViewController
 
 @synthesize voiceData, selectedBgMusic, selectedPhoto;
+@synthesize albumView;
 
 - (void)viewDidLoad {
     // Initialize mix player
     self.selectedBgMusic = @"bird";
+    self.selectedPhoto = @"surface.png";
+    [self.albumView setImage:[UIImage imageNamed:self.selectedPhoto]];
     _mixPlayer = [[RDPMixAudioPlayer alloc] init];
     [_mixPlayer playOcastraWithBgMusic:self.selectedBgMusic voice:self.voiceData];
     
@@ -80,6 +83,7 @@
     } else if([segue.sourceViewController isKindOfClass:[RDPRecordPhotoViewController class]]) {
         RDPRecordPhotoViewController *sourceViewController = segue.sourceViewController;
         self.selectedPhoto = sourceViewController.selectedPhoto;
+        [self.albumView setImage:[UIImage imageNamed:self.selectedPhoto]];
         NSLog(@"%@", self.selectedPhoto);
     }
 }

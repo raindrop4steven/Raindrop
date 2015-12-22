@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *chooseButton;
+@property (weak, nonatomic) IBOutlet UIImageView *albumView;
 
 - (IBAction)chooseMusic:(id)sender;
 - (IBAction)choosePhoto:(id)sender;
