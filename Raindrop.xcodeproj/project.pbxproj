@@ -24,6 +24,14 @@
 		CE6B242F1C2835EA00AB0F6F /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE6B242E1C2835EA00AB0F6F /* dog.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE83294C1C18586A004D12C8 /* RaindropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83294B1C18586A004D12C8 /* RaindropTests.m */; };
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
+		CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6D84E1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		CEE6D8531C2AEEB700CD3754 /* RDPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8511C2AEEB700CD3754 /* RDPProfileTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6D8541C2AEEB700CD3754 /* RDPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8521C2AEEB700CD3754 /* RDPProfileTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		CEE6D8581C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8561C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6D8591C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */ = {isa = PBXBuildFile; fileRef = CEE718DC1C26D22C00EA2C37 /* fire.caf */; };
 		CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
@@ -139,6 +147,18 @@
 		CE8329521C18586A004D12C8 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8329561C18586A004D12C8 /* RaindropUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaindropUITests.m; sourceTree = "<group>"; };
 		CE8329581C18586A004D12C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
+		CEE6D8351C2AE18000CD3754 /* RDPProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileView.h; sourceTree = "<group>"; };
+		CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileView.m; sourceTree = "<group>"; };
+		CEE6D84A1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileInfoTableViewCell.h; sourceTree = "<group>"; };
+		CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileInfoTableViewCell.m; sourceTree = "<group>"; };
+		CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProfileInfoTableViewCell.xib; sourceTree = "<group>"; };
+		CEE6D8501C2AEEB700CD3754 /* RDPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileTableViewCell.h; sourceTree = "<group>"; };
+		CEE6D8511C2AEEB700CD3754 /* RDPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileTableViewCell.m; sourceTree = "<group>"; };
+		CEE6D8521C2AEEB700CD3754 /* RDPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProfileTableViewCell.xib; sourceTree = "<group>"; };
+		CEE6D8551C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSimpleInfoTableViewCell.h; sourceTree = "<group>"; };
+		CEE6D8561C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSimpleInfoTableViewCell.m; sourceTree = "<group>"; };
+		CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPSimpleInfoTableViewCell.xib; sourceTree = "<group>"; };
 		CEE6DEB41C1E4874008BBC19 /* RDPRecordMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMotionViewController.h; sourceTree = "<group>"; };
 		CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMotionViewController.m; sourceTree = "<group>"; };
 		CEE718DC1C26D22C00EA2C37 /* fire.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.caf; sourceTree = "<group>"; };
@@ -456,6 +476,47 @@
 			path = RaindropUITests;
 			sourceTree = "<group>";
 		};
+		CEE6D8321C2AE06500CD3754 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6D8351C2AE18000CD3754 /* RDPProfileView.h */,
+				CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CEE6D83E1C2AEE0400CD3754 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6D84F1C2AEEB700CD3754 /* Overview */,
+				CEE6D8491C2AEE9C00CD3754 /* Info */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CEE6D8491C2AEE9C00CD3754 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6D84A1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.h */,
+				CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */,
+				CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */,
+				CEE6D8551C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.h */,
+				CEE6D8561C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m */,
+				CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		CEE6D84F1C2AEEB700CD3754 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6D8501C2AEEB700CD3754 /* RDPProfileTableViewCell.h */,
+				CEE6D8511C2AEEB700CD3754 /* RDPProfileTableViewCell.m */,
+				CEE6D8521C2AEEB700CD3754 /* RDPProfileTableViewCell.xib */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
 		CEE87CA81C267A220007FF1E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +664,7 @@
 			children = (
 				CEE88D8A1C1BE2D800A4B62D /* LaunchScreen.storyboard */,
 				CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */,
+				CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -656,6 +718,7 @@
 		CEE88D981C1BE4D300A4B62D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CEE6D83E1C2AEE0400CD3754 /* Profile */,
 				CE6B24221C282FF300AB0F6F /* Photo */,
 				CEE87CB01C269F5E0007FF1E /* Music */,
 				CE65B6A81C1C091900E8356B /* Base */,
@@ -681,6 +744,7 @@
 		CEE88D9B1C1BE4D300A4B62D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEE6D8321C2AE06500CD3754 /* Profile */,
 				CE66BAC61C1C6E9C004D0E68 /* Hot */,
 			);
 			path = Views;
@@ -863,6 +927,7 @@
 				CE65B7101C1C297B00E8356B /* bg@2x.jpg in Resources */,
 				CEE88D8C1C1BE2D800A4B62D /* LaunchScreen.storyboard in Resources */,
 				CEEA1D621C1D62D900B74DDB /* little-songs@2x.png in Resources */,
+				CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */,
 				CE65B6F51C1C178D00E8356B /* favorite@2x.png in Resources */,
 				CEEA1D641C1D62D900B74DDB /* mic@2x.png in Resources */,
 				CEEA1D611C1D62D900B74DDB /* icon@2x.png in Resources */,
@@ -873,8 +938,11 @@
 				CEEA1D691C1D62D900B74DDB /* Play@2x.png in Resources */,
 				CE66BAC31C1C63A1004D0E68 /* RDPHotCollectionViewCell.xib in Resources */,
 				CEE87CC81C26C7440007FF1E /* cell1.png in Resources */,
+				CEE6D8591C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib in Resources */,
 				CEEA1D3E1C1D62B200B74DDB /* surprise@2x.png in Resources */,
+				CEE6D8541C2AEEB700CD3754 /* RDPProfileTableViewCell.xib in Resources */,
 				CEE87CBA1C26A0390007FF1E /* RDPMusicTableViewCell.xib in Resources */,
+				CEE6D84E1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib in Resources */,
 				CEECFE891C1EF87B009255EE /* next@2x.png in Resources */,
 				CEEA1D661C1D62D900B74DDB /* music@2x.png in Resources */,
 				CEEA1D5F1C1D62D900B74DDB /* Arrow@2x.png in Resources */,
@@ -951,20 +1019,24 @@
 				CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,
+				CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */,
 				CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */,
 				CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */,
 				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
 				CE6B24261C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m in Sources */,
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
+				CEE6D8581C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m in Sources */,
 				CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */,
+				CEE6D8531C2AEEB700CD3754 /* RDPProfileTableViewCell.m in Sources */,
 				CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */,
 				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
 				CEE88D811C1BDF9200A4B62D /* NSArray+PureLayout.m in Sources */,
 				CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */,
 				CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */,
 				CEE88D751C1BDECE00A4B62D /* main.m in Sources */,
+				CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
