@@ -93,6 +93,7 @@
 		CEEA1D7A1C1DB80B00B74DDB /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D791C1DB80B00B74DDB /* Back@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA1D7C1C1DB9F800B74DDB /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA93A51C244A0800893203 /* RDPVoiceTestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEEC22301C2C2177008EE300 /* RDPVoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE861C1EEB49009255EE /* NSDate+Utils.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE891C1EF87B009255EE /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECFE881C1EF87B009255EE /* next@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -241,6 +242,8 @@
 		CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		CEEA93A41C244A0800893203 /* RDPVoiceTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceTestViewController.h; sourceTree = "<group>"; };
 		CEEA93A51C244A0800893203 /* RDPVoiceTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPVoiceTestViewController.m; sourceTree = "<group>"; };
+		CEEC222E1C2C2177008EE300 /* RDPVoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceDetailViewController.h; sourceTree = "<group>"; };
+		CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPVoiceDetailViewController.m; sourceTree = "<group>"; };
 		CEECFE851C1EEB49009255EE /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		CEECFE861C1EEB49009255EE /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		CEECFE881C1EF87B009255EE /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
@@ -634,6 +637,7 @@
 		CEE88D831C1BE05900A4B62D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CEEC222D1C2C211B008EE300 /* Detail */,
 				CEEA1D781C1DB65800B74DDB /* Record */,
 				CE65B7081C1C1D5800E8356B /* Hot */,
 				CEE88D841C1BE05900A4B62D /* Home */,
@@ -744,6 +748,7 @@
 		CEE88D9B1C1BE4D300A4B62D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEEC22311C2C2A5B008EE300 /* Detail */,
 				CEE6D8321C2AE06500CD3754 /* Profile */,
 				CE66BAC61C1C6E9C004D0E68 /* Hot */,
 			);
@@ -785,6 +790,22 @@
 				CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		CEEC222D1C2C211B008EE300 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CEEC222E1C2C2177008EE300 /* RDPVoiceDetailViewController.h */,
+				CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		CEEC22311C2C2A5B008EE300 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1037,6 +1058,7 @@
 				CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */,
 				CEE88D751C1BDECE00A4B62D /* main.m in Sources */,
 				CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */,
+				CEEC22301C2C2177008EE300 /* RDPVoiceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
 #import "PureLayout.h"
+#import "RDPVoiceDetailViewController.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 38;
@@ -134,10 +135,10 @@ static CGFloat cellFactor = 1.524;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Clicked at cell : %ld", [indexPath row]);
     
-//    UIViewController *test = [[UIViewController alloc] init];
-//    [test.view setBackgroundColor:[UIColor redColor]];
-//    
-//    [self.parentController presentViewController:test animated:YES  completion:nil];
+    UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
+    RDPVoiceDetailViewController *detailViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"RDPVoiceDetailViewController"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    [self.parentController presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

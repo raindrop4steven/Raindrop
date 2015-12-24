@@ -9,7 +9,7 @@
         <!--详情-->
         <scene sceneID="VZf-tU-vQU">
             <objects>
-                <viewController id="quX-q2-I2X" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RDPVoiceDetailViewController" id="quX-q2-I2X" customClass="RDPVoiceDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oEn-BN-fnm"/>
                         <viewControllerLayoutGuide type="bottom" id="Sh3-pT-dAC"/>
@@ -27,12 +27,6 @@
                                             <constraint firstAttribute="width" secondItem="VoI-E9-9ki" secondAttribute="height" multiplier="35:29" id="N0E-Bp-V9U"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-t0-Qyx" userLabel="username">
-                                        <rect key="frame" x="15" y="305" width="320" height="26"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#开心  / 00:32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7d-Ws-KpX" userLabel="category">
                                         <rect key="frame" x="15" y="346" width="320" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -91,8 +85,17 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0P-Jh-1UG" userLabel="desc">
                                         <rect key="frame" x="15" y="382" width="320" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="j0P-Jh-1UG" secondAttribute="height" multiplier="16:5" id="1iz-dF-WeG"/>
+                                        </constraints>
                                         <string key="text">美国心理学家拉塞尔·克拉克和伊莱恩·哈特菲尔德请一位迷人的女士帮助他们进行一场实验。“你今晚愿和我一起过夜么？”，这位美女在一所大学的校园里向陌生男子问道。75%的男子表示立刻可以和她走。其余25%的人中有大部分表示遗憾，称今晚已有约会。将提问者换成美男子，结果只有6%的女性表示可以去他家里，可没有人答应立刻动身。</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-t0-Qyx" userLabel="username">
+                                        <rect key="frame" x="15" y="305" width="320" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -136,7 +139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="详情" id="3d7-29-wcQ">
-                        <barButtonItem key="leftBarButtonItem" image="Back.png" id="hAd-ev-Jew"/>
+                        <barButtonItem key="leftBarButtonItem" image="Back.png" id="hAd-ev-Jew">
+                            <connections>
+                                <action selector="goBack:" destination="quX-q2-I2X" id="ys4-kJ-crc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
