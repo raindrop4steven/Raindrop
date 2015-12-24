@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPVoiceDetailView.h"
 
 @interface RDPVoiceDetailViewController : UIViewController
 
-
+@property (weak, nonatomic) IBOutlet UIView *contentview;
 - (IBAction)goBack:(id)sender;
 @end

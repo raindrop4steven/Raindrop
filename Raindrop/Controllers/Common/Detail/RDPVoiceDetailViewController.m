@@ -14,8 +14,14 @@
 
 @implementation RDPVoiceDetailViewController
 
+@synthesize contentview;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    RDPVoiceDetailView *detail = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
+    
+    [self.contentview addSubview:detail];
     // Do any additional setup after loading the view.
 }
 
