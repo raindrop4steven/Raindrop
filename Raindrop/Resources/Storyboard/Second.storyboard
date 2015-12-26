@@ -8,26 +8,39 @@
         <!--详情-->
         <scene sceneID="VZf-tU-vQU">
             <objects>
-                <viewController storyboardIdentifier="RDPVoiceDetailViewController" id="quX-q2-I2X" customClass="RDPVoiceDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RDPVoiceDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="quX-q2-I2X" customClass="RDPVoiceDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oEn-BN-fnm"/>
                         <viewControllerLayoutGuide type="bottom" id="Sh3-pT-dAC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p7h-xa-iQq">
+                    <view key="view" contentMode="scaleToFill" id="p7h-xa-iQq" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qn1-sT-t8q" userLabel="contentView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-3T-xhf">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zId-nT-h6z">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zId-nT-h6z" firstAttribute="height" secondItem="eoh-3T-xhf" secondAttribute="height" id="1BG-ef-Fpx"/>
+                                    <constraint firstItem="zId-nT-h6z" firstAttribute="top" secondItem="eoh-3T-xhf" secondAttribute="top" id="3Hd-Ja-Bjw"/>
+                                    <constraint firstItem="zId-nT-h6z" firstAttribute="width" secondItem="eoh-3T-xhf" secondAttribute="width" id="CQT-Rv-Uzc"/>
+                                    <constraint firstAttribute="trailing" secondItem="zId-nT-h6z" secondAttribute="trailing" id="EkP-Y1-srb"/>
+                                    <constraint firstItem="zId-nT-h6z" firstAttribute="leading" secondItem="eoh-3T-xhf" secondAttribute="leading" id="rDr-Kj-fyy"/>
+                                    <constraint firstAttribute="bottom" secondItem="zId-nT-h6z" secondAttribute="bottom" id="zBX-wN-rZT"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Sh3-pT-dAC" firstAttribute="top" secondItem="Qn1-sT-t8q" secondAttribute="bottom" id="lMR-U5-2Qr"/>
-                            <constraint firstAttribute="trailing" secondItem="Qn1-sT-t8q" secondAttribute="trailing" id="y6b-Q4-e8u"/>
-                            <constraint firstItem="Qn1-sT-t8q" firstAttribute="top" secondItem="oEn-BN-fnm" secondAttribute="bottom" id="ycx-my-jce"/>
-                            <constraint firstItem="Qn1-sT-t8q" firstAttribute="leading" secondItem="p7h-xa-iQq" secondAttribute="leading" id="zWN-Tn-23N"/>
+                            <constraint firstAttribute="trailing" secondItem="eoh-3T-xhf" secondAttribute="trailing" id="YMe-UG-6ZD"/>
+                            <constraint firstItem="Sh3-pT-dAC" firstAttribute="top" secondItem="eoh-3T-xhf" secondAttribute="bottom" id="a0M-Tv-a9s"/>
+                            <constraint firstItem="eoh-3T-xhf" firstAttribute="top" secondItem="oEn-BN-fnm" secondAttribute="bottom" id="dMi-kR-jEw"/>
+                            <constraint firstItem="eoh-3T-xhf" firstAttribute="leading" secondItem="p7h-xa-iQq" secondAttribute="leading" id="hsK-oR-aah"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="详情" id="3d7-29-wcQ">
@@ -39,7 +52,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="contentview" destination="Qn1-sT-t8q" id="Ik1-Cd-l56"/>
+                        <outlet property="contentView" destination="zId-nT-h6z" id="kRl-Mw-L7c"/>
+                        <outlet property="contentWidthConstraint" destination="CQT-Rv-Uzc" id="fna-bG-p1L"/>
+                        <outlet property="scrollView" destination="eoh-3T-xhf" id="TLk-uq-H1W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypj-un-KWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
