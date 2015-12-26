@@ -22,6 +22,11 @@
     RDPVoiceDetailView *detail = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
     
     [self.contentview addSubview:detail];
+    
+    [detail autoPinEdgeToSuperviewEdge:ALEdgeLeading];
+    [detail autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
+    [detail autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [detail autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     // Do any additional setup after loading the view.
 }
 

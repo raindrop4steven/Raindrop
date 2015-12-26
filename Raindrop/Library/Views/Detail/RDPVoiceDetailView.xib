@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,134 +12,74 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-pd-iWi" userLabel="photo">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="311"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="a0H-pd-iWi" secondAttribute="height" multiplier="35:29" id="sB8-AG-3jV"/>
+                        <constraint firstAttribute="height" constant="300" id="0eE-c8-fm2"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jO-gl-VXy" userLabel="username">
-                    <rect key="frame" x="15" y="326" width="345" height="26"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#开心  / 00:32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXv-gy-je7" userLabel="category">
-                    <rect key="frame" x="15" y="367" width="345" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2W-aM-0So" userLabel="heart">
-                    <rect key="frame" x="15" y="607" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="0Od-Fp-vW0"/>
-                        <constraint firstAttribute="height" constant="20" id="mSJ-c5-wmY"/>
-                    </constraints>
-                    <state key="normal" image="favorite.png"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdK-5f-oY2" userLabel="chat">
-                    <rect key="frame" x="110" y="607" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="6cw-aP-nHJ"/>
-                        <constraint firstAttribute="width" constant="20" id="dxJ-Cd-Eud"/>
-                    </constraints>
-                    <state key="normal" image="chat.png"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-sW-d3x" userLabel="location">
-                    <rect key="frame" x="206" y="607" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="Iae-6p-1TB"/>
-                        <constraint firstAttribute="height" constant="20" id="qXN-HO-asI"/>
-                    </constraints>
-                    <state key="normal" image="location.png"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="252" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-6c-ZiD" userLabel="heartno">
-                    <rect key="frame" x="50" y="606" width="30" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-QW-puC" userLabel="chatno">
-                    <rect key="frame" x="145" y="606" width="31" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无锡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xew-zt-vEt" userLabel="shareno">
-                    <rect key="frame" x="241" y="606" width="34" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DB-CO-cJZ" userLabel="play">
-                    <rect key="frame" x="168" y="136" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="ata-sy-xiQ"/>
-                        <constraint firstAttribute="width" constant="40" id="dQ1-8M-Uoh"/>
-                    </constraints>
+                    <rect key="frame" x="167" y="130" width="41" height="41"/>
                     <state key="normal" image="Trans-Play.png"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZm-HO-9TI" userLabel="desc">
-                    <rect key="frame" x="15" y="403" width="345" height="108"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="252" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-6c-ZiD" userLabel="heartno">
+                    <rect key="frame" x="329" y="343" width="29" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1Z-WC-5f5">
+                    <rect key="frame" x="331" y="320" width="24" height="15"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="mZm-HO-9TI" secondAttribute="height" multiplier="16:5" id="SnM-SK-96O"/>
+                        <constraint firstAttribute="width" constant="24" id="5fH-UL-TD2"/>
+                        <constraint firstAttribute="height" constant="15" id="tNf-Ld-pNQ"/>
                     </constraints>
-                    <string key="text">美国心理学家拉塞尔·克拉克和伊莱恩·哈特菲尔德请一位迷人的女士帮助他们进行一场实验。“你今晚愿和我一起过夜么？”，这位美女在一所大学的校园里向陌生男子问道。75%的男子表示立刻可以和她走。其余25%的人中有大部分表示遗憾，称今晚已有约会。将提问者换成美男子，结果只有6%的女性表示可以去他家里，可没有人答应立刻动身。</string>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <state key="normal" image="up.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-qt-DSm">
+                    <rect key="frame" x="331" y="371" width="24" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="7gW-9H-FUn"/>
+                        <constraint firstAttribute="height" constant="15" id="Udw-GO-hCq"/>
+                    </constraints>
+                    <state key="normal" image="down.png"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美国心理学家拉塞尔·克拉克和伊莱恩·哈特菲尔德请一位迷人的女士帮助他们进行一场实验。“你今晚愿和我一起过夜么？”，这位美女在一所大学的校园里向陌生男子问道。" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZm-HO-9TI" userLabel="desc">
+                    <rect key="frame" x="10" y="337" width="281" height="33"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="3jO-gl-VXy" firstAttribute="top" secondItem="a0H-pd-iWi" secondAttribute="bottom" constant="15" id="4Ig-OG-MbM"/>
-                <constraint firstItem="a0H-pd-iWi" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" id="AJI-ie-2fL"/>
-                <constraint firstAttribute="bottom" secondItem="ONl-6c-ZiD" secondAttribute="bottom" constant="40" id="AOy-Ys-u4n"/>
-                <constraint firstAttribute="bottom" secondItem="xew-zt-vEt" secondAttribute="bottom" constant="40" id="BEl-u2-lam"/>
-                <constraint firstItem="a0H-pd-iWi" firstAttribute="top" secondItem="wSW-8i-coP" secondAttribute="top" id="Ea6-7u-EAM"/>
-                <constraint firstAttribute="bottom" secondItem="J2W-aM-0So" secondAttribute="bottom" constant="40" id="Eu2-V3-Mww"/>
-                <constraint firstItem="ONl-6c-ZiD" firstAttribute="leading" secondItem="J2W-aM-0So" secondAttribute="trailing" constant="15" id="KcJ-ji-OHn"/>
-                <constraint firstItem="OXv-gy-je7" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" constant="15" id="Rj2-Mm-TQR"/>
-                <constraint firstItem="0DB-CO-cJZ" firstAttribute="centerX" secondItem="a0H-pd-iWi" secondAttribute="centerX" id="UB9-fJ-8qr"/>
-                <constraint firstAttribute="bottom" secondItem="MdK-5f-oY2" secondAttribute="bottom" constant="40" id="W5Z-4p-hzb"/>
-                <constraint firstAttribute="trailing" secondItem="OXv-gy-je7" secondAttribute="trailing" constant="15" id="Wg8-fB-ID1"/>
-                <constraint firstAttribute="bottom" secondItem="bqI-sW-d3x" secondAttribute="bottom" constant="40" id="acN-Cw-Ghk"/>
-                <constraint firstItem="J2W-aM-0So" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" constant="15" id="bo5-5B-Ahk"/>
-                <constraint firstItem="mZm-HO-9TI" firstAttribute="top" secondItem="OXv-gy-je7" secondAttribute="bottom" constant="15" id="ced-UW-s59"/>
-                <constraint firstAttribute="trailing" secondItem="a0H-pd-iWi" secondAttribute="trailing" id="fyj-Zf-Rhf"/>
-                <constraint firstItem="bqI-sW-d3x" firstAttribute="leading" secondItem="CZs-QW-puC" secondAttribute="trailing" constant="30" id="g76-4T-o4D"/>
-                <constraint firstItem="mZm-HO-9TI" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" constant="15" id="kO2-jW-gsA"/>
-                <constraint firstItem="xew-zt-vEt" firstAttribute="leading" secondItem="bqI-sW-d3x" secondAttribute="trailing" constant="15" id="nKQ-Nz-llm"/>
-                <constraint firstItem="MdK-5f-oY2" firstAttribute="leading" secondItem="ONl-6c-ZiD" secondAttribute="trailing" constant="30" id="oFs-Ey-bDi"/>
-                <constraint firstItem="OXv-gy-je7" firstAttribute="top" secondItem="3jO-gl-VXy" secondAttribute="bottom" constant="15" id="oHK-Fn-STM"/>
-                <constraint firstItem="0DB-CO-cJZ" firstAttribute="centerY" secondItem="a0H-pd-iWi" secondAttribute="centerY" id="phG-rh-axT"/>
-                <constraint firstItem="3jO-gl-VXy" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" constant="15" id="rzD-VV-xXy"/>
-                <constraint firstAttribute="bottom" secondItem="CZs-QW-puC" secondAttribute="bottom" constant="40" id="sPw-C6-mGL"/>
-                <constraint firstAttribute="trailing" secondItem="3jO-gl-VXy" secondAttribute="trailing" constant="15" id="uBe-rp-rzx"/>
-                <constraint firstAttribute="trailing" secondItem="mZm-HO-9TI" secondAttribute="trailing" constant="15" id="yHO-k8-2oB"/>
-                <constraint firstItem="CZs-QW-puC" firstAttribute="leading" secondItem="MdK-5f-oY2" secondAttribute="trailing" constant="15" id="zsX-CM-FA8"/>
+                <constraint firstItem="a0H-pd-iWi" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" id="10W-rw-SUk"/>
+                <constraint firstItem="ONl-6c-ZiD" firstAttribute="top" secondItem="L1Z-WC-5f5" secondAttribute="bottom" constant="8" id="ECM-Uj-kmV"/>
+                <constraint firstItem="UyC-qt-DSm" firstAttribute="centerX" secondItem="ONl-6c-ZiD" secondAttribute="centerX" id="Eb4-OP-13h"/>
+                <constraint firstItem="UyC-qt-DSm" firstAttribute="top" secondItem="ONl-6c-ZiD" secondAttribute="bottom" constant="8" id="LYE-LQ-OQy"/>
+                <constraint firstItem="0DB-CO-cJZ" firstAttribute="centerX" secondItem="a0H-pd-iWi" secondAttribute="centerX" id="THK-fb-Jjf"/>
+                <constraint firstItem="L1Z-WC-5f5" firstAttribute="leading" secondItem="mZm-HO-9TI" secondAttribute="trailing" constant="40" id="Wta-sl-kcD"/>
+                <constraint firstItem="mZm-HO-9TI" firstAttribute="centerY" secondItem="ONl-6c-ZiD" secondAttribute="centerY" id="c80-gk-pHO"/>
+                <constraint firstItem="a0H-pd-iWi" firstAttribute="top" secondItem="wSW-8i-coP" secondAttribute="top" id="clr-Bs-ciz"/>
+                <constraint firstAttribute="trailing" secondItem="a0H-pd-iWi" secondAttribute="trailing" id="ft3-8L-0mc"/>
+                <constraint firstAttribute="trailing" secondItem="L1Z-WC-5f5" secondAttribute="trailing" constant="20" id="iq1-3L-k5l"/>
+                <constraint firstItem="mZm-HO-9TI" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" constant="10" id="rSQ-kz-aMA"/>
+                <constraint firstItem="L1Z-WC-5f5" firstAttribute="top" secondItem="a0H-pd-iWi" secondAttribute="bottom" constant="20" id="uE8-3o-AdU"/>
+                <constraint firstItem="0DB-CO-cJZ" firstAttribute="centerY" secondItem="a0H-pd-iWi" secondAttribute="centerY" id="v1h-PK-XhC"/>
+                <constraint firstItem="ONl-6c-ZiD" firstAttribute="centerX" secondItem="L1Z-WC-5f5" secondAttribute="centerX" id="wSu-dt-LAd"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
-                <outlet property="category" destination="OXv-gy-je7" id="1fd-4a-Ykl"/>
-                <outlet property="chatButton" destination="MdK-5f-oY2" id="3hR-D0-nX0"/>
-                <outlet property="chatnoLabel" destination="CZs-QW-puC" id="euo-sb-lBP"/>
                 <outlet property="descLabel" destination="mZm-HO-9TI" id="hBr-cq-yFi"/>
-                <outlet property="heartButton" destination="J2W-aM-0So" id="JSv-3U-NLB"/>
                 <outlet property="heartnoLabel" destination="ONl-6c-ZiD" id="CP5-08-Cxt"/>
-                <outlet property="locationButton" destination="bqI-sW-d3x" id="Bqg-fn-c9S"/>
-                <outlet property="locationLabel" destination="xew-zt-vEt" id="3hE-PA-Pl3"/>
                 <outlet property="photoView" destination="a0H-pd-iWi" id="bVZ-0L-lcm"/>
                 <outlet property="playButton" destination="0DB-CO-cJZ" id="UYy-hL-N6x"/>
-                <outlet property="username" destination="3jO-gl-VXy" id="jMX-OX-gVh"/>
             </connections>
-            <point key="canvasLocation" x="362.5" y="556.5"/>
+            <point key="canvasLocation" x="362.5" y="534.5"/>
         </view>
     </objects>
     <resources>
         <image name="Trans-Play.png" width="41" height="41"/>
         <image name="bg.jpg" width="250" height="166"/>
-        <image name="chat.png" width="20" height="17"/>
-        <image name="favorite.png" width="15" height="13"/>
-        <image name="location.png" width="11" height="16"/>
+        <image name="down.png" width="54" height="30"/>
+        <image name="up.png" width="54" height="30"/>
     </resources>
 </document>

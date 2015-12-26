@@ -155,7 +155,7 @@ static CGFloat cellFactor = 1.524;
 
 #pragma mark - UICollectionView delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Clicked at cell : %ld", [indexPath row]);
+    NSLog(@"Clicked at cell : %ld", (long)[indexPath row]);
     
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
     RDPVoiceDetailViewController *detailViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"RDPVoiceDetailViewController"];

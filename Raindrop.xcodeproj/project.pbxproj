@@ -35,6 +35,8 @@
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */ = {isa = PBXBuildFile; fileRef = CEE718DC1C26D22C00EA2C37 /* fire.caf */; };
 		CEE71C051C2E740E005A59D9 /* RDPHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C041C2E740E005A59D9 /* RDPHotModel.m */; settings = {ASSET_TAGS = (); }; };
+		CEE71C081C2E9D60005A59D9 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C061C2E9D60005A59D9 /* down.png */; settings = {ASSET_TAGS = (); }; };
+		CEE71C091C2E9D60005A59D9 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C071C2E9D60005A59D9 /* up.png */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CB71C26A0390007FF1E /* RDPMusicTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -168,6 +170,8 @@
 		CEE718DC1C26D22C00EA2C37 /* fire.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.caf; sourceTree = "<group>"; };
 		CEE71C031C2E740E005A59D9 /* RDPHotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotModel.h; sourceTree = "<group>"; };
 		CEE71C041C2E740E005A59D9 /* RDPHotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHotModel.m; sourceTree = "<group>"; };
+		CEE71C061C2E9D60005A59D9 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		CEE71C071C2E9D60005A59D9 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		CEE87CA91C267A6E0007FF1E /* RDPMixAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioPlayer.h; sourceTree = "<group>"; };
 		CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioPlayer.m; sourceTree = "<group>"; };
 		CEE87CAC1C26808E0007FF1E /* RDPMixAudioMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioMachine.h; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 		CE65B6D41C1C178D00E8356B /* page */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71C061C2E9D60005A59D9 /* down.png */,
+				CEE71C071C2E9D60005A59D9 /* up.png */,
 				CEE87CBB1C26A5730007FF1E /* Checked-Active@2x.png */,
 				CEE87CBC1C26A5730007FF1E /* Checked-Inactive@2x.png */,
 				CEE933F81C219790000199A5 /* stop@2x.png */,
@@ -955,6 +961,7 @@
 				CEE933F71C218FFE000199A5 /* user@2x.png in Resources */,
 				CEEA1D6B1C1D62D900B74DDB /* refresh@2x.png in Resources */,
 				CEEA1D651C1D62D900B74DDB /* more@2x.png in Resources */,
+				CEE71C091C2E9D60005A59D9 /* up.png in Resources */,
 				CE6B24271C282FF300AB0F6F /* RDPPhotoCollectionViewCell.xib in Resources */,
 				CEE87CBE1C26A5730007FF1E /* Checked-Inactive@2x.png in Resources */,
 				CEE933F91C219790000199A5 /* stop@2x.png in Resources */,
@@ -987,6 +994,7 @@
 				CEE87CBA1C26A0390007FF1E /* RDPMusicTableViewCell.xib in Resources */,
 				CEE6D84E1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib in Resources */,
 				CEECFE891C1EF87B009255EE /* next@2x.png in Resources */,
+				CEE71C081C2E9D60005A59D9 /* down.png in Resources */,
 				CEEA1D661C1D62D900B74DDB /* music@2x.png in Resources */,
 				CEEA1D5F1C1D62D900B74DDB /* Arrow@2x.png in Resources */,
 				CE65B6F91C1C178D00E8356B /* message@2x.png in Resources */,
