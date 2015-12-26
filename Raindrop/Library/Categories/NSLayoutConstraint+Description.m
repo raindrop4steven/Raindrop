@@ -10,8 +10,10 @@
 
 @implementation NSLayoutConstraint (Description)
 
+#if 0
 -(NSString *)description {
     return [NSString stringWithFormat:@"id: %@, constant: %f", self.identifier, self.constant];
 }
+#endif
 
 @end

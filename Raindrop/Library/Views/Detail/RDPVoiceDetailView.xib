@@ -8,27 +8,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="wSW-8i-coP" userLabel="ContentView" customClass="RDPVoiceDetailView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-pd-iWi" userLabel="photo">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="0eE-c8-fm2"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DB-CO-cJZ" userLabel="play">
-                    <rect key="frame" x="167" y="130" width="41" height="41"/>
+                    <rect key="frame" x="280" y="130" width="41" height="41"/>
                     <state key="normal" image="Trans-Play.png"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="252" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-6c-ZiD" userLabel="heartno">
-                    <rect key="frame" x="329" y="343" width="29" height="20"/>
+                    <rect key="frame" x="554" y="343" width="29" height="20"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1Z-WC-5f5">
-                    <rect key="frame" x="331" y="320" width="24" height="15"/>
+                    <rect key="frame" x="556" y="320" width="24" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="5fH-UL-TD2"/>
                         <constraint firstAttribute="height" constant="15" id="tNf-Ld-pNQ"/>
@@ -36,7 +36,7 @@
                     <state key="normal" image="up.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-qt-DSm">
-                    <rect key="frame" x="331" y="371" width="24" height="15"/>
+                    <rect key="frame" x="556" y="371" width="24" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="7gW-9H-FUn"/>
                         <constraint firstAttribute="height" constant="15" id="Udw-GO-hCq"/>
@@ -44,7 +44,7 @@
                     <state key="normal" image="down.png"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美国心理学家拉塞尔·克拉克和伊莱恩·哈特菲尔德请一位迷人的女士帮助他们进行一场实验。“你今晚愿和我一起过夜么？”，这位美女在一所大学的校园里向陌生男子问道。" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZm-HO-9TI" userLabel="desc">
-                    <rect key="frame" x="10" y="337" width="281" height="33"/>
+                    <rect key="frame" x="10" y="337" width="506" height="33"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -66,7 +66,6 @@
                 <constraint firstItem="0DB-CO-cJZ" firstAttribute="centerY" secondItem="a0H-pd-iWi" secondAttribute="centerY" id="v1h-PK-XhC"/>
                 <constraint firstItem="ONl-6c-ZiD" firstAttribute="centerX" secondItem="L1Z-WC-5f5" secondAttribute="centerX" id="wSu-dt-LAd"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
                 <outlet property="descLabel" destination="mZm-HO-9TI" id="hBr-cq-yFi"/>
                 <outlet property="heartnoLabel" destination="ONl-6c-ZiD" id="CP5-08-Cxt"/>

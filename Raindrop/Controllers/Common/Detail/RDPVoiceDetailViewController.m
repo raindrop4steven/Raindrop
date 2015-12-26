@@ -27,6 +27,10 @@
     
     // 0. Setup delegate
     self.scrollView.delegate = self;
+    CGRect rect = self.scrollView.frame;
+    rect.size.width = App_Frame_Width;
+    rect.size.height = App_Frame_Height;
+    self.scrollView.frame = rect;
     
     // 2. Update title
     self.currentPage = 0;
@@ -68,16 +72,23 @@
     UIView *preChild = nil;
     for (int i = 0; i < pages; i++) {
         RDPVoiceDetailView *childView = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
+        CGRect rect = childView.frame;
+        rect.size.width = App_Frame_Width;
+        rect.size.height = App_Frame_Height;
+        childView.frame = rect;
         
+        NSLog(@"child view's width and height : %f,%f", childView.frame.size.width, childView.frame.size.height);
+        NSLog(@"scrollview's width and height : %f, %f", self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         [self.contentView addSubview:childView];
         
         [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
         [childView autoPinEdgeToSuperviewEdge:ALEdgeTop];
         [childView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-        
+        [childView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:CGRectGetWidth(self.scrollView.frame) * i];
+#if 0
         if (!preChild) {
             // First childView will align to contentView
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+            [childView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
         } else {
             // Subsequent childviews just align to its previous one
             [childView autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:preChild];
@@ -85,8 +96,10 @@
         
         if (i == pages - 1) {
             // Last page will align to right edge
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+            [childView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
         }
+#endif
+        
         
         preChild = childView;
     }
