@@ -12,11 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 @property (weak, nonatomic) IBOutlet UILabel *desc;
-@property (weak, nonatomic) IBOutlet UILabel *heartno;
-@property (weak, nonatomic) IBOutlet UILabel *chatno;
-@property (weak, nonatomic) IBOutlet UIButton *heartBtn;
-@property (weak, nonatomic) IBOutlet UIButton *chatBtn;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgImageHeight;
 
 @end

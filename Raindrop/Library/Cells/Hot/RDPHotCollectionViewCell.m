@@ -10,12 +10,12 @@
 
 @implementation RDPHotCollectionViewCell
 
-@synthesize bgImage, bgImageHeight;
+@synthesize bgImage;
 @synthesize desc;
-@synthesize heartBtn, chatBtn;
-@synthesize heartno, chatno;
+
 
 - (void)awakeFromNib {
     // Initialization code
 }
+
 @end

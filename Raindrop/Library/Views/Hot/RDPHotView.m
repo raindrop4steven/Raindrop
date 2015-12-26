@@ -8,12 +8,11 @@
 
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
-#import "PureLayout.h"
 #import "RDPVoiceDetailViewController.h"
+#import "RDPHotModel.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
-static NSUInteger All_Marin = 38;
-static CGFloat imageFactor = 1.023f;
+static NSUInteger All_Marin = 30;
 static CGFloat cellFactor = 1.524;
 
 @interface RDPHotView()
@@ -21,6 +20,10 @@ static CGFloat cellFactor = 1.524;
 @property (nonatomic, assign) CGFloat cellWidth;
 
 @property (nonatomic, strong) UIViewController *parentController;
+
+@property (nonatomic, strong)NSMutableArray *dataSource;
+
+@property NSInteger totalCount;
 
 @end
 
@@ -37,7 +40,39 @@ static CGFloat cellFactor = 1.524;
     // 2. Set up collectionView
     [self setupCollectionView];
 
+    // 3. Generate datasource
+    [self getDataSource];
+    
     return self;
+}
+
+- (void)getDataSource {
+    _totalCount = 45;
+    
+    _dataSource = [[NSMutableArray alloc] init];
+    for (int i = 0; i < _totalCount; i++) {
+        RDPHotModel *hot = [[RDPHotModel alloc] init];
+        hot.imagePath = @"bg.jpg";
+        hot.descText = @"做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的";
+        
+        CGRect rect = [self getTextHeight:hot.descText];
+        hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
+        [_dataSource addObject:hot];
+    }
+    
+    [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
+}
+
+- (CGRect)getTextHeight:(NSString *)inputText {
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
+    // NSString class method: boundingRectWithSize:options:attributes:context is
+    // available only on ios7.0 sdk.
+    CGRect rect = [inputText boundingRectWithSize:CGSizeMake(self.cellWidth, CGFLOAT_MAX)
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:attributes
+                                             context:nil];
+    
+    return rect;
 }
 
 - (id)initWithFrame:(CGRect)frame ParentController:(UIViewController *)parentController {
@@ -52,7 +87,7 @@ static CGFloat cellFactor = 1.524;
     // 1. Initialize collectionViewFlowLayout
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     [flowlayout setItemSize:CGSizeMake(self.cellWidth, self.cellWidth * cellFactor)];
-    [flowlayout setSectionInset:UIEdgeInsetsMake(12, 12, 12, 12)];
+    [flowlayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     [flowlayout setMinimumLineSpacing:10];
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
@@ -83,7 +118,7 @@ static CGFloat cellFactor = 1.524;
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 45;
+    return [_dataSource count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -92,9 +127,8 @@ static CGFloat cellFactor = 1.524;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    // 1. Register nib file for the cell
-//    UINib *nib = [UINib nibWithNibName:@"RDPHotCollectionViewCell" bundle:[NSBundle mainBundle]];
-//    [collectionView registerNib:nib forCellWithReuseIdentifier:CellIdentifier];
+    // 1. Get data at indexPath
+    RDPHotModel *hot = [_dataSource objectAtIndex:[indexPath row]];
     
     // 2. Set up reuse identifer
     RDPHotCollectionViewCell *cell = (RDPHotCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:RDPHotViewCellIdentifier forIndexPath:indexPath];
@@ -105,31 +139,19 @@ static CGFloat cellFactor = 1.524;
     }
     
     // 4. Setup contents
-    [cell.bgImage setImage:[UIImage imageNamed:@"bg.jpg"]];
-    [cell.desc setText:@"这是一个测试, with some english"];
-    [cell.heartno setText:@"30"];
-    [cell.chatno setText:@"14"];
-    [cell.bgImageHeight setConstant:self.cellWidth * imageFactor];
-
-    // 5. Setup button size
-    [cell.heartBtn setTitle:@"" forState:UIControlStateNormal];
-    [cell.chatBtn setTitle:@"" forState:UIControlStateNormal];
+    [cell.bgImage setImage:[UIImage imageNamed:hot.imagePath]];
+    [cell.desc setText:hot.descText];
     
-    CGSize btnSize = CGSizeMake(15, 14);
-    
-    CGRect oldFrame = [cell.heartBtn frame];
-    oldFrame.size = btnSize;
-    [cell.heartBtn setFrame:oldFrame];
-    [cell.heartBtn setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
-
-    oldFrame = [cell.chatBtn frame];
-    oldFrame.size = btnSize;
-    [cell.chatBtn setFrame:oldFrame];
-    [cell.chatBtn setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
-    
+    [cell layoutIfNeeded];
     //[collectionView reloadItemsAtIndexPaths:@[indexPath]];
     return cell;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    RDPHotModel *hot = [_dataSource objectAtIndex:[indexPath row]];
+    return CGSizeMake(self.cellWidth, hot.cellHeight);
+}
+
 
 #pragma mark - UICollectionView delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

@@ -23,5 +23,7 @@
 #import "UIColor+Raindrop.h"
 // Formated date
 #import "NSDate+Utils.h"
+// PureLayout
+#import "PureLayout.h"
 
 #endif

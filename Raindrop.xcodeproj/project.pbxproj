@@ -34,6 +34,7 @@
 		CEE6D8591C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */ = {isa = PBXBuildFile; fileRef = CEE718DC1C26D22C00EA2C37 /* fire.caf */; };
+		CEE71C051C2E740E005A59D9 /* RDPHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C041C2E740E005A59D9 /* RDPHotModel.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CAD1C26808E0007FF1E /* RDPMixAudioMachine.m */; settings = {ASSET_TAGS = (); }; };
 		CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE87CB71C26A0390007FF1E /* RDPMusicTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -165,6 +166,8 @@
 		CEE6DEB41C1E4874008BBC19 /* RDPRecordMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMotionViewController.h; sourceTree = "<group>"; };
 		CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMotionViewController.m; sourceTree = "<group>"; };
 		CEE718DC1C26D22C00EA2C37 /* fire.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.caf; sourceTree = "<group>"; };
+		CEE71C031C2E740E005A59D9 /* RDPHotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotModel.h; sourceTree = "<group>"; };
+		CEE71C041C2E740E005A59D9 /* RDPHotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHotModel.m; sourceTree = "<group>"; };
 		CEE87CA91C267A6E0007FF1E /* RDPMixAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioPlayer.h; sourceTree = "<group>"; };
 		CEE87CAA1C267A6E0007FF1E /* RDPMixAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixAudioPlayer.m; sourceTree = "<group>"; };
 		CEE87CAC1C26808E0007FF1E /* RDPMixAudioMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixAudioMachine.h; sourceTree = "<group>"; };
@@ -525,6 +528,15 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
+		CEE71C021C2E73F9005A59D9 /* HotModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEE71C031C2E740E005A59D9 /* RDPHotModel.h */,
+				CEE71C041C2E740E005A59D9 /* RDPHotModel.m */,
+			);
+			path = HotModel;
+			sourceTree = "<group>";
+		};
 		CEE87CA81C267A220007FF1E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +605,7 @@
 		CEE88D6C1C1BDDE500A4B62D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEE71C021C2E73F9005A59D9 /* HotModel */,
 				CE6B242A1C28350300AB0F6F /* photoModel */,
 				CEE87CBF1C26B32E0007FF1E /* BgMusic */,
 			);
@@ -1059,6 +1072,7 @@
 				CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */,
+				CEE71C051C2E740E005A59D9 /* RDPHotModel.m in Sources */,
 				CEE6D8531C2AEEB700CD3754 /* RDPProfileTableViewCell.m in Sources */,
 				CEE87CAE1C26808E0007FF1E /* RDPMixAudioMachine.m in Sources */,
 				CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */,
