@@ -8,58 +8,84 @@
 
 #import "RDPVoiceDetailViewController.h"
 #import "RDPVoiceDetailView.h"
+#import "RDPHotModel.h"
 
 @interface RDPVoiceDetailViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidthConstraint;
-@property (assign, nonatomic) NSUInteger totalPages;
-@property (assign, nonatomic) NSUInteger currentPage;
+
+@property (nonatomic, strong)NSMutableArray *detailViews;
+
 @end
 
 @implementation RDPVoiceDetailViewController
 
-@synthesize scrollView, contentView;
+@synthesize contentView;
+@synthesize dataSource, totalCount, currentIndex;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Generate random data
+    [self generateRandomData];
     
-    // 0. Setup delegate
-    self.scrollView.delegate = self;
-    CGRect rect = self.scrollView.frame;
+    NSMutableArray *childViews = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < totalCount; i++)
+    {
+        [childViews addObject:[NSNull null]];
+    }
+    self.detailViews = childViews;
+    
+    [self setupScrollViewWithCount:totalCount];
+    [self loadContentViewAtIndex:currentIndex];
+    [self loadContentViewAtIndex:currentIndex + 1];
+    
+    //self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * currentIndex, 0.0f);
+    NSLog(@"ContentOffset is : %f,%f", _scrollView.contentOffset.x, _scrollView.contentOffset.y);
+
+//    [self.view setNeedsDisplay];
+//    [self.view layoutIfNeeded];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [UIView animateWithDuration:.25 animations:^{
+        [_scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * currentIndex, 0.0f) animated:YES];
+    }];
+
+}
+
+- (void)generateRandomData {
+    // datasource
+    self.dataSource = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 45; i++) {
+        RDPHotModel *model = [[RDPHotModel alloc] init];
+        model.imagePath = @"bg.jpg";
+        model.descText = [NSString stringWithFormat:@"%ld", (long)i];
+        model.voicePath = @"";
+        model.score = @"1992";
+        
+        [self.dataSource addObject:model];
+    }
+    // totalCount
+    self.totalCount = 100;
+    // currentindex
+    self.currentIndex = 24;
+}
+
+
+// Set up scroll view, including width and constraints
+- (void)setupScrollViewWithCount:(NSInteger)count {
+    //  Setup delegate
+    _scrollView.delegate = self;
+    CGRect rect = _scrollView.frame;
     rect.size.width = App_Frame_Width;
     rect.size.height = App_Frame_Height;
-    self.scrollView.frame = rect;
+    _scrollView.frame = rect;
     
-    // 2. Update title
-    self.currentPage = 0;
-    
-    // 3. Set up scrollview
-    [self.scrollView setPagingEnabled:YES];
-    [self generatePages];
-    
-    
-    
-#if 0
-    RDPVoiceDetailView *detail = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
-    
-    [self.contentview addSubview:detail];
-    
-    [detail autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-    [detail autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-    [detail autoPinEdgeToSuperviewEdge:ALEdgeTop];
-    [detail autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    // Do any additional setup after loading the view.
-#endif
-}
-
-- (void)generatePages {
-    [self setupPages:3];
-}
-
-- (void)setupPages:(int)pages {
-    self.totalPages = pages;
+    // Set paging mode
+    [_scrollView setPagingEnabled:YES];
     
     // Clean any existing subviews
     NSArray *subviews = self.contentView.subviews;
@@ -67,47 +93,64 @@
         [view removeFromSuperview];
     }
     [self.contentWidthConstraint autoRemove];
-    self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
+    self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:_scrollView withMultiplier:count];
     
-    UIView *preChild = nil;
-    for (int i = 0; i < pages; i++) {
-        RDPVoiceDetailView *childView = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
+}
+
+// Set up page at index idx
+- (void)loadContentViewAtIndex:(NSInteger)index {
+    if (index >= self.totalCount)
+        return;
+    if (index > self.dataSource.count) {
+        NSLog(@"Need load more data from server");
+        return;
+    }
+    
+    // Get data at index idx
+    RDPHotModel *model = [self.dataSource objectAtIndex:index];
+    
+    // replace the placeholder if necessary
+    RDPVoiceDetailView *childView = [self.detailViews objectAtIndex:index];
+    if ((NSNull *)childView == [NSNull null])
+    {
+        childView = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
+        [childView.photoView setImage:[UIImage imageNamed:model.imagePath]];
+        [childView.heartnoLabel setText:model.score];
+        [childView.descLabel setText:model.descText];
+        
+        [self.detailViews replaceObjectAtIndex:index withObject:childView];
+    }
+    
+    // add the controller's view to the scroll view
+    if (childView.superview == nil)
+    {
         CGRect rect = childView.frame;
         rect.size.width = App_Frame_Width;
         rect.size.height = App_Frame_Height;
         childView.frame = rect;
         
-        NSLog(@"child view's width and height : %f,%f", childView.frame.size.width, childView.frame.size.height);
-        NSLog(@"scrollview's width and height : %f, %f", self.scrollView.frame.size.width, self.scrollView.frame.size.height);
         [self.contentView addSubview:childView];
-        
-        [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
+        [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:_scrollView];
         [childView autoPinEdgeToSuperviewEdge:ALEdgeTop];
         [childView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-        [childView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:CGRectGetWidth(self.scrollView.frame) * i];
-#if 0
-        if (!preChild) {
-            // First childView will align to contentView
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeLeading];
-        } else {
-            // Subsequent childviews just align to its previous one
-            [childView autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:preChild];
-        }
-        
-        if (i == pages - 1) {
-            // Last page will align to right edge
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-        }
-#endif
-        
-        
-        preChild = childView;
+        [childView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:CGRectGetWidth(_scrollView.frame) * index];
     }
+    NSLog(@"Load childView at index : %ld", (long)index);
+}
+
+// at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // switch the indicator when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
+    NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    currentIndex = page;
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling);
+    [self loadContentViewAtIndex:page];
+    [self loadContentViewAtIndex:page + 1];
+    [self loadContentViewAtIndex:page - 1];
     
-    self.scrollView.contentOffset = CGPointZero;
-    
-    [self.view setNeedsDisplay];
-    [self.view layoutIfNeeded];
+    // a possible optimization would be to unload the views+controllers which are no longer visible
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,15 +158,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)goBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

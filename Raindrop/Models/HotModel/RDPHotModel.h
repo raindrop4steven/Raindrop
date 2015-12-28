@@ -12,6 +12,9 @@
 
 @property (nonatomic, strong)NSString *imagePath;
 @property (nonatomic, strong)NSString *descText;
+@property (nonatomic, strong)NSString *voicePath;
+@property (nonatomic, strong)NSString *score;
+
 @property CGFloat cellHeight;
 
 @end

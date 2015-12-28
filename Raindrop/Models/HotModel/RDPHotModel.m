@@ -10,7 +10,7 @@
 
 @implementation RDPHotModel
 
-@synthesize imagePath, descText;
+@synthesize imagePath, descText, voicePath, score;
 @synthesize cellHeight;
 
 @end

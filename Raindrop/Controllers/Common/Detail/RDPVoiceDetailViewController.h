@@ -11,5 +11,9 @@
 
 @interface RDPVoiceDetailViewController : UIViewController
 
+@property (nonatomic, strong)NSMutableArray *dataSource;
+@property (nonatomic, assign)NSInteger currentIndex;
+@property (nonatomic, assign)NSInteger totalCount;
+
 - (IBAction)goBack:(id)sender;
 @end
