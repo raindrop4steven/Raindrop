@@ -10,13 +10,17 @@
 
 @interface RDPLoginViewController ()
 
+@property (nonatomic, strong)NSString *email;
+@property (nonatomic, strong)NSString *password;
+
 @end
 
 @implementation RDPLoginViewController
 
+@synthesize inputEmailLabel, inputPasswordLabel;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +38,16 @@
 }
 */
 
+- (IBAction)login:(id)sender {
+    _email = inputEmailLabel.text;
+    _password = inputPasswordLabel.text;
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSDictionary *params = @{@"username":_email, @"password":_password};
+    [manager POST:@"http://192.168.88.1:5000/api/users" parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+}
 @end

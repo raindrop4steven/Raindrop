@@ -62,6 +62,9 @@
 		CEE933FF1C219FA9000199A5 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE933FC1C219FA9000199A5 /* libmp3lame.a */; settings = {ASSET_TAGS = (); }; };
 		CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */; settings = {ASSET_TAGS = (); }; };
 		CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE934031C21AD6D000199A5 /* UUAVAudioPlayer.m */; settings = {ASSET_TAGS = (); }; };
+		CEE96B0E1C3773DA0073BF60 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE96B0D1C3773DA0073BF60 /* Login.storyboard */; settings = {ASSET_TAGS = (); }; };
+		CEE96B121C377E580073BF60 /* RDPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE96B111C377E580073BF60 /* RDPLoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEE96B151C377E700073BF60 /* RDPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE96B141C377E700073BF60 /* RDPRegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D51C204418009D1993 /* RDPRecordMusicViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A3D81C204442009D1993 /* RDPRecordPhotoViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -212,6 +215,11 @@
 		CEE933FE1C219FA9000199A5 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
 		CEE934021C21AD6D000199A5 /* UUAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAVAudioPlayer.h; sourceTree = "<group>"; };
 		CEE934031C21AD6D000199A5 /* UUAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUAVAudioPlayer.m; sourceTree = "<group>"; };
+		CEE96B0D1C3773DA0073BF60 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CEE96B101C377E580073BF60 /* RDPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLoginViewController.h; sourceTree = "<group>"; };
+		CEE96B111C377E580073BF60 /* RDPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLoginViewController.m; sourceTree = "<group>"; };
+		CEE96B131C377E700073BF60 /* RDPRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRegisterViewController.h; sourceTree = "<group>"; };
+		CEE96B141C377E700073BF60 /* RDPRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRegisterViewController.m; sourceTree = "<group>"; };
 		CEE9A3D11C203FBC009D1993 /* RDPRecordCustomizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordCustomizeViewController.h; sourceTree = "<group>"; };
 		CEE9A3D21C203FBC009D1993 /* RDPRecordCustomizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordCustomizeViewController.m; sourceTree = "<group>"; };
 		CEE9A3D41C204418009D1993 /* RDPRecordMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMusicViewController.h; sourceTree = "<group>"; };
@@ -661,6 +669,7 @@
 		CEE88D831C1BE05900A4B62D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CEE96B0F1C377E410073BF60 /* Login */,
 				CEEC222D1C2C211B008EE300 /* Detail */,
 				CEEA1D781C1DB65800B74DDB /* Record */,
 				CE65B7081C1C1D5800E8356B /* Hot */,
@@ -693,6 +702,7 @@
 				CEE88D8A1C1BE2D800A4B62D /* LaunchScreen.storyboard */,
 				CEE88D8B1C1BE2D800A4B62D /* Main.storyboard */,
 				CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */,
+				CEE96B0D1C3773DA0073BF60 /* Login.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -799,6 +809,17 @@
 			path = UUChat;
 			sourceTree = "<group>";
 		};
+		CEE96B0F1C377E410073BF60 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CEE96B101C377E580073BF60 /* RDPLoginViewController.h */,
+				CEE96B111C377E580073BF60 /* RDPLoginViewController.m */,
+				CEE96B131C377E700073BF60 /* RDPRegisterViewController.h */,
+				CEE96B141C377E700073BF60 /* RDPRegisterViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		CEEA1D781C1DB65800B74DDB /* Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +868,7 @@
 				CE8329281C18586A004D12C8 /* Frameworks */,
 				CE8329291C18586A004D12C8 /* Resources */,
 				C1EA9C2E5A0C728B7B21F63E /* Copy Pods Resources */,
+				806DBDDEB7A480FFAA5E75EC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -958,6 +980,7 @@
 				CEEA1D421C1D62B200B74DDB /* sad@2x.png in Resources */,
 				CEEA1D3F1C1D62B200B74DDB /* angry@2x.png in Resources */,
 				CEEA1D401C1D62B200B74DDB /* laugh@2x.png in Resources */,
+				CEE96B0E1C3773DA0073BF60 /* Login.storyboard in Resources */,
 				CEE933F71C218FFE000199A5 /* user@2x.png in Resources */,
 				CEEA1D6B1C1D62D900B74DDB /* refresh@2x.png in Resources */,
 				CEEA1D651C1D62D900B74DDB /* more@2x.png in Resources */,
@@ -1021,6 +1044,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		806DBDDEB7A480FFAA5E75EC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C1EA9C2E5A0C728B7B21F63E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1061,12 +1099,14 @@
 				CEE88D821C1BDF9200A4B62D /* NSLayoutConstraint+PureLayout.m in Sources */,
 				CEE88D881C1BE05900A4B62D /* MainViewController.m in Sources */,
 				CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */,
+				CEE96B121C377E580073BF60 /* RDPLoginViewController.m in Sources */,
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
 				CE6B242D1C28351B00AB0F6F /* RDPPhoto.m in Sources */,
 				CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */,
 				CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */,
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
+				CEE96B151C377E700073BF60 /* RDPRegisterViewController.m in Sources */,
 				CEE87CAB1C267A6E0007FF1E /* RDPMixAudioPlayer.m in Sources */,
 				CE65B7131C1C342100E8356B /* NSLayoutConstraint+Description.m in Sources */,
 				CE66BAC21C1C63A1004D0E68 /* RDPHotCollectionViewCell.m in Sources */,

@@ -34,4 +34,9 @@
 }
 */
 
+- (IBAction)register:(id)sender {
+}
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

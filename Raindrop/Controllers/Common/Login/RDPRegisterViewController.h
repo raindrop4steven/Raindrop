@@ -10,4 +10,11 @@
 
 @interface RDPRegisterViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+
+- (IBAction)register:(id)sender;
+- (IBAction)goBack:(id)sender;
 @end

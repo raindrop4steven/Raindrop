@@ -10,4 +10,12 @@
 
 @interface RDPLoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *inputEmailLabel;
+@property (weak, nonatomic) IBOutlet UITextField *inputPasswordLabel;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *forgetButton;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+
+- (IBAction)login:(id)sender;
 @end
