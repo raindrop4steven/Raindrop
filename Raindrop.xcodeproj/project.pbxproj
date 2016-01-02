@@ -24,6 +24,7 @@
 		CE6B242F1C2835EA00AB0F6F /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE6B242E1C2835EA00AB0F6F /* dog.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE83294C1C18586A004D12C8 /* RaindropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83294B1C18586A004D12C8 /* RaindropTests.m */; };
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
+		CED1EFA01C37A2A100ACF94C /* RDPLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -102,6 +103,7 @@
 		CEEC22301C2C2177008EE300 /* RDPVoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22341C2C2AAE008EE300 /* RDPVoiceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC22331C2C2AAE008EE300 /* RDPVoiceDetailView.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22361C2C2ABC008EE300 /* RDPVoiceDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */; settings = {ASSET_TAGS = (); }; };
+		CEECAE5B1C37BDF000039197 /* RDPRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECAE5A1C37BDF000039197 /* RDPRegisterManager.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE861C1EEB49009255EE /* NSDate+Utils.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE891C1EF87B009255EE /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECFE881C1EF87B009255EE /* next@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -156,6 +158,8 @@
 		CE8329521C18586A004D12C8 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8329561C18586A004D12C8 /* RaindropUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaindropUITests.m; sourceTree = "<group>"; };
 		CE8329581C18586A004D12C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLoginManager.h; sourceTree = "<group>"; };
+		CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLoginManager.m; sourceTree = "<group>"; };
 		CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 		CEE6D8351C2AE18000CD3754 /* RDPProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileView.h; sourceTree = "<group>"; };
 		CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileView.m; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 		CEEC22321C2C2AAE008EE300 /* RDPVoiceDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceDetailView.h; sourceTree = "<group>"; };
 		CEEC22331C2C2AAE008EE300 /* RDPVoiceDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPVoiceDetailView.m; sourceTree = "<group>"; };
 		CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPVoiceDetailView.xib; sourceTree = "<group>"; };
+		CEECAE591C37BDF000039197 /* RDPRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRegisterManager.h; sourceTree = "<group>"; };
+		CEECAE5A1C37BDF000039197 /* RDPRegisterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRegisterManager.m; sourceTree = "<group>"; };
 		CEECFE851C1EEB49009255EE /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		CEECFE861C1EEB49009255EE /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		CEECFE881C1EF87B009255EE /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
@@ -499,6 +505,17 @@
 				CE8329581C18586A004D12C8 /* Info.plist */,
 			);
 			path = RaindropUITests;
+			sourceTree = "<group>";
+		};
+		CED1EF9D1C37A28C00ACF94C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */,
+				CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */,
+				CEECAE591C37BDF000039197 /* RDPRegisterManager.h */,
+				CEECAE5A1C37BDF000039197 /* RDPRegisterManager.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		CEE6D8321C2AE06500CD3754 /* Profile */ = {
@@ -775,6 +792,7 @@
 		CEE88D9A1C1BE4D300A4B62D /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CED1EF9D1C37A28C00ACF94C /* Login */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1103,6 +1121,7 @@
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
 				CE6B242D1C28351B00AB0F6F /* RDPPhoto.m in Sources */,
+				CEECAE5B1C37BDF000039197 /* RDPRegisterManager.m in Sources */,
 				CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */,
 				CEE9A3D31C203FBC009D1993 /* RDPRecordCustomizeViewController.m in Sources */,
 				CEE88D801C1BDF9200A4B62D /* ALView+PureLayout.m in Sources */,
@@ -1118,6 +1137,7 @@
 				CEE88D961C1BE40D00A4B62D /* Raindrop.xcdatamodeld in Sources */,
 				CEE6D8581C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m in Sources */,
 				CEE87CC21C26B3490007FF1E /* RDPBgMusic.m in Sources */,
+				CED1EFA01C37A2A100ACF94C /* RDPLoginManager.m in Sources */,
 				CEE88D711C1BDE6E00A4B62D /* AppDelegate.m in Sources */,
 				CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */,
 				CEE71C051C2E740E005A59D9 /* RDPHotModel.m in Sources */,

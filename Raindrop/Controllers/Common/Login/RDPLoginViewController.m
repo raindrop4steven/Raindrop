@@ -7,12 +7,14 @@
 //
 
 #import "RDPLoginViewController.h"
+#import "RDPLoginManager.h"
 
-@interface RDPLoginViewController ()
+@interface RDPLoginViewController ()<RDPLoginManagerDelegate>
 
 @property (nonatomic, strong)NSString *email;
 @property (nonatomic, strong)NSString *password;
 
+@property (nonatomic, strong)RDPLoginManager *loginManager;
 @end
 
 @implementation RDPLoginViewController
@@ -28,26 +30,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)login:(id)sender {
     _email = inputEmailLabel.text;
     _password = inputPasswordLabel.text;
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSDictionary *params = @{@"username":_email, @"password":_password};
-    [manager POST:@"http://192.168.88.1:5000/api/users" parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }];
+    // Check email and password empty
+    if ([_email length] == 0 || [_password length] == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"用户名或密码不能为空" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSLog(@"You pressed button OK");
+        }];
+        [alertController addAction:defaultAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        NSDictionary *params = @{@"username":_email, @"password":_password};
+        _loginManager = [RDPLoginManager sharedManager];
+        _loginManager.delegate = self;
+        [_loginManager loginWithParams:params];
+    }
 }
+
+#pragma mark - RDPLoginManagerDelegate
+
+- (void)loginManager:(RDPLoginManager *)manager didLoginSuccess:(NSData *)data {
+    NSLog(@"Login successed\n%@", data);
+}
+
+- (void)loginManager:(RDPLoginManager *)manager didLoginFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
+}
+
 @end

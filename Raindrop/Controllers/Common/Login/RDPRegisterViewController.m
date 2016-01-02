@@ -7,12 +7,17 @@
 //
 
 #import "RDPRegisterViewController.h"
+#import "RDPRegisterManager.h"
 
-@interface RDPRegisterViewController ()
-
+@interface RDPRegisterViewController ()<RDPRegisterManagerDelegate>
+@property (nonatomic, strong)RDPRegisterManager *manager;
+@property (nonatomic, strong)NSString *email;
+@property (nonatomic, strong)NSString *password;
 @end
 
 @implementation RDPRegisterViewController
+
+@synthesize emailLabel, passwordLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,19 +29,41 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)register:(id)sender {
+    _email = self.emailLabel.text;
+    _password = self.passwordLabel.text;
+    
+    // Check email and password empty
+    if ([_email length] == 0 || [_password length] == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册失败" message:@"用户名或密码不能为空" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSLog(@"You pressed button OK");
+        }];
+        [alertController addAction:defaultAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        NSDictionary *params = @{@"username":_email, @"password":_password};
+        _manager = [RDPRegisterManager sharedManager];
+        _manager.delegate = self;
+        [_manager registerWithParams:params];
+    }
 }
 - (IBAction)goBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - RDPRegisterManagerDelegate
+- (void)registerManager:(RDPRegisterManager *)manager didRegisterSuccess:(NSData *)data {
+    NSLog(@"%@", data);
+}
+
+- (void)registerManager:(RDPRegisterManager *)manager didRegisterFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册失败" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        NSLog(@"You pressed button OK");
+    }];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end
