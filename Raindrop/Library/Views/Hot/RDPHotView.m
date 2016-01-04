@@ -9,13 +9,14 @@
 #import "RDPHotView.h"
 #import "RDPHotCollectionViewCell.h"
 #import "RDPVoiceDetailViewController.h"
+#import "RDPVoiceDownloader.h"
 #import "RDPHotModel.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 30;
 static CGFloat cellFactor = 1.524;
 
-@interface RDPHotView()
+@interface RDPHotView()<RDPVoiceDownloaderDelegate>
 
 @property (nonatomic, assign) CGFloat cellWidth;
 
@@ -41,9 +42,16 @@ static CGFloat cellFactor = 1.524;
     [self setupCollectionView];
 
     // 3. Generate datasource
-    [self getDataSource];
-    
+    //[self getDataSource];
+    [self loadRemoteHotVoice];
     return self;
+}
+
+- (void)loadRemoteHotVoice {
+    RDPVoiceDownloader *downloader = [RDPVoiceDownloader sharedInstance];
+    downloader.delegate = self;
+    NSDictionary *params = nil;
+    [downloader downloadVoiceDataWithParams:params];
 }
 
 - (void)getDataSource {
@@ -161,6 +169,15 @@ static CGFloat cellFactor = 1.524;
     RDPVoiceDetailViewController *detailViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"RDPVoiceDetailViewController"];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     [self.parentController presentViewController:navigationController animated:YES completion:nil];
+}
+
+#pragma mark - RDPVoiceDownloaderDelegate
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(NSData *)data {
+    NSLog(@"%@", data);
+}
+
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
 }
 
 @end
