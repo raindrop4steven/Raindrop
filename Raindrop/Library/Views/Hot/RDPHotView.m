@@ -11,6 +11,7 @@
 #import "RDPVoiceDetailViewController.h"
 #import "RDPVoiceDownloader.h"
 #import "RDPHotModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 30;
@@ -35,6 +36,10 @@ static CGFloat cellFactor = 1.524;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
+    // 0. Initialize based variables
+    _dataSource = [[NSMutableArray alloc] init];
+    
+    
     // 1. Caculate cell's width
     self.cellWidth = (App_Frame_Width - All_Marin)/2;
     
@@ -54,6 +59,7 @@ static CGFloat cellFactor = 1.524;
     [downloader downloadVoiceDataWithParams:params];
 }
 
+#if 0
 - (void)getDataSource {
     _totalCount = 45;
     
@@ -70,6 +76,7 @@ static CGFloat cellFactor = 1.524;
     
     [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
 }
+#endif
 
 - (CGRect)getTextHeight:(NSString *)inputText {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
@@ -147,7 +154,8 @@ static CGFloat cellFactor = 1.524;
     }
     
     // 4. Setup contents
-    [cell.bgImage setImage:[UIImage imageNamed:hot.imagePath]];
+    //[cell.bgImage setImage:[UIImage imageNamed:hot.imagePath]];
+    [cell.bgImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.88.1:5000/static/%@", hot.imagePath]]];
     [cell.desc setText:hot.descText];
     
     [cell layoutIfNeeded];
@@ -172,8 +180,29 @@ static CGFloat cellFactor = 1.524;
 }
 
 #pragma mark - RDPVoiceDownloaderDelegate
-- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(NSData *)data {
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(id)data {
     NSLog(@"%@", data);
+    NSDictionary *dict = (NSDictionary *)data;
+    NSMutableArray *array = [dict objectForKey:@"voice_list"];
+    _totalCount = [array count];
+    
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *voiceData = (NSDictionary *)[array objectAtIndex:i];
+        RDPHotModel *hot = [[RDPHotModel alloc] init];
+        hot.voice_id = [voiceData objectForKey:@"vid"];
+        hot.user_id = [voiceData objectForKey:@"uid"];
+        hot.voicePath = [voiceData objectForKey:@"voice"];
+        hot.imagePath = [voiceData objectForKey:@"image"];
+        hot.descText = [voiceData objectForKey:@"desc"];
+        hot.score = [voiceData objectForKey:@"score"];
+        CGRect rect = [self getTextHeight:hot.descText];
+        hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
+        [_dataSource addObject:hot];
+    }
+    
+    // [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
+    [self.mainCollectionView reloadData];
+    
 }
 
 - (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadFailed:(NSError *)error {

@@ -36,7 +36,7 @@
 - (void)downloadVoiceDataWithParams:(NSDictionary *)params {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"hello" password:@"hello"];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"steven" password:@"hello"];
     
     [manager GET:@"http://192.168.88.1:5000/voices/hot"
       parameters:params

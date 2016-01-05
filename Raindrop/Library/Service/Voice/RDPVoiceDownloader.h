@@ -12,7 +12,7 @@
 
 @protocol RDPVoiceDownloaderDelegate <NSObject>
 
-- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(NSData *)data;
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(id)data;
 - (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadFailed:(NSError *)error;
 
 @end

@@ -14,6 +14,8 @@
 @property (nonatomic, strong)NSString *descText;
 @property (nonatomic, strong)NSString *voicePath;
 @property (nonatomic, strong)NSString *score;
+@property (nonatomic, strong)NSString *user_id;
+@property (nonatomic, strong)NSString *voice_id;
 
 @property CGFloat cellHeight;
 

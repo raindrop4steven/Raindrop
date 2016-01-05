@@ -12,5 +12,6 @@
 
 @synthesize imagePath, descText, voicePath, score;
 @synthesize cellHeight;
+@synthesize user_id, voice_id;
 
 @end
