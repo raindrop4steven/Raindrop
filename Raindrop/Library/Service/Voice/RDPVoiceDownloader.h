@@ -21,7 +21,7 @@
 
 @property (nonatomic, weak)id<RDPVoiceDownloaderDelegate> delegate;
 
-+ (id)sharedInstance;
+//+ (id)sharedInstance;
 
 - (void)downloadVoiceDataWithParams:(NSDictionary *)params;
 - (void)downloadVoiceData;

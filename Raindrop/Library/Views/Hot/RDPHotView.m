@@ -53,7 +53,7 @@ static CGFloat cellFactor = 1.524;
 }
 
 - (void)loadRemoteHotVoice {
-    RDPVoiceDownloader *downloader = [RDPVoiceDownloader sharedInstance];
+    RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
     NSDictionary *params = nil;
     [downloader downloadVoiceDataWithParams:params];
@@ -103,7 +103,7 @@ static CGFloat cellFactor = 1.524;
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
     [flowlayout setItemSize:CGSizeMake(self.cellWidth, self.cellWidth * cellFactor)];
     [flowlayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
-    [flowlayout setMinimumLineSpacing:10];
+    //[flowlayout setMinimumLineSpacing:10];
     [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
     // 2. Initialize collection view
