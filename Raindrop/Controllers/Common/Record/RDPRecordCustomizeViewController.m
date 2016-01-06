@@ -12,7 +12,7 @@
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
 
-@interface RDPRecordCustomizeViewController ()
+@interface RDPRecordCustomizeViewController ()<RDPMixAudioMachineDelegate>
 
 // Mix player for preview
 @property (nonatomic, strong)RDPMixAudioPlayer *mixPlayer;
@@ -22,12 +22,16 @@
 
 @property (nonatomic, strong)NSString *selectedBgMusic;
 @property (nonatomic, strong)NSString *selectedPhoto;
+
+// To Be POSTED Data
+@property (nonatomic, strong)NSString *descText;
 @end
 
 @implementation RDPRecordCustomizeViewController
 
 @synthesize voiceData, selectedBgMusic, selectedPhoto;
-@synthesize albumView;
+@synthesize albumView, descTextview;
+@synthesize descText;
 
 - (void)viewDidLoad {
     // Initialize mix player
@@ -39,6 +43,7 @@
     
     // Initialize mix machine
     _mixMachine = [[RDPMixAudioMachine alloc] init];
+    _mixMachine.delegate = self;
 }
 
 
@@ -88,5 +93,28 @@
     }
 }
 
+#pragma mark - RDPMixAudioMachineDelegate
+- (void)mixAudioMachine:(RDPMixAudioMachine *)machine didMixSuccess:(NSData *)data {
+    NSLog(@"mix complete");
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"steven" password:@"hello"];
+    NSDictionary *params = @{@"longitude":@"33.42", @"latitude":@"122.43", @"image_name":@"dog.jpg", @"description":@"Hello my dog!"};
+
+    [manager POST:@"http://192.168.88.1:5000/voices/add"
+       parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+           [formData appendPartWithFileData:data name:@"voice_data" fileName:@"random-voide-name" mimeType:@"audio/mpeg"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+}
+
+- (void)mixAudioMachine:(RDPMixAudioMachine *)machine didMixFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
+}
 
 @end

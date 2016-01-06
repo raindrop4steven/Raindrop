@@ -384,15 +384,6 @@
                                     <action selector="upload:" destination="Phg-jM-nNZ" eventType="touchUpInside" id="iwb-1I-qt7"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aki-R6-RaQ">
-                                <rect key="frame" x="0.0" y="318" width="375" height="133"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="aki-R6-RaQ" secondAttribute="height" multiplier="375:133" id="NN3-Xi-sl6"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Sh-ggx">
                                 <rect key="frame" x="47" y="579" width="19" height="23"/>
                                 <constraints>
@@ -410,6 +401,15 @@
                                     <action selector="choosePhoto:" destination="Phg-jM-nNZ" eventType="touchUpInside" id="uy9-b0-hR7"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aki-R6-RaQ">
+                                <rect key="frame" x="0.0" y="318" width="375" height="68"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aki-R6-RaQ" secondAttribute="height" multiplier="375:133" constant="183.27067669172934" id="NN3-Xi-sl6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -454,6 +454,7 @@
                         <outlet property="albumView" destination="JrQ-pF-csB" id="H7m-FK-RDx"/>
                         <outlet property="backBtn" destination="XdE-H8-BDi" id="aRE-0S-tWP"/>
                         <outlet property="chooseButton" destination="Nla-5Q-i0L" id="0w6-SW-2Sl"/>
+                        <outlet property="descTextview" destination="aki-R6-RaQ" id="jzD-5C-HTx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8G6-nQ-JIe" userLabel="First Responder" sceneMemberID="firstResponder"/>

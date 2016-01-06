@@ -13,11 +13,12 @@
 
 @property (nonatomic, strong)NSData *voiceData;
 @property (nonatomic, strong)NSString *bgMusic;
-
+@property (nonatomic, strong)NSData *mixedVoiceData;
 @end
 
 @implementation RDPMixAudioMachine
 
+@synthesize delegate;
 
 - (void)mixAudioWithBgMusic:(NSString *)bgName voice:(NSData *)voice {
     NSLog(@"Mixing...");
@@ -108,7 +109,10 @@
             switch ([exportSession status]) {
                 case AVAssetExportSessionStatusFailed:
                 {
-                    NSLog(@"Export failed: %@ %@", [[exportSession error] localizedDescription],[[exportSession error]debugDescription]);
+//                    NSLog(@"Export failed: %@ %@", [[exportSession error] localizedDescription],[[exportSession error]debugDescription]);
+                    if ([self.delegate respondsToSelector:@selector(mixAudioMachine:didMixFailed:)]) {
+                        [self.delegate mixAudioMachine:self didMixFailed:exportSession.error];
+                    }
                     break;
                 }
                 case AVAssetExportSessionStatusCancelled:
@@ -120,6 +124,10 @@
                 {
                     NSLog(@"Export complete!");
                     NSLog(@"%@", exportSession.outputURL);
+                    _mixedVoiceData = [NSData dataWithContentsOfURL:exportSession.outputURL];
+                    if ([self.delegate respondsToSelector:@selector(mixAudioMachine:didMixSuccess:)]) {
+                        [self.delegate mixAudioMachine:self didMixSuccess:_mixedVoiceData];
+                    }
                     break;
                 }
                 default:

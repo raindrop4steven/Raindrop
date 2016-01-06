@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class RDPMixAudioMachine;
+@protocol RDPMixAudioMachineDelegate <NSObject>
+
+- (void)mixAudioMachine:(RDPMixAudioMachine *)machine didMixSuccess:(NSData *)data;
+- (void)mixAudioMachine:(RDPMixAudioMachine *)machine didMixFailed:(NSError *)error;
+
+@end
+
 @interface RDPMixAudioMachine : NSObject
+
+@property (nonatomic, weak)id<RDPMixAudioMachineDelegate> delegate;
 
 - (void)mixAudioWithBgMusic:(NSString *)bgName voice:(NSData *)voice;
 
