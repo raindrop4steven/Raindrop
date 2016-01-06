@@ -11,8 +11,11 @@
 #import "RDPRecordPhotoViewController.h"
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface RDPRecordCustomizeViewController ()<RDPMixAudioMachineDelegate>
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+@interface RDPRecordCustomizeViewController ()<RDPMixAudioMachineDelegate, CLLocationManagerDelegate>
 
 // Mix player for preview
 @property (nonatomic, strong)RDPMixAudioPlayer *mixPlayer;
@@ -25,13 +28,20 @@
 
 // To Be POSTED Data
 @property (nonatomic, strong)NSString *descText;
+@property (nonatomic, strong)NSString *longitute;
+@property (nonatomic, strong)NSString *latitude;
+
+// Location Manger
+@property (nonatomic, strong)CLLocationManager *locationManager;
+
 @end
 
 @implementation RDPRecordCustomizeViewController
 
 @synthesize voiceData, selectedBgMusic, selectedPhoto;
 @synthesize albumView, descTextview;
-@synthesize descText;
+@synthesize descText, longitute, latitude;
+@synthesize locationManager;
 
 - (void)viewDidLoad {
     // Initialize mix player
@@ -44,11 +54,32 @@
     // Initialize mix machine
     _mixMachine = [[RDPMixAudioMachine alloc] init];
     _mixMachine.delegate = self;
+    
+    // Location Manger
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+
 }
 
 
 - (IBAction)upload:(id)sender {
-    [_mixMachine mixAudioWithBgMusic:self.selectedBgMusic voice:self.voiceData];
+    if(IS_OS_8_OR_LATER){
+        NSUInteger code = [CLLocationManager authorizationStatus];
+        if (code == kCLAuthorizationStatusNotDetermined && ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
+            // choose one request according to your business.
+            if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
+                [self.locationManager requestAlwaysAuthorization];
+            } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
+                [self.locationManager  requestWhenInUseAuthorization];
+            } else {
+                NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
+            }
+        }
+    }
+    [self.locationManager startUpdatingLocation];
+    
+//    [_mixMachine mixAudioWithBgMusic:self.selectedBgMusic voice:self.voiceData];
 }
 
 
@@ -103,7 +134,7 @@
 
     [manager POST:@"http://192.168.88.1:5000/voices/add"
        parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-           [formData appendPartWithFileData:data name:@"voice_data" fileName:@"random-voide-name" mimeType:@"audio/mpeg"];
+           [formData appendPartWithFileData:data name:@"voice_data" fileName:[NSString stringWithFormat:@"mix-%d.m4a",arc4random() % 1000] mimeType:@"audio/mpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -115,6 +146,32 @@
 
 - (void)mixAudioMachine:(RDPMixAudioMachine *)machine didMixFailed:(NSError *)error {
     NSLog(@"%@", [error localizedDescription]);
+}
+
+#pragma mark - CLLocationManagerDelegatge
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        self.longitute = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        NSLog(@"longitude : %@, latitude : %@", self.longitute, self.latitude);
+    }
+    
+    // stop track location
+    [manager stopUpdatingLocation];
+    
+    [_mixMachine mixAudioWithBgMusic:self.selectedBgMusic voice:self.voiceData];
 }
 
 @end

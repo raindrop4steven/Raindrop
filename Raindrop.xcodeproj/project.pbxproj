@@ -25,6 +25,7 @@
 		CE6B242F1C2835EA00AB0F6F /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE6B242E1C2835EA00AB0F6F /* dog.jpg */; settings = {ASSET_TAGS = (); }; };
 		CE83294C1C18586A004D12C8 /* RaindropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE83294B1C18586A004D12C8 /* RaindropTests.m */; };
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
+		CEA6E49B1C3D643B0020A835 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */; };
 		CED1EFA01C37A2A100ACF94C /* RDPLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */; settings = {ASSET_TAGS = (); }; };
@@ -161,6 +162,7 @@
 		CE8329521C18586A004D12C8 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8329561C18586A004D12C8 /* RaindropUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaindropUITests.m; sourceTree = "<group>"; };
 		CE8329581C18586A004D12C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLoginManager.h; sourceTree = "<group>"; };
 		CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLoginManager.m; sourceTree = "<group>"; };
 		CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA6E49B1C3D643B0020A835 /* CoreLocation.framework in Frameworks */,
 				0C563B3EB64422ECACEB729E /* libPods.a in Frameworks */,
 				CEE933FF1C219FA9000199A5 /* libmp3lame.a in Frameworks */,
 			);
@@ -310,6 +313,7 @@
 		1E6BDD724FFC463C6B4D9C3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */,
 				9C26DA6318D1CD2D35E6B025 /* libPods.a */,
 			);
 			name = Frameworks;
