@@ -130,7 +130,12 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"steven" password:@"hello"];
-    NSDictionary *params = @{@"longitude":@"33.42", @"latitude":@"122.43", @"image_name":@"dog.jpg", @"description":@"Hello my dog!"};
+    if (self.descTextview.text.length == 0) {
+        self.descText = @"All in my voice";
+    } else {
+        self.descText = self.descTextview.text;
+    }
+    NSDictionary *params = @{@"longitude":self.longitute, @"latitude":self.latitude, @"image_name":self.selectedPhoto, @"description":self.descText};
 
     [manager POST:@"http://192.168.88.1:5000/voices/add"
        parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
