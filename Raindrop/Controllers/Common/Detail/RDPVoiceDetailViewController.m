@@ -49,11 +49,8 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    
-    [UIView animateWithDuration:.25 animations:^{
-        [_scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * currentIndex, 0.0f) animated:YES];
-    }];
 
+    [_scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * currentIndex, 0.0f) animated:NO];
 }
 
 - (void)generateRandomData {
