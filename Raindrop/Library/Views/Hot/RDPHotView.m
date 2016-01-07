@@ -25,6 +25,7 @@ static CGFloat cellFactor = 1.524;
 
 @property (nonatomic, strong)NSMutableArray *dataSource;
 
+@property (nonatomic, assign)NSUInteger currentOffset;
 @property NSInteger totalCount;
 
 @end
@@ -32,13 +33,15 @@ static CGFloat cellFactor = 1.524;
 @implementation RDPHotView
 
 @synthesize mainCollectionView;
+@synthesize currentOffset;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
     // 0. Initialize based variables
     _dataSource = [[NSMutableArray alloc] init];
-    
+    // offset to be 1
+    self.currentOffset = 1;
     
     // 1. Caculate cell's width
     self.cellWidth = (App_Frame_Width - All_Marin)/2;
@@ -51,7 +54,7 @@ static CGFloat cellFactor = 1.524;
 
     // 3. Generate datasource
     //[self getDataSource];
-    [self loadRemoteHotVoice];
+    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
     return self;
 }
 
@@ -64,21 +67,30 @@ static CGFloat cellFactor = 1.524;
         [weakSelf reloadVoiceData];
     }];
     
-    self.mainCollectionView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+    self.mainCollectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         NSLog(@"pull up to load more");
+        [weakSelf loadMore];
     }];
 }
 
+// Reload data
 - (void)reloadVoiceData {
     [_dataSource removeAllObjects];
     self.totalCount = 0;
-    [self loadRemoteHotVoice];
+    self.currentOffset = 1;
+    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
 }
 
-- (void)loadRemoteHotVoice {
+// Load more from server
+- (void)loadMore {
+    self.currentOffset += 1;
+    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+}
+
+- (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
     RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
-    NSDictionary *params = nil;
+    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
     [downloader downloadVoiceDataWithParams:params];
 }
 
