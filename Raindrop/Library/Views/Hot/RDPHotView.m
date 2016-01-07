@@ -175,6 +175,9 @@ static CGFloat cellFactor = 1.524;
     
     UIStoryboard *secondStoryboard = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
     RDPVoiceDetailViewController *detailViewController = [secondStoryboard instantiateViewControllerWithIdentifier:@"RDPVoiceDetailViewController"];
+    detailViewController.dataSource = _dataSource;
+    detailViewController.totalCount = self.totalCount;
+    detailViewController.currentIndex = [indexPath row];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     [self.parentController presentViewController:navigationController animated:YES completion:nil];
 }

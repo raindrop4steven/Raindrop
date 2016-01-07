@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Generate random data
-    [self generateRandomData];
+//    [self generateRandomData];
     
     NSMutableArray *childViews = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < totalCount; i++)
