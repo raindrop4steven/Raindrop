@@ -26,5 +26,6 @@
 // PureLayout
 #import "PureLayout.h"
 #import "AFNetworking.h"
+#import "MJRefresh.h"
 
 #endif

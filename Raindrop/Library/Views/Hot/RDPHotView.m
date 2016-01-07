@@ -45,11 +45,34 @@ static CGFloat cellFactor = 1.524;
     
     // 2. Set up collectionView
     [self setupCollectionView];
+    
+    // Set up MJRefresh
+    [self setMJRefresh];
 
     // 3. Generate datasource
     //[self getDataSource];
     [self loadRemoteHotVoice];
     return self;
+}
+
+- (void)setMJRefresh {
+    
+    __unsafe_unretained __typeof(self) weakSelf = self;
+    
+    self.mainCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        NSLog(@"Pull down to refresh");
+        [weakSelf reloadVoiceData];
+    }];
+    
+    self.mainCollectionView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        NSLog(@"pull up to load more");
+    }];
+}
+
+- (void)reloadVoiceData {
+    [_dataSource removeAllObjects];
+    self.totalCount = 0;
+    [self loadRemoteHotVoice];
 }
 
 - (void)loadRemoteHotVoice {
@@ -112,6 +135,7 @@ static CGFloat cellFactor = 1.524;
     self.mainCollectionView.dataSource = self;
     self.mainCollectionView.delegate = self;
     [self.mainCollectionView setBackgroundColor:[UIColor raindropWhiteGreyBgColor]];
+    self.mainCollectionView.alwaysBounceVertical = YES;
     
     // 3. Register our cell
     //[self.mainCollectionView registerClass:[RDPHotCollectionViewCell class] forCellWithReuseIdentifier:RDPHotViewCellIdentifier];
@@ -125,8 +149,6 @@ static CGFloat cellFactor = 1.524;
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self.mainCollectionView autoPinEdgeToSuperviewEdge:ALEdgeTrailing];
-    
-    
 }
 
 
@@ -205,6 +227,8 @@ static CGFloat cellFactor = 1.524;
     
     // [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
     [self.mainCollectionView reloadData];
+    
+    [self.mainCollectionView.mj_header endRefreshing];
     
 }
 
