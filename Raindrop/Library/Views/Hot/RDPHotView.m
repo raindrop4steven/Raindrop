@@ -23,12 +23,6 @@ static CGFloat cellFactor = 1.524;
 
 @property (nonatomic, strong) UIViewController *parentController;
 
-//@property (nonatomic, strong)NSMutableArray *dataSource;
-//
-//@property (nonatomic, assign)NSUInteger currentOffset;
-//@property (nonatomic, assign)NSUInteger currentCount;
-//@property NSInteger totalCount;
-
 @end
 
 @implementation RDPHotView
@@ -60,6 +54,7 @@ static CGFloat cellFactor = 1.524;
     [self loadRemoteHotVoiceWithOffset:self.currentOffset];
     return self;
 }
+
 
 - (void)setMJRefresh {
     
@@ -100,25 +95,6 @@ static CGFloat cellFactor = 1.524;
     NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
     [downloader downloadVoiceDataWithParams:params];
 }
-
-#if 0
-- (void)getDataSource {
-    _totalCount = 45;
-    
-    _dataSource = [[NSMutableArray alloc] init];
-    for (int i = 0; i < _totalCount; i++) {
-        RDPHotModel *hot = [[RDPHotModel alloc] init];
-        hot.imagePath = @"bg.jpg";
-        hot.descText = @"做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的做一只文艺狗的日子是欢乐的";
-        
-        CGRect rect = [self getTextHeight:hot.descText];
-        hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
-        [_dataSource addObject:hot];
-    }
-    
-    [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
-}
-#endif
 
 - (CGRect)getTextHeight:(NSString *)inputText {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
