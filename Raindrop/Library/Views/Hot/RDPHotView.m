@@ -26,6 +26,7 @@ static CGFloat cellFactor = 1.524;
 @property (nonatomic, strong)NSMutableArray *dataSource;
 
 @property (nonatomic, assign)NSUInteger currentOffset;
+@property (nonatomic, assign)NSUInteger currentCount;
 @property NSInteger totalCount;
 
 @end
@@ -33,7 +34,7 @@ static CGFloat cellFactor = 1.524;
 @implementation RDPHotView
 
 @synthesize mainCollectionView;
-@synthesize currentOffset;
+@synthesize currentOffset, currentCount;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -42,6 +43,8 @@ static CGFloat cellFactor = 1.524;
     _dataSource = [[NSMutableArray alloc] init];
     // offset to be 1
     self.currentOffset = 1;
+    // current count 0
+    self.currentCount = 0;
     
     // 1. Caculate cell's width
     self.cellWidth = (App_Frame_Width - All_Marin)/2;
@@ -77,14 +80,18 @@ static CGFloat cellFactor = 1.524;
 - (void)reloadVoiceData {
     [_dataSource removeAllObjects];
     self.totalCount = 0;
+    self.currentCount = 0;
     self.currentOffset = 1;
     [self loadRemoteHotVoiceWithOffset:self.currentOffset];
 }
 
 // Load more from server
 - (void)loadMore {
-    self.currentOffset += 1;
-    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+    if (self.currentCount < self.totalCount)
+        [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+    else {
+        [self.mainCollectionView.mj_footer endRefreshingWithNoMoreData];
+    }
 }
 
 - (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
@@ -220,27 +227,36 @@ static CGFloat cellFactor = 1.524;
 - (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(id)data {
     NSLog(@"%@", data);
     NSDictionary *dict = (NSDictionary *)data;
-    NSMutableArray *array = [dict objectForKey:@"voice_list"];
-    _totalCount = [array count];
+    _totalCount = [[dict objectForKey:@"total_count"] integerValue];
     
-    for (int i = 0; i < array.count; i++) {
-        NSDictionary *voiceData = (NSDictionary *)[array objectAtIndex:i];
-        RDPHotModel *hot = [[RDPHotModel alloc] init];
-        hot.voice_id = [voiceData objectForKey:@"vid"];
-        hot.user_id = [voiceData objectForKey:@"uid"];
-        hot.voicePath = [voiceData objectForKey:@"voice"];
-        hot.imagePath = [voiceData objectForKey:@"image"];
-        hot.descText = [voiceData objectForKey:@"desc"];
-        hot.score = [voiceData objectForKey:@"score"];
-        CGRect rect = [self getTextHeight:hot.descText];
-        hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
-        [_dataSource addObject:hot];
+    
+    if (_totalCount > 0) {
+        NSMutableArray *array = [dict objectForKey:@"voice_list"];
+        
+        for (int i = 0; i < array.count; i++) {
+            NSDictionary *voiceData = (NSDictionary *)[array objectAtIndex:i];
+            RDPHotModel *hot = [[RDPHotModel alloc] init];
+            hot.voice_id = [voiceData objectForKey:@"vid"];
+            hot.user_id = [voiceData objectForKey:@"uid"];
+            hot.voicePath = [voiceData objectForKey:@"voice"];
+            hot.imagePath = [voiceData objectForKey:@"image"];
+            hot.descText = [voiceData objectForKey:@"desc"];
+            hot.score = [voiceData objectForKey:@"score"];
+            CGRect rect = [self getTextHeight:hot.descText];
+            hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
+            [_dataSource addObject:hot];
+        }
+        // Update offset
+        self.currentOffset += 1;
+        self.currentCount += array.count;
     }
     
     // [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
     [self.mainCollectionView reloadData];
     
     [self.mainCollectionView.mj_header endRefreshing];
+    
+    [self.mainCollectionView.mj_footer endRefreshing];
     
 }
 
