@@ -14,6 +14,8 @@
 @property (nonatomic, strong)NSMutableArray *dataSource;
 @property (nonatomic, assign)NSInteger currentIndex;
 @property (nonatomic, assign)NSInteger totalCount;
+@property (nonatomic, assign)NSUInteger currentCount;
+@property (nonatomic, assign)NSUInteger currentOffset;
 
 - (IBAction)goBack:(id)sender;
 @end

@@ -9,8 +9,9 @@
 #import "RDPVoiceDetailViewController.h"
 #import "RDPVoiceDetailView.h"
 #import "RDPHotModel.h"
+#import "RDPVoiceDownloader.h"
 
-@interface RDPVoiceDetailViewController ()<UIScrollViewDelegate>
+@interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -18,12 +19,13 @@
 
 @property (nonatomic, strong)NSMutableArray *detailViews;
 
+
 @end
 
 @implementation RDPVoiceDetailViewController
 
 @synthesize contentView;
-@synthesize dataSource, totalCount, currentIndex;
+@synthesize dataSource, totalCount, currentIndex, currentCount, currentOffset;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,11 +100,16 @@
 - (void)loadContentViewAtIndex:(NSInteger)index {
     if (index >= self.totalCount)
         return;
-    if (index > self.dataSource.count) {
+    if (index >= self.dataSource.count) {
         NSLog(@"Need load more data from server");
-        return;
+        [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+//        return;
+    } else {
+            [self refreshContentAtIndex:index];
     }
-    
+}
+
+- (void)refreshContentAtIndex:(NSInteger)index {
     // Get data at index idx
     RDPHotModel *model = [self.dataSource objectAtIndex:index];
     
@@ -135,6 +142,13 @@
     NSLog(@"Load childView at index : %ld", (long)index);
 }
 
+- (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
+    RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
+    downloader.delegate = self;
+    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
+    [downloader downloadVoiceDataWithParams:params];
+}
+
 // at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -158,5 +172,52 @@
 
 - (IBAction)goBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - RDPVoiceDownloaderDelegate
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadSuccess:(id)data {
+    NSLog(@"%@", data);
+    NSDictionary *dict = (NSDictionary *)data;
+    self.totalCount = [[dict objectForKey:@"total_count"] integerValue];
+    
+    
+    if (self.totalCount > 0) {
+        NSMutableArray *array = [dict objectForKey:@"voice_list"];
+        
+        for (int i = 0; i < array.count; i++) {
+            NSDictionary *voiceData = (NSDictionary *)[array objectAtIndex:i];
+            RDPHotModel *hot = [[RDPHotModel alloc] init];
+            hot.voice_id = [voiceData objectForKey:@"vid"];
+            hot.user_id = [voiceData objectForKey:@"uid"];
+            hot.voicePath = [voiceData objectForKey:@"voice"];
+            hot.imagePath = [voiceData objectForKey:@"image"];
+            hot.descText = [voiceData objectForKey:@"desc"];
+            hot.score = [voiceData objectForKey:@"score"];
+            CGRect rect = [self getTextHeight:hot.descText];
+            hot.cellHeight = (App_Frame_Width - 30)/2 + 10.0f + rect.size.height;
+            [self.dataSource addObject:hot];
+        }
+        // Update offset
+        self.currentOffset += 1;
+        self.currentCount += array.count;
+    }
+    
+    [self refreshContentAtIndex:self.currentIndex + 1];
+}
+
+- (CGRect)getTextHeight:(NSString *)inputText {
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
+    // NSString class method: boundingRectWithSize:options:attributes:context is
+    // available only on ios7.0 sdk.
+    CGRect rect = [inputText boundingRectWithSize:CGSizeMake((App_Frame_Width - 30)/2, CGFLOAT_MAX)
+                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:attributes
+                                          context:nil];
+    
+    return rect;
+}
+
+- (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
 }
 @end
