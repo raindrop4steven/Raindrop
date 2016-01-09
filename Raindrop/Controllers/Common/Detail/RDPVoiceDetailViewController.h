@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RDPHotView.h"
 
 @interface RDPVoiceDetailViewController : UIViewController
 
@@ -16,6 +16,8 @@
 @property (nonatomic, assign)NSInteger totalCount;
 @property (nonatomic, assign)NSUInteger currentCount;
 @property (nonatomic, assign)NSUInteger currentOffset;
+
+@property (nonatomic, weak)RDPHotView *parentView;
 
 - (IBAction)goBack:(id)sender;
 @end

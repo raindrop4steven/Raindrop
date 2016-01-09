@@ -14,4 +14,10 @@
 
 - (id)initWithFrame:(CGRect)frame ParentController:(UIViewController *)parentController;
 
+@property (nonatomic, strong)NSMutableArray *dataSource;
+
+@property (nonatomic, assign)NSUInteger currentOffset;
+@property (nonatomic, assign)NSUInteger currentCount;
+@property (nonatomic, assign)NSUInteger currentIndex;
+@property NSInteger totalCount;
 @end

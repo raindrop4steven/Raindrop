@@ -23,18 +23,18 @@ static CGFloat cellFactor = 1.524;
 
 @property (nonatomic, strong) UIViewController *parentController;
 
-@property (nonatomic, strong)NSMutableArray *dataSource;
-
-@property (nonatomic, assign)NSUInteger currentOffset;
-@property (nonatomic, assign)NSUInteger currentCount;
-@property NSInteger totalCount;
+//@property (nonatomic, strong)NSMutableArray *dataSource;
+//
+//@property (nonatomic, assign)NSUInteger currentOffset;
+//@property (nonatomic, assign)NSUInteger currentCount;
+//@property NSInteger totalCount;
 
 @end
 
 @implementation RDPHotView
 
 @synthesize mainCollectionView;
-@synthesize currentOffset, currentCount;
+@synthesize currentOffset, currentCount, currentIndex;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -226,6 +226,8 @@ static CGFloat cellFactor = 1.524;
     detailViewController.currentCount = self.currentCount;
     // offset
     detailViewController.currentOffset = self.currentOffset;
+    // set seft to detail's parent view
+    detailViewController.parentView = self;
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     [self.parentController presentViewController:navigationController animated:YES completion:nil];

@@ -26,6 +26,7 @@
 
 @synthesize contentView;
 @synthesize dataSource, totalCount, currentIndex, currentCount, currentOffset;
+@synthesize parentView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -171,7 +172,14 @@
 
 
 - (IBAction)goBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    self.parentView.totalCount = self.totalCount;
+    self.parentView.dataSource = self.dataSource;
+    self.parentView.currentOffset = self.currentOffset;
+    self.parentView.currentCount = self.currentCount;
+    self.parentView.currentIndex = self.currentIndex;
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.parentView.mainCollectionView reloadData];
+    }];
 }
 
 #pragma mark - RDPVoiceDownloaderDelegate
