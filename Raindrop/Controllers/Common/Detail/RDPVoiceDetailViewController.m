@@ -43,7 +43,7 @@
     
     [self setupScrollViewWithCount:totalCount];
     [self loadContentViewAtIndex:currentIndex];
-    [self loadContentViewAtIndex:currentIndex + 1];
+//    [self loadContentViewAtIndex:currentIndex + 1];
     
     //self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width * currentIndex, 0.0f);
     NSLog(@"ContentOffset is : %f,%f", _scrollView.contentOffset.x, _scrollView.contentOffset.y);
@@ -180,7 +180,8 @@
     self.parentView.currentCount = self.currentCount;
     self.parentView.currentIndex = self.currentIndex;
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.parentView.mainCollectionView reloadData];
+//        [self.parentView.mainCollectionView reloadData];
+        [self.parentView scrollToCellAtIndex:self.currentIndex];
     }];
 }
 

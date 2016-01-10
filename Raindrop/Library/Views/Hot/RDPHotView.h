@@ -20,4 +20,6 @@
 @property (nonatomic, assign)NSUInteger currentCount;
 @property (nonatomic, assign)NSUInteger currentIndex;
 @property NSInteger totalCount;
+
+- (void)scrollToCellAtIndex:(NSUInteger)index;
 @end

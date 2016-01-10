@@ -257,4 +257,11 @@ static CGFloat cellFactor = 1.524;
     NSLog(@"%@", [error localizedDescription]);
 }
 
+- (void)scrollToCellAtIndex:(NSUInteger)index {
+    [self.mainCollectionView reloadData];
+    [self.mainCollectionView layoutIfNeeded];
+
+    [self.mainCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+}
+
 @end
