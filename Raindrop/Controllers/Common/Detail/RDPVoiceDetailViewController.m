@@ -100,7 +100,7 @@
 
 // Set up page at index idx
 - (void)loadContentViewAtIndex:(NSInteger)index {
-    if (index >= self.totalCount)
+    if (index >= self.totalCount || index < 0)
         return;
     if (index >= self.dataSource.count) {
         NSLog(@"Need load more data from server");

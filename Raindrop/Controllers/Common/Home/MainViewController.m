@@ -10,6 +10,7 @@
 #import "PureLayout.h"
 #import "RDPRecordMotionViewController.h"
 #import "RDPHotView.h"
+#import "RDPNearView.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -22,9 +23,12 @@
 @property (strong, nonatomic) UILabel *nearLabel;
 @property (strong, nonatomic) UILabel *myLabel;
 
+@property (strong, nonatomic)NSMutableArray *faceViews;
 @end
 
 @implementation MainViewController
+
+@synthesize faceViews;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +45,8 @@
     // 3. Setup record button
     [self setupRecordButton];
     
+    // 4. faceviews
+    self.faceViews = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
     [self.scrollView setPagingEnabled:YES];
     [self generatePages];
@@ -81,7 +87,15 @@
 }
 
 - (void)generatePages {
-    [self setupPages:3];
+//    [self setupPages:3];
+    RDPHotView *hotView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame ParentController:self];
+    RDPNearView *nearView = [[RDPNearView alloc] initWithFrame:self.scrollView.frame ParentController:self];
+    RDPNearView *nearView2 = [[RDPNearView alloc] initWithFrame:self.scrollView.frame ParentController:self];
+    [self.faceViews addObject:hotView];
+    [self.faceViews addObject:nearView];
+    [self.faceViews addObject:nearView2];
+    
+    [self setupPages:self.faceViews];
 }
 
 // Setup record button
@@ -146,7 +160,8 @@
     }
 }
 
-- (void)setupPages:(int)pages {
+- (void)setupPages:(NSMutableArray *)viewArrays {
+    NSInteger pages = viewArrays.count;
     self.totalPages = pages;
     
     // Clean any existing subviews
@@ -156,10 +171,11 @@
     }
     [self.contentWidthConstraint autoRemove];
     self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
-    
+    UIView *childView = nil;
     UIView *preChild = nil;
     for (int i = 0; i < pages; i++) {
-        RDPHotView *childView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame ParentController:self];
+        childView = [viewArrays objectAtIndex:i];
+
         [childView setBackgroundColor:[UIColor grayColor]];
 
         [self.contentView addSubview:childView];
@@ -190,55 +206,6 @@
     [self.view layoutIfNeeded];
 }
 
-#if 0
-// Set up subviews with array of viewcontrollers
-- (void)setupContentWith:(NSArray *)controllerArray {
-    NSUInteger pages = [controllerArray count];
-    self.totalPages = pages;
-    
-    // Clean any existing subviews
-    NSArray *subviews = self.contentView.subviews;
-    for (UIView *view in subviews) {
-        [view removeFromSuperview];
-    }
-    
-    [self.contentWidthConstraint autoRemove];
-    self.contentWidthConstraint = [self.contentView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView withMultiplier:pages];
-    UIView *preChild = nil;
-    for (int i = 0; i < pages; i++) {
-        RDPHotViewController *hotViewController = [controllerArray objectAtIndex:i];
-        
-        UIView *childView = hotViewController.view;
-        
-        [self.contentView addSubview:childView];
-        
-        [childView autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.scrollView];
-        [childView autoPinEdgeToSuperviewEdge:ALEdgeTop];
-        [childView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-        
-        if (!preChild) {
-            // First childView will align to contentView
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-        } else {
-            // Subsequent childviews just align to its previous one
-            [childView autoConstrainAttribute:ALAttributeLeading toAttribute:ALAttributeTrailing ofView:preChild];
-        }
-        
-        if (i == pages - 1) {
-            // Last page will align to right edge
-            [childView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-        }
-        
-        preChild = childView;
-    }
-    
-    self.scrollView.contentOffset = CGPointZero;
-    
-    [self.view setNeedsDisplay];
-    [self.view layoutIfNeeded];
-}
-
-#endif
 /*
 #pragma mark - Navigation
 

@@ -10,16 +10,6 @@
 
 @implementation RDPVoiceDownloader
 
-+ (id)sharedInstance {
-    static RDPVoiceDownloader *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[self alloc] init];
-    });
-    
-    return manager;
-}
-
 - (id)init {
     self = [super init];
     if (self) {
@@ -34,11 +24,14 @@
 }
 
 - (void)downloadVoiceDataWithParams:(NSDictionary *)params {
+    NSString *queryType = [params objectForKey:@"queryType"];
+    // Currently only allow "hot" and "near", should use NSENum instead
+    NSString *queryURL = [NSString stringWithFormat:@"%@/%@", @"http://192.168.88.1:5000/voices", queryType];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"steven" password:@"hello"];
     
-    [manager GET:@"http://192.168.88.1:5000/voices/hot"
+    [manager GET:queryURL
       parameters:params
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

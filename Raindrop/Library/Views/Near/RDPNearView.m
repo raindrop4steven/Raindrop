@@ -1,35 +1,44 @@
 //
-//  RDPHotView.m
+//  RDPNearView.m
 //  Raindrop
 //
 //  Created by user on 15/12/12.
 //  Copyright © 2015年 steven. All rights reserved.
 //
 
-#import "RDPHotView.h"
+#import "RDPNearView.h"
 #import "RDPHotCollectionViewCell.h"
 #import "RDPVoiceDetailViewController.h"
 #import "RDPVoiceDownloader.h"
-#import "RDPHotModel.h"
+#import "RDPNearModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
+#import <CoreLocation/CoreLocation.h>
 
-static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+static NSString *RDPNearViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 30;
 static CGFloat cellFactor = 1.524;
 
-@interface RDPHotView()<RDPVoiceDownloaderDelegate>
+@interface RDPNearView()<RDPVoiceDownloaderDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, assign) CGFloat cellWidth;
 
 @property (nonatomic, strong) UIViewController *parentController;
 
+// Location Manger
+@property (nonatomic, strong)CLLocationManager *locationManager;
+
+@property (nonatomic, strong)NSString *longitute;
+@property (nonatomic, strong)NSString *latitude;
 @end
 
-@implementation RDPHotView
+@implementation RDPNearView
 
 @synthesize mainCollectionView;
 @synthesize currentOffset, currentCount, currentIndex;
+@synthesize longitute, latitude;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -50,13 +59,31 @@ static CGFloat cellFactor = 1.524;
     // Set up MJRefresh
     [self setMJRefresh];
 
-    // 3. Generate datasource
-    //[self getDataSource];
-//    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
-    [self reloadVoiceData];
+    // Ask for location
+    // Location Manger
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self askForLocation];
+
     return self;
 }
 
+- (void)askForLocation {
+    if(IS_OS_8_OR_LATER){
+        NSUInteger code = [CLLocationManager authorizationStatus];
+        if (code == kCLAuthorizationStatusNotDetermined && ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
+            // choose one request according to your business.
+            if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
+                [self.locationManager requestAlwaysAuthorization];
+            } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
+                [self.locationManager  requestWhenInUseAuthorization];
+            } else {
+                NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
+            }
+        }
+    }
+    [self.locationManager startUpdatingLocation];
+}
 
 - (void)setMJRefresh {
     
@@ -81,22 +108,22 @@ static CGFloat cellFactor = 1.524;
     self.totalCount = 0;
     self.currentCount = 0;
     self.currentOffset = 1;
-    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+    [self loadRemoteNearVoiceWithOffset:self.currentOffset];
 }
 
 // Load more from server
 - (void)loadMore {
     if (self.currentCount < self.totalCount)
-        [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+        [self loadRemoteNearVoiceWithOffset:self.currentOffset];
     else {
         [self.mainCollectionView.mj_footer endRefreshingWithNoMoreData];
     }
 }
 
-- (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
+- (void)loadRemoteNearVoiceWithOffset:(NSUInteger)offset {
     RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
-    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset], @"queryType":@"hot"};
+    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset], @"queryType":@"near", @"longitude":self.longitute, @"latitude":self.latitude};
     [downloader downloadVoiceDataWithParams:params];
 }
 
@@ -137,9 +164,8 @@ static CGFloat cellFactor = 1.524;
     self.mainCollectionView.alwaysBounceVertical = YES;
     
     // 3. Register our cell
-    //[self.mainCollectionView registerClass:[RDPHotCollectionViewCell class] forCellWithReuseIdentifier:RDPHotViewCellIdentifier];
     UINib *nib = [UINib nibWithNibName:@"RDPHotCollectionViewCell" bundle:[NSBundle mainBundle]];
-    [self.mainCollectionView registerNib:nib forCellWithReuseIdentifier:RDPHotViewCellIdentifier];
+    [self.mainCollectionView registerNib:nib forCellWithReuseIdentifier:RDPNearViewCellIdentifier];
     
     // 4. Add our collection view to our view
     [self addSubview:self.mainCollectionView];
@@ -164,10 +190,10 @@ static CGFloat cellFactor = 1.524;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     // 1. Get data at indexPath
-    RDPHotModel *hot = [_dataSource objectAtIndex:[indexPath row]];
+    RDPNearModel *near = [_dataSource objectAtIndex:[indexPath row]];
     
     // 2. Set up reuse identifer
-    RDPHotCollectionViewCell *cell = (RDPHotCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:RDPHotViewCellIdentifier forIndexPath:indexPath];
+    RDPHotCollectionViewCell *cell = (RDPHotCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:RDPNearViewCellIdentifier forIndexPath:indexPath];
     
     // 3. Check cell
     if (cell == nil) {
@@ -175,9 +201,8 @@ static CGFloat cellFactor = 1.524;
     }
     
     // 4. Setup contents
-    //[cell.bgImage setImage:[UIImage imageNamed:hot.imagePath]];
-    [cell.bgImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.88.1:5000/static/%@", hot.imagePath]]];
-    [cell.desc setText:hot.descText];
+    [cell.bgImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.88.1:5000/static/%@", near.imagePath]]];
+    [cell.desc setText:near.descText];
     
     [cell layoutIfNeeded];
     //[collectionView reloadItemsAtIndexPaths:@[indexPath]];
@@ -185,8 +210,8 @@ static CGFloat cellFactor = 1.524;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    RDPHotModel *hot = [_dataSource objectAtIndex:[indexPath row]];
-    return CGSizeMake(self.cellWidth, hot.cellHeight);
+    RDPNearModel *near = [_dataSource objectAtIndex:[indexPath row]];
+    return CGSizeMake(self.cellWidth, near.cellHeight);
 }
 
 
@@ -225,16 +250,16 @@ static CGFloat cellFactor = 1.524;
         
         for (int i = 0; i < array.count; i++) {
             NSDictionary *voiceData = (NSDictionary *)[array objectAtIndex:i];
-            RDPHotModel *hot = [[RDPHotModel alloc] init];
-            hot.voice_id = [voiceData objectForKey:@"vid"];
-            hot.user_id = [voiceData objectForKey:@"uid"];
-            hot.voicePath = [voiceData objectForKey:@"voice"];
-            hot.imagePath = [voiceData objectForKey:@"image"];
-            hot.descText = [voiceData objectForKey:@"desc"];
-            hot.score = [voiceData objectForKey:@"score"];
-            CGRect rect = [self getTextHeight:hot.descText];
-            hot.cellHeight = self.cellWidth + 10.0f + rect.size.height;
-            [_dataSource addObject:hot];
+            RDPNearModel *near = [[RDPNearModel alloc] init];
+            near.voice_id = [voiceData objectForKey:@"vid"];
+            near.user_id = [voiceData objectForKey:@"uid"];
+            near.voicePath = [voiceData objectForKey:@"voice"];
+            near.imagePath = [voiceData objectForKey:@"image"];
+            near.descText = [voiceData objectForKey:@"desc"];
+            near.score = [voiceData objectForKey:@"score"];
+            CGRect rect = [self getTextHeight:near.descText];
+            near.cellHeight = self.cellWidth + 10.0f + rect.size.height;
+            [_dataSource addObject:near];
         }
         // Update offset
         self.currentOffset += 1;
@@ -264,4 +289,29 @@ static CGFloat cellFactor = 1.524;
     [self.mainCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
 }
 
+#pragma mark - CLLocationManagerDelegatge
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        self.longitute = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        NSLog(@"longitude : %@, latitude : %@", self.longitute, self.latitude);
+    }
+    
+    // stop track location
+    [manager stopUpdatingLocation];
+    
+    [self reloadVoiceData];
+}
 @end
