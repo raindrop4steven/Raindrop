@@ -52,7 +52,8 @@ static CGFloat cellFactor = 1.524;
 
     // 3. Generate datasource
     //[self getDataSource];
-    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+//    [self loadRemoteHotVoiceWithOffset:self.currentOffset];
+    [self reloadVoiceData];
     return self;
 }
 
@@ -75,6 +76,7 @@ static CGFloat cellFactor = 1.524;
 
 // Reload data
 - (void)reloadVoiceData {
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
     [_dataSource removeAllObjects];
     self.totalCount = 0;
     self.currentCount = 0;
@@ -92,7 +94,6 @@ static CGFloat cellFactor = 1.524;
 }
 
 - (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
-    [MBProgressHUD showHUDAddedTo:self animated:YES];
     RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
     NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
