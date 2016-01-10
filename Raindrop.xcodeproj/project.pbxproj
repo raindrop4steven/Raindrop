@@ -36,6 +36,8 @@
 		CEE6D8581C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8561C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8591C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6E9041C42390200B6B4D1 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEE6E9021C42390200B6B4D1 /* cat.jpg */; settings = {ASSET_TAGS = (); }; };
+		CEE6E9051C42390200B6B4D1 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEE6E9031C42390200B6B4D1 /* girl.jpg */; settings = {ASSET_TAGS = (); }; };
 		CEE718DD1C26D30700EA2C37 /* fire.caf in Resources */ = {isa = PBXBuildFile; fileRef = CEE718DC1C26D22C00EA2C37 /* fire.caf */; };
 		CEE71C051C2E740E005A59D9 /* RDPHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE71C041C2E740E005A59D9 /* RDPHotModel.m */; settings = {ASSET_TAGS = (); }; };
 		CEE71C081C2E9D60005A59D9 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE71C061C2E9D60005A59D9 /* down.png */; settings = {ASSET_TAGS = (); }; };
@@ -109,8 +111,6 @@
 		CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE861C1EEB49009255EE /* NSDate+Utils.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE891C1EF87B009255EE /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECFE881C1EF87B009255EE /* next@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */; settings = {ASSET_TAGS = (); }; };
-		CEEDEC291C3E9D0A00A1D5A3 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEC281C3E9D0A00A1D5A3 /* cat.jpg */; settings = {ASSET_TAGS = (); }; };
-		CEEDEC2B1C3E9D5500A1D5A3 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEC2A1C3E9D5500A1D5A3 /* girl.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +181,8 @@
 		CEE6D8571C2AEFDD00CD3754 /* RDPSimpleInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPSimpleInfoTableViewCell.xib; sourceTree = "<group>"; };
 		CEE6DEB41C1E4874008BBC19 /* RDPRecordMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordMotionViewController.h; sourceTree = "<group>"; };
 		CEE6DEB51C1E4874008BBC19 /* RDPRecordMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordMotionViewController.m; sourceTree = "<group>"; };
+		CEE6E9021C42390200B6B4D1 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
+		CEE6E9031C42390200B6B4D1 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 		CEE718DC1C26D22C00EA2C37 /* fire.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire.caf; sourceTree = "<group>"; };
 		CEE71C031C2E740E005A59D9 /* RDPHotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHotModel.h; sourceTree = "<group>"; };
 		CEE71C041C2E740E005A59D9 /* RDPHotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHotModel.m; sourceTree = "<group>"; };
@@ -282,8 +284,6 @@
 		CEECFE881C1EF87B009255EE /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
 		CEECFE8A1C1F0490009255EE /* RDPRecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRecordingViewController.h; sourceTree = "<group>"; };
 		CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRecordingViewController.m; sourceTree = "<group>"; };
-		CEEDEC281C3E9D0A00A1D5A3 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../../../../../cat.jpg; sourceTree = "<group>"; };
-		CEEDEC2A1C3E9D5500A1D5A3 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl.jpg; path = ../../../../../../girl.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,8 +435,8 @@
 		CE65B70E1C1C297300E8356B /* test */ = {
 			isa = PBXGroup;
 			children = (
-				CEEDEC2A1C3E9D5500A1D5A3 /* girl.jpg */,
-				CEEDEC281C3E9D0A00A1D5A3 /* cat.jpg */,
+				CEE6E9021C42390200B6B4D1 /* cat.jpg */,
+				CEE6E9031C42390200B6B4D1 /* girl.jpg */,
 				CE6B242E1C2835EA00AB0F6F /* dog.jpg */,
 				CE6B24281C28305400AB0F6F /* sunset.jpg */,
 				CEE87CC71C26C7440007FF1E /* cell1.png */,
@@ -1036,7 +1036,7 @@
 				CEEA1D4B1C1D62BD00B74DDB /* r-Search@2x.png in Resources */,
 				CE4A21DD1C230BDF0001C592 /* bird.caf in Resources */,
 				CEEA1D671C1D62D900B74DDB /* pause@2x.png in Resources */,
-				CEEDEC291C3E9D0A00A1D5A3 /* cat.jpg in Resources */,
+				CEE6E9041C42390200B6B4D1 /* cat.jpg in Resources */,
 				CEE87CBD1C26A5730007FF1E /* Checked-Active@2x.png in Resources */,
 				CE65B7101C1C297B00E8356B /* bg@2x.jpg in Resources */,
 				CEE88D8C1C1BE2D800A4B62D /* LaunchScreen.storyboard in Resources */,
@@ -1061,7 +1061,7 @@
 				CEECFE891C1EF87B009255EE /* next@2x.png in Resources */,
 				CEE71C081C2E9D60005A59D9 /* down.png in Resources */,
 				CEEA1D661C1D62D900B74DDB /* music@2x.png in Resources */,
-				CEEDEC2B1C3E9D5500A1D5A3 /* girl.jpg in Resources */,
+				CEE6E9051C42390200B6B4D1 /* girl.jpg in Resources */,
 				CEEA1D5F1C1D62D900B74DDB /* Arrow@2x.png in Resources */,
 				CE65B6F91C1C178D00E8356B /* message@2x.png in Resources */,
 				CEEA1D6E1C1D62D900B74DDB /* songs@2x.png in Resources */,
