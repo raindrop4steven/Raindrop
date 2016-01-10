@@ -11,6 +11,7 @@
 #import "RDPRecordPhotoViewController.h"
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
+#import "MBProgressHUD.h"
 #import <CoreLocation/CoreLocation.h>
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
@@ -34,6 +35,9 @@
 // Location Manger
 @property (nonatomic, strong)CLLocationManager *locationManager;
 
+// HUD
+@property (nonatomic, strong)MBProgressHUD *HUD;
+
 @end
 
 @implementation RDPRecordCustomizeViewController
@@ -42,6 +46,7 @@
 @synthesize albumView, descTextview;
 @synthesize descText, longitute, latitude;
 @synthesize locationManager;
+@synthesize HUD;
 
 - (void)viewDidLoad {
     // Initialize mix player
@@ -141,9 +146,12 @@
        parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
            [formData appendPartWithFileData:data name:@"voice_data" fileName:[NSString stringWithFormat:@"mix-%d.m4a",arc4random() % 1000] mimeType:@"audio/mpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
+        NSLog(@"%f", uploadProgress.fractionCompleted);
+        HUD.progress = uploadProgress.fractionCompleted;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [HUD hide:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -176,7 +184,9 @@
     
     // stop track location
     [manager stopUpdatingLocation];
-    
+    HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.mode = MBProgressHUDModeDeterminate;
+    HUD.labelText = @"Progress";
     [_mixMachine mixAudioWithBgMusic:self.selectedBgMusic voice:self.voiceData];
 }
 
