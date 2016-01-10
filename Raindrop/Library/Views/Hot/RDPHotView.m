@@ -261,7 +261,7 @@ static CGFloat cellFactor = 1.524;
     [self.mainCollectionView reloadData];
     [self.mainCollectionView layoutIfNeeded];
 
-    [self.mainCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    [self.mainCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
 }
 
 @end
