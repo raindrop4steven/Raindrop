@@ -10,6 +10,7 @@
 #import "RDPVoiceDetailView.h"
 #import "RDPHotModel.h"
 #import "RDPVoiceDownloader.h"
+#import "MBProgressHUD.h"
 
 @interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate>
 
@@ -103,6 +104,7 @@
         return;
     if (index >= self.dataSource.count) {
         NSLog(@"Need load more data from server");
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self loadRemoteHotVoiceWithOffset:self.currentOffset];
 //        return;
     } else {
@@ -159,7 +161,7 @@
     currentIndex = page;
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling);
     [self loadContentViewAtIndex:page];
-    [self loadContentViewAtIndex:page + 1];
+//    [self loadContentViewAtIndex:page + 1];
     [self loadContentViewAtIndex:page - 1];
     
     // a possible optimization would be to unload the views+controllers which are no longer visible
@@ -210,7 +212,8 @@
         self.currentCount += array.count;
     }
     
-    [self refreshContentAtIndex:self.currentIndex + 1];
+    [self refreshContentAtIndex:self.currentIndex];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (CGRect)getTextHeight:(NSString *)inputText {
