@@ -12,6 +12,7 @@
 #import "RDPVoiceDownloader.h"
 #import "RDPHotModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MBProgressHUD.h"
 
 static NSString *RDPHotViewCellIdentifier = @"RDPHotCollectionViewCellIdentifiter";
 static NSUInteger All_Marin = 30;
@@ -69,6 +70,7 @@ static CGFloat cellFactor = 1.524;
         NSLog(@"pull up to load more");
         [weakSelf loadMore];
     }];
+    self.mainCollectionView.mj_footer.automaticallyHidden = YES;
 }
 
 // Reload data
@@ -90,6 +92,7 @@ static CGFloat cellFactor = 1.524;
 }
 
 - (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
+    [MBProgressHUD showHUDAddedTo:self animated:YES];
     RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
     NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
@@ -235,6 +238,9 @@ static CGFloat cellFactor = 1.524;
         // Update offset
         self.currentOffset += 1;
         self.currentCount += array.count;
+        
+        // Hide HUD Progress
+        [MBProgressHUD hideHUDForView:self animated:YES];
     }
     
     // [self.mainCollectionView reloadItemsAtIndexPaths:[self.mainCollectionView indexPathsForVisibleItems]];
