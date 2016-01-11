@@ -26,22 +26,32 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="110m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYd-Dk-1od">
+                        <rect key="frame" x="220" y="248" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.077061632878059672" blue="0.36162699887769179" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="oYd-Dk-1od" secondAttribute="trailing" constant="20" id="AFS-7R-5Js"/>
                 <constraint firstItem="c2c-KN-Frv" firstAttribute="top" secondItem="B8e-LR-KjN" secondAttribute="bottom" constant="5" id="E18-5z-0S4"/>
                 <constraint firstItem="B8e-LR-KjN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GFi-75-Asg"/>
                 <constraint firstAttribute="trailing" secondItem="c2c-KN-Frv" secondAttribute="trailing" id="Hh7-nT-TTx"/>
                 <constraint firstAttribute="trailing" secondItem="B8e-LR-KjN" secondAttribute="trailing" id="N4q-pl-ugU"/>
                 <constraint firstItem="c2c-KN-Frv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NGR-sx-mC1"/>
                 <constraint firstItem="B8e-LR-KjN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TGS-mW-Ncn"/>
+                <constraint firstItem="oYd-Dk-1od" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="140" id="rqS-I9-wto"/>
             </constraints>
             <size key="customSize" width="292" height="342"/>
             <connections>
                 <outlet property="bgImage" destination="B8e-LR-KjN" id="w7h-ba-gYZ"/>
                 <outlet property="desc" destination="c2c-KN-Frv" id="WwC-N5-zUW"/>
+                <outlet property="distance" destination="oYd-Dk-1od" id="wqZ-uw-9DZ"/>
+                <outlet property="distanceFromTop" destination="rqS-I9-wto" id="gO7-oc-iUR"/>
             </connections>
             <point key="canvasLocation" x="176" y="273"/>
         </collectionViewCell>

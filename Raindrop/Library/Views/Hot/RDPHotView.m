@@ -178,7 +178,7 @@ static CGFloat cellFactor = 1.524;
     //[cell.bgImage setImage:[UIImage imageNamed:hot.imagePath]];
     [cell.bgImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.88.1:5000/static/%@", hot.imagePath]]];
     [cell.desc setText:hot.descText];
-    
+    [cell.distance setHidden:YES];
     [cell layoutIfNeeded];
     //[collectionView reloadItemsAtIndexPaths:@[indexPath]];
     return cell;

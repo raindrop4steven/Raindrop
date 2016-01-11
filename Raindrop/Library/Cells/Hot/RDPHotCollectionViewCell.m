@@ -12,6 +12,8 @@
 
 @synthesize bgImage;
 @synthesize desc;
+@synthesize distance;
+@synthesize distanceFromTop;
 
 
 - (void)awakeFromNib {

@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 @property (weak, nonatomic) IBOutlet UILabel *desc;
+@property (weak, nonatomic) IBOutlet UILabel *distance;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *distanceFromTop;
 
 @end

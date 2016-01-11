@@ -203,6 +203,8 @@ static CGFloat cellFactor = 1.524;
     // 4. Setup contents
     [cell.bgImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.88.1:5000/static/%@", near.imagePath]]];
     [cell.desc setText:near.descText];
+    [cell.distance setText:near.distance];
+    [cell.distanceFromTop setConstant:self.cellWidth - 20];
     
     [cell layoutIfNeeded];
     //[collectionView reloadItemsAtIndexPaths:@[indexPath]];
@@ -257,6 +259,7 @@ static CGFloat cellFactor = 1.524;
             near.imagePath = [voiceData objectForKey:@"image"];
             near.descText = [voiceData objectForKey:@"desc"];
             near.score = [voiceData objectForKey:@"score"];
+            near.distance = [voiceData objectForKey:@"distance"];
             CGRect rect = [self getTextHeight:near.descText];
             near.cellHeight = self.cellWidth + 10.0f + rect.size.height;
             [_dataSource addObject:near];
