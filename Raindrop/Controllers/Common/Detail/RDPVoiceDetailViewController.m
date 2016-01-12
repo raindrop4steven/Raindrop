@@ -11,8 +11,10 @@
 #import "RDPHotModel.h"
 #import "RDPVoiceDownloader.h"
 #import "MBProgressHUD.h"
+#import "RDPSoundDownloader.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate>
+@interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate, RDPVoiceDetailViewDelegate, AVAudioPlayerDelegate, RDPSoundDownloaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -20,6 +22,9 @@
 
 @property (nonatomic, strong)NSMutableArray *detailViews;
 
+// TEMP AudioPlayer
+@property (nonatomic, strong)AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong)RDPSoundDownloader *soundDownloader;
 
 @end
 
@@ -28,12 +33,17 @@
 @synthesize contentView;
 @synthesize dataSource, totalCount, currentIndex, currentCount, currentOffset;
 @synthesize parentView;
+@synthesize audioPlayer;
+@synthesize soundDownloader;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Generate random data
-//    [self generateRandomData];
     
+    // Sound Downloader initliaze
+    self.soundDownloader = [[RDPSoundDownloader alloc] init];
+    self.soundDownloader.delegate = self;
+    
+    // ChildView
     NSMutableArray *childViews = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < totalCount; i++)
     {
@@ -121,9 +131,11 @@
     if ((NSNull *)childView == [NSNull null])
     {
         childView = [[[NSBundle mainBundle] loadNibNamed:@"RDPVoiceDetailView" owner:nil options:nil] objectAtIndex:0];
+        childView.delegate = self;
         [childView.photoView setImage:[UIImage imageNamed:model.imagePath]];
         [childView.heartnoLabel setText:model.score];
         [childView.descLabel setText:model.descText];
+        [childView setVoiceName:model.voicePath];
         
         [self.detailViews replaceObjectAtIndex:index withObject:childView];
     }
@@ -232,4 +244,49 @@
 - (void)voiceDownloader:(RDPVoiceDownloader *)downloader didDownloadFailed:(NSError *)error {
     NSLog(@"%@", [error localizedDescription]);
 }
+
+#pragma mark - RDPVoiceDetailViewDelegate
+- (void)voiceDetailView:(RDPVoiceDetailView *)detailView playVoiceName:(NSString *)voiceName {
+    NSLog(@"Clicked at voice : %@", voiceName);
+    if (self.audioPlayer != nil) {
+        if (self.audioPlayer.playing) {
+            [self.audioPlayer stop];
+            [self stopAudioPlayer];
+        }
+    } else {
+        [self.soundDownloader downloadSoundWithVoiceName:voiceName];
+    }
+}
+
+#pragma mark - RDPSoundDownloaderDelegate
+- (void)soundDownloader:(RDPSoundDownloader *)downloader didDownloadSoundSuccess:(NSData *)soundData {
+    NSLog(@"Download sound success");
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
+    self.audioPlayer.delegate = self;
+    if (error) {
+        NSLog(@"Error creating audio player, %@", [error localizedDescription]);
+    } else {
+        [self.audioPlayer prepareToPlay];
+        [self.audioPlayer play];
+    }
+    
+}
+
+- (void)soundDownloader:(RDPSoundDownloader *)downloader didDownloadSoundFail:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
+}
+
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"Audio Player Finished with Flag %d", flag);
+    [self stopAudioPlayer];
+}
+
+- (void)stopAudioPlayer {
+    self.audioPlayer.delegate = nil;
+    self.audioPlayer = nil;
+}
+
+// TODO: Interruptions should be added here
 @end

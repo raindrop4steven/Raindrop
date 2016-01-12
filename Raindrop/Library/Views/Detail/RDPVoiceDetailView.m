@@ -10,12 +10,15 @@
 
 @implementation RDPVoiceDetailView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+@synthesize photoView, heartnoLabel, playButton, descLabel;
+@synthesize voiceName;
+@synthesize delegate;
 
+
+// Play our voice
+- (IBAction)playVoice:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(voiceDetailView:playVoiceName:)]) {
+        [self.delegate voiceDetailView:self playVoiceName:self.voiceName];
+    }
+}
 @end
