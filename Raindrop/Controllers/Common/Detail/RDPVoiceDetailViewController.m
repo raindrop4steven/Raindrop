@@ -170,6 +170,12 @@
     // switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    if (self.currentIndex != page) {
+        if (self.audioPlayer != nil) {
+            [self.audioPlayer stop];
+            [self stopAudioPlayer];
+        }
+    }
     currentIndex = page;
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling);
     [self loadContentViewAtIndex:page];
