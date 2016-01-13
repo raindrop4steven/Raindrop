@@ -32,14 +32,20 @@
 }
 
 - (void)registerWithParams:(NSDictionary *)params {
+    NSString *username = [params objectForKey:@"username"];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager POST:@"http://192.168.88.1:5000/api/users"
        parameters:params constructingBodyWithBlock:nil
          progress:nil
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              if ([self.delegate respondsToSelector:@selector(registerManager:didRegisterSuccess:)]) {
-                  [self.delegate registerManager:self didRegisterSuccess:responseObject];
+              NSDictionary *dict = (NSDictionary *)responseObject;
+              // Validate user return value
+              if ([username isEqualToString:[dict objectForKey:@"username"]]) {
+                  if ([self.delegate respondsToSelector:@selector(registerManager:didRegisterSuccess:)]) {
+                      [self.delegate registerManager:self didRegisterSuccess:responseObject];
+                  }
               }
           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               if ([self.delegate respondsToSelector:@selector(registerManager:didRegisterFailed:)]) {

@@ -7,14 +7,14 @@
 //
 
 #import "RDPLoginViewController.h"
-#import "RDPLoginManager.h"
+#import "RDPTokenManager.h"
 
-@interface RDPLoginViewController ()<RDPLoginManagerDelegate>
+@interface RDPLoginViewController ()<RDPTokenManagerDelegate>
 
 @property (nonatomic, strong)NSString *email;
 @property (nonatomic, strong)NSString *password;
 
-@property (nonatomic, strong)RDPLoginManager *loginManager;
+@property (nonatomic, strong)RDPTokenManager *tokenManager;
 @end
 
 @implementation RDPLoginViewController
@@ -23,6 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _tokenManager = [RDPTokenManager sharedManager];
+    _tokenManager.delegate = self;
+    
+    // Check token in userdefaults first if not show up login window
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    
+    if (token != nil) {
+        // Login with token then jump to home view
+        NSDictionary *params = @{@"username":token, @"password":@"notpassword"};
+        [_tokenManager getTokenWithParams:params];
+    } else {
+        // show login window
+        // actually do nothing here.
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,19 +58,20 @@
         [self presentViewController:alertController animated:YES completion:nil];
     } else {
         NSDictionary *params = @{@"username":_email, @"password":_password};
-        _loginManager = [RDPLoginManager sharedManager];
-        _loginManager.delegate = self;
-        [_loginManager loginWithParams:params];
+        [_tokenManager getTokenWithParams:params];
     }
 }
 
-#pragma mark - RDPLoginManagerDelegate
-
-- (void)loginManager:(RDPLoginManager *)manager didLoginSuccess:(NSData *)data {
-    NSLog(@"Login successed\n%@", data);
+#pragma mark - RDPTokenManagerDelegate
+- (void)tokenManager:(RDPTokenManager *)manager didGetTokenSuccess:(NSDictionary *)dict {
+    NSLog(@"%@", dict);
+    NSString *token = [dict objectForKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    NSLog(@"Token saved");
+    
 }
 
-- (void)loginManager:(RDPLoginManager *)manager didLoginFailed:(NSError *)error {
+- (void)tokenManager:(RDPTokenManager *)manager didGetTokenFailed:(NSError *)error {
     NSLog(@"%@", [error localizedDescription]);
 }
 

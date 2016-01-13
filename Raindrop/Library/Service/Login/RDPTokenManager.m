@@ -1,19 +1,19 @@
 //
-//  RDPLoginManager.m
+//  RDPTokenManager.m
 //  Raindrop
 //
-//  Created by user on 16/1/2.
+//  Created by user on 16/1/13.
 //  Copyright © 2016年 steven. All rights reserved.
 //
 
-#import "RDPLoginManager.h"
+#import "RDPTokenManager.h"
 
-@implementation RDPLoginManager
+@implementation RDPTokenManager
 
 @synthesize delegate;
 
 + (id)sharedManager {
-    static RDPLoginManager *manager = nil;
+    static RDPTokenManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init];
@@ -31,27 +31,27 @@
     return self;
 }
 
-- (void)loginWithParams:(NSDictionary *)params {
-    // Get username and password
+- (void)getTokenWithParams:(NSDictionary *)params {
     NSString *username = [params objectForKey:@"username"];
     NSString *password = [params objectForKey:@"password"];
     
+    NSString *queryURL = @"http://192.168.88.1:5000/api/token";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
-    [manager GET:@"http://192.168.88.1:5000/api/token"
+    [manager GET:queryURL
       parameters:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-             if ([self.delegate respondsToSelector:@selector(loginManager:didLoginSuccess:)]) {
-                 [self.delegate loginManager:self didLoginSuccess:responseObject];
+             NSDictionary *dict = (NSDictionary *)responseObject;
+             if ([self.delegate respondsToSelector:@selector(tokenManager:didGetTokenSuccess:)]) {
+                 [self.delegate tokenManager:self didGetTokenSuccess:dict];
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             if ([self.delegate respondsToSelector:@selector(loginManager:didLoginFailed:)]) {
-                 [self.delegate loginManager:self didLoginFailed:error];
+             if ([self.delegate respondsToSelector:@selector(tokenManager:didGetTokenFailed:)]) {
+                 [self.delegate tokenManager:self didGetTokenFailed:error];
              }
          }];
 }
-
 @end

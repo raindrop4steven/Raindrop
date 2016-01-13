@@ -8,9 +8,11 @@
 
 #import "RDPRegisterViewController.h"
 #import "RDPRegisterManager.h"
+#import "RDPTokenManager.h"
 
-@interface RDPRegisterViewController ()<RDPRegisterManagerDelegate>
+@interface RDPRegisterViewController ()<RDPRegisterManagerDelegate, RDPTokenManagerDelegate>
 @property (nonatomic, strong)RDPRegisterManager *manager;
+@property (nonatomic, strong)RDPTokenManager *tokenManager;
 @property (nonatomic, strong)NSString *email;
 @property (nonatomic, strong)NSString *password;
 @end
@@ -55,6 +57,10 @@
 #pragma mark - RDPRegisterManagerDelegate
 - (void)registerManager:(RDPRegisterManager *)manager didRegisterSuccess:(NSData *)data {
     NSLog(@"%@", data);
+    _tokenManager = [RDPTokenManager sharedManager];
+    _tokenManager.delegate = self;
+    NSDictionary *params = @{@"username":_email, @"password":_password};
+    [_tokenManager getTokenWithParams:params];
 }
 
 - (void)registerManager:(RDPRegisterManager *)manager didRegisterFailed:(NSError *)error {
@@ -65,5 +71,17 @@
     }];
     [alertController addAction:defaultAction];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - RDPTokenManagerDelegate
+- (void)tokenManager:(RDPTokenManager *)manager didGetTokenSuccess:(NSDictionary *)dict {
+    NSLog(@"%@", dict);
+    NSString *token = [dict objectForKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    NSLog(@"Token saved");
+}
+
+- (void)tokenManager:(RDPTokenManager *)manager didGetTokenFailed:(NSError *)error {
+    NSLog(@"%@", [error localizedDescription]);
 }
 @end

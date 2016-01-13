@@ -107,6 +107,7 @@
 		CEEA1D7C1C1DB9F800B74DDB /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA1D7B1C1DB9F800B74DDB /* clock@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEEA36AB1C453171007712AE /* RDPSoundDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA36AA1C453171007712AE /* RDPSoundDownloader.m */; settings = {ASSET_TAGS = (); }; };
 		CEEA93A61C244A0800893203 /* RDPVoiceTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA93A51C244A0800893203 /* RDPVoiceTestViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CEEB06B61C469D1C00BF471C /* RDPTokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB06B51C469D1C00BF471C /* RDPTokenManager.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22301C2C2177008EE300 /* RDPVoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22341C2C2AAE008EE300 /* RDPVoiceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC22331C2C2AAE008EE300 /* RDPVoiceDetailView.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22361C2C2ABC008EE300 /* RDPVoiceDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */; settings = {ASSET_TAGS = (); }; };
@@ -281,6 +282,8 @@
 		CEEA36AA1C453171007712AE /* RDPSoundDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSoundDownloader.m; sourceTree = "<group>"; };
 		CEEA93A41C244A0800893203 /* RDPVoiceTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceTestViewController.h; sourceTree = "<group>"; };
 		CEEA93A51C244A0800893203 /* RDPVoiceTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPVoiceTestViewController.m; sourceTree = "<group>"; };
+		CEEB06B41C469D1C00BF471C /* RDPTokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDPTokenManager.h; path = Raindrop/Library/Service/Login/RDPTokenManager.h; sourceTree = SOURCE_ROOT; };
+		CEEB06B51C469D1C00BF471C /* RDPTokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDPTokenManager.m; path = Raindrop/Library/Service/Login/RDPTokenManager.m; sourceTree = SOURCE_ROOT; };
 		CEEC222E1C2C2177008EE300 /* RDPVoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceDetailViewController.h; sourceTree = "<group>"; };
 		CEEC222F1C2C2177008EE300 /* RDPVoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPVoiceDetailViewController.m; sourceTree = "<group>"; };
 		CEEC22321C2C2AAE008EE300 /* RDPVoiceDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPVoiceDetailView.h; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 		CED1EF9D1C37A28C00ACF94C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB06B41C469D1C00BF471C /* RDPTokenManager.h */,
+				CEEB06B51C469D1C00BF471C /* RDPTokenManager.m */,
 				CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */,
 				CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */,
 				CEECAE591C37BDF000039197 /* RDPRegisterManager.h */,
@@ -1182,6 +1187,7 @@
 				CEE88D881C1BE05900A4B62D /* MainViewController.m in Sources */,
 				CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */,
 				CEE96B121C377E580073BF60 /* RDPLoginViewController.m in Sources */,
+				CEEB06B61C469D1C00BF471C /* RDPTokenManager.m in Sources */,
 				CE54EA391C3AB04F00C9A155 /* RDPVoiceDownloader.m in Sources */,
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
