@@ -9,6 +9,7 @@
 #import "RDPRegisterViewController.h"
 #import "RDPRegisterManager.h"
 #import "RDPTokenManager.h"
+#import "MainViewController.h"
 
 @interface RDPRegisterViewController ()<RDPRegisterManagerDelegate, RDPTokenManagerDelegate>
 @property (nonatomic, strong)RDPRegisterManager *manager;
@@ -79,6 +80,13 @@
     NSString *token = [dict objectForKey:@"token"];
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
     NSLog(@"Token saved");
+    
+    // Load Main View
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    MainViewController *mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)tokenManager:(RDPTokenManager *)manager didGetTokenFailed:(NSError *)error {
