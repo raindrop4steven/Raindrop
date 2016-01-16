@@ -114,6 +114,7 @@
 		CEEC22341C2C2AAE008EE300 /* RDPVoiceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC22331C2C2AAE008EE300 /* RDPVoiceDetailView.m */; settings = {ASSET_TAGS = (); }; };
 		CEEC22361C2C2ABC008EE300 /* RDPVoiceDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */; settings = {ASSET_TAGS = (); }; };
 		CEECAE5B1C37BDF000039197 /* RDPRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECAE5A1C37BDF000039197 /* RDPRegisterManager.m */; settings = {ASSET_TAGS = (); }; };
+		CEECB9BB1C4A6C2900730B9D /* RDPMineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECB9BA1C4A6C2900730B9D /* RDPMineTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE871C1EEB49009255EE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE861C1EEB49009255EE /* NSDate+Utils.m */; settings = {ASSET_TAGS = (); }; };
 		CEECFE891C1EF87B009255EE /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEECFE881C1EF87B009255EE /* next@2x.png */; settings = {ASSET_TAGS = (); }; };
 		CEECFE8C1C1F0490009255EE /* RDPRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECFE8B1C1F0490009255EE /* RDPRecordingViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -297,6 +298,8 @@
 		CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPVoiceDetailView.xib; sourceTree = "<group>"; };
 		CEECAE591C37BDF000039197 /* RDPRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPRegisterManager.h; sourceTree = "<group>"; };
 		CEECAE5A1C37BDF000039197 /* RDPRegisterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPRegisterManager.m; sourceTree = "<group>"; };
+		CEECB9B91C4A6C2900730B9D /* RDPMineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMineTableViewController.h; sourceTree = "<group>"; };
+		CEECB9BA1C4A6C2900730B9D /* RDPMineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMineTableViewController.m; sourceTree = "<group>"; };
 		CEECFE851C1EEB49009255EE /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		CEECFE861C1EEB49009255EE /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		CEECFE881C1EF87B009255EE /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
@@ -759,6 +762,7 @@
 		CEE88D831C1BE05900A4B62D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CEECB9B81C4A6C0800730B9D /* Profile */,
 				CEE96B0F1C377E410073BF60 /* Login */,
 				CEEC222D1C2C211B008EE300 /* Detail */,
 				CEEA1D781C1DB65800B74DDB /* Record */,
@@ -957,6 +961,15 @@
 				CEEC22351C2C2ABC008EE300 /* RDPVoiceDetailView.xib */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		CEECB9B81C4A6C0800730B9D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB9B91C4A6C2900730B9D /* RDPMineTableViewController.h */,
+				CEECB9BA1C4A6C2900730B9D /* RDPMineTableViewController.m */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1224,6 +1237,7 @@
 				CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */,
 				CEE87CB91C26A0390007FF1E /* RDPMusicTableViewCell.m in Sources */,
 				CEE934041C21AD6D000199A5 /* UUAVAudioPlayer.m in Sources */,
+				CEECB9BB1C4A6C2900730B9D /* RDPMineTableViewController.m in Sources */,
 				CEE934001C219FA9000199A5 /* Mp3Recorder.m in Sources */,
 				CE6B24261C282FF300AB0F6F /* RDPPhotoCollectionViewCell.m in Sources */,
 				CEE6E90D1C428A2000B6B4D1 /* RDPNearModel.m in Sources */,

@@ -10,4 +10,7 @@
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *setting;
+
+- (IBAction)clickSetting:(id)sender;
 @end

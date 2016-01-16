@@ -11,6 +11,7 @@
 #import "RDPRecordMotionViewController.h"
 #import "RDPHotView.h"
 #import "RDPNearView.h"
+#import "RDPMineTableViewController.h"
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -91,6 +92,7 @@
     RDPHotView *hotView = [[RDPHotView alloc] initWithFrame:self.scrollView.frame ParentController:self];
     RDPNearView *nearView = [[RDPNearView alloc] initWithFrame:self.scrollView.frame ParentController:self];
     RDPNearView *nearView2 = [[RDPNearView alloc] initWithFrame:self.scrollView.frame ParentController:self];
+    
     [self.faceViews addObject:hotView];
     [self.faceViews addObject:nearView];
     [self.faceViews addObject:nearView2];
@@ -234,5 +236,10 @@
     page = MIN(MAX(page, 0), self.totalPages);
     self.currentPage = page;
     [self updateTitleWithcurrentPage:self.currentPage];
+}
+- (IBAction)clickSetting:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    RDPMineTableViewController *mineController = [storyboard instantiateViewControllerWithIdentifier:@"RDPMineTableViewController"];
+    [self.navigationController pushViewController:mineController animated:YES];
 }
 @end

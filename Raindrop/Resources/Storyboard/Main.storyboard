@@ -49,12 +49,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="FXI-N4-eBw">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="r-Settings.png" id="Ucj-A6-lxB">
+                            <connections>
+                                <action selector="clickSetting:" destination="BYZ-38-t0r" id="wQY-t3-Gyy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="contentView" destination="e1I-jY-9Ge" id="T5H-xV-2R2"/>
                         <outlet property="contentWidthConstraint" destination="SKe-sV-qMa" id="TrP-h9-iGx"/>
                         <outlet property="scrollView" destination="cfh-56-D8j" id="gNR-Sw-h7z"/>
+                        <outlet property="setting" destination="Ucj-A6-lxB" id="DXX-1D-Kn1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -719,6 +725,7 @@
         <image name="next.png" width="20" height="20"/>
         <image name="photos.png" width="22" height="17"/>
         <image name="preview.png" width="40" height="40"/>
+        <image name="r-Settings.png" width="22" height="22"/>
         <image name="refresh.png" width="21" height="25"/>
         <image name="sad.png" width="56" height="56"/>
         <image name="sent.png" width="23" height="23"/>
