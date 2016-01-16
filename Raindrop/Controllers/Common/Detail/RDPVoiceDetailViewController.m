@@ -12,8 +12,6 @@
 #import "RDPVoiceDownloader.h"
 #import "MBProgressHUD.h"
 #import "RDPSoundDownloader.h"
-#import "PrizeRecord.h"
-#import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate, RDPVoiceDetailViewDelegate, AVAudioPlayerDelegate, RDPSoundDownloaderDelegate>
@@ -270,42 +268,7 @@
 
 - (void)voiceDetailView:(RDPVoiceDetailView *)detailView givePrizeType:(NSString *)prizeType {
     NSLog(@"Tap at %@, and type %@", detailView.vid, prizeType);
-    // Get ApplicationDelegate
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    // Get Context
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSError *error;
-    // First query for existing
-    NSFetchRequest *fetch = [[NSFetchRequest alloc ]init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PrizeRecord"
-                                              inManagedObjectContext:context];
-    [fetch setEntity:entity];
-    
-    NSInteger queryId = [detailView.vid integerValue];
-    
-    // Use Predicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"vid == %@", [NSNumber numberWithInteger:queryId]];
-    [fetch setPredicate:predicate];
-    
-    NSArray *results = [context executeFetchRequest:fetch error:&error];
-    
-    if ([results count] > 0) {
-        NSLog(@"Query that record");
-    } else {
-        NSLog(@"Not Query that record");
-        
-        // New Records
-        PrizeRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"PrizeRecord" inManagedObjectContext:context];
-        
-        [record setVid:[NSNumber numberWithInteger:[detailView.vid integerValue]]];
-        
-        // Begin to save record
-        
-        if (![context save:&error]) {
-            NSLog(@"Save record failed\n %@", [error localizedDescription]);
-        }
-    }
+
 }
 
 #pragma mark - RDPSoundDownloaderDelegate
