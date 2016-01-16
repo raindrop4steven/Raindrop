@@ -28,7 +28,6 @@
 		CEA6E49B1C3D643B0020A835 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */; };
 		CED1EFA01C37A2A100ACF94C /* RDPLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */; settings = {ASSET_TAGS = (); }; };
-		CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D84E1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8531C2AEEB700CD3754 /* RDPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D8511C2AEEB700CD3754 /* RDPProfileTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -175,8 +174,6 @@
 		CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLoginManager.h; sourceTree = "<group>"; };
 		CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLoginManager.m; sourceTree = "<group>"; };
 		CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
-		CEE6D8351C2AE18000CD3754 /* RDPProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileView.h; sourceTree = "<group>"; };
-		CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileView.m; sourceTree = "<group>"; };
 		CEE6D84A1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileInfoTableViewCell.h; sourceTree = "<group>"; };
 		CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileInfoTableViewCell.m; sourceTree = "<group>"; };
 		CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProfileInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -563,15 +560,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		CEE6D8321C2AE06500CD3754 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				CEE6D8351C2AE18000CD3754 /* RDPProfileView.h */,
-				CEE6D8361C2AE18000CD3754 /* RDPProfileView.m */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		CEE6D83E1C2AEE0400CD3754 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -881,7 +869,6 @@
 			children = (
 				CEE6E9061C4287E400B6B4D1 /* Near */,
 				CEEC22311C2C2A5B008EE300 /* Detail */,
-				CEE6D8321C2AE06500CD3754 /* Profile */,
 				CE66BAC61C1C6E9C004D0E68 /* Hot */,
 			);
 			path = Views;
@@ -1257,7 +1244,6 @@
 				CEE9A3D61C204418009D1993 /* RDPRecordMusicViewController.m in Sources */,
 				CEE9A3D91C204442009D1993 /* RDPRecordPhotoViewController.m in Sources */,
 				CEE88D751C1BDECE00A4B62D /* main.m in Sources */,
-				CEE6D8371C2AE18000CD3754 /* RDPProfileView.m in Sources */,
 				CEEC22301C2C2177008EE300 /* RDPVoiceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
