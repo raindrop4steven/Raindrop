@@ -54,6 +54,7 @@
                                 <action selector="clickSetting:" destination="BYZ-38-t0r" id="wQY-t3-Gyy"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="r-Alarm.png" id="KCS-LJ-YzX"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -725,6 +726,7 @@
         <image name="next.png" width="20" height="20"/>
         <image name="photos.png" width="22" height="17"/>
         <image name="preview.png" width="40" height="40"/>
+        <image name="r-Alarm.png" width="18" height="22"/>
         <image name="r-Settings.png" width="22" height="22"/>
         <image name="refresh.png" width="21" height="25"/>
         <image name="sad.png" width="56" height="56"/>
