@@ -17,6 +17,8 @@
 @property (nonatomic, assign)NSUInteger currentCount;
 @property (nonatomic, assign)NSUInteger currentOffset;
 
+@property (nonatomic, strong)NSString *resourceType;
+
 @property (nonatomic, weak)RDPHotView *parentView;
 
 - (IBAction)goBack:(id)sender;

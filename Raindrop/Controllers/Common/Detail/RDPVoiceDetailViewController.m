@@ -12,6 +12,8 @@
 #import "RDPVoiceDownloader.h"
 #import "MBProgressHUD.h"
 #import "RDPSoundDownloader.h"
+#import "PrizeRecord.h"
+#import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface RDPVoiceDetailViewController ()<UIScrollViewDelegate, RDPVoiceDownloaderDelegate, RDPVoiceDetailViewDelegate, AVAudioPlayerDelegate, RDPSoundDownloaderDelegate>
@@ -35,6 +37,7 @@
 @synthesize parentView;
 @synthesize audioPlayer;
 @synthesize soundDownloader;
+@synthesize resourceType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,6 +139,7 @@
         [childView.heartnoLabel setText:model.score];
         [childView.descLabel setText:model.descText];
         [childView setVoiceName:model.voicePath];
+        [childView setVid:model.voice_id];
         
         [self.detailViews replaceObjectAtIndex:index withObject:childView];
     }
@@ -160,7 +164,7 @@
 - (void)loadRemoteHotVoiceWithOffset:(NSUInteger)offset {
     RDPVoiceDownloader *downloader = [[RDPVoiceDownloader alloc] init];
     downloader.delegate = self;
-    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset]};
+    NSDictionary *params = @{@"offset":[NSString stringWithFormat:@"%lu", (unsigned long)offset], @"queryType":self.resourceType};
     [downloader downloadVoiceDataWithParams:params];
 }
 
@@ -261,6 +265,24 @@
         }
     } else {
         [self.soundDownloader downloadSoundWithVoiceName:voiceName];
+    }
+}
+
+- (void)voiceDetailView:(RDPVoiceDetailView *)detailView givePrizeType:(NSString *)prizeType {
+    NSLog(@"Tap at %@, and type %@", detailView.vid, prizeType);
+    // Get ApplicationDelegate
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    // Get Context
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    // New Records
+    PrizeRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"PrizeRecord" inManagedObjectContext:context];
+    
+    [record setVid:[NSNumber numberWithInteger:[detailView.vid integerValue]]];
+    
+    // Begin to save record
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Save record failed\n %@", [error localizedDescription]);
     }
 }
 

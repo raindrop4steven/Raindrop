@@ -208,6 +208,7 @@ static CGFloat cellFactor = 1.524;
     detailViewController.currentOffset = self.currentOffset;
     // set seft to detail's parent view
     detailViewController.parentView = self;
+    detailViewController.resourceType = @"hot";
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     [self.parentController presentViewController:navigationController animated:YES completion:nil];

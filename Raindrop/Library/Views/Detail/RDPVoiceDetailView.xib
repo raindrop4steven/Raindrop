@@ -30,14 +30,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1Z-WC-5f5">
-                    <rect key="frame" x="331" y="320" width="24" height="15"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="5fH-UL-TD2"/>
-                        <constraint firstAttribute="height" constant="15" id="tNf-Ld-pNQ"/>
-                    </constraints>
-                    <state key="normal" image="up.png"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-qt-DSm">
                     <rect key="frame" x="331" y="371" width="24" height="15"/>
                     <constraints>
@@ -45,6 +37,9 @@
                         <constraint firstAttribute="height" constant="15" id="Udw-GO-hCq"/>
                     </constraints>
                     <state key="normal" image="down.png"/>
+                    <connections>
+                        <action selector="clickMinus:" destination="wSW-8i-coP" eventType="touchUpInside" id="5Yj-fB-5Yg"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美国心理学家拉塞尔·克拉克和伊莱恩·哈特菲尔德请一位迷人的女士帮助他们进行一场实验。“你今晚愿和我一起过夜么？”，这位美女在一所大学的校园里向陌生男子问道。" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZm-HO-9TI" userLabel="desc">
                     <rect key="frame" x="10" y="337" width="281" height="33"/>
@@ -52,6 +47,17 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1Z-WC-5f5">
+                    <rect key="frame" x="331" y="320" width="24" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="5fH-UL-TD2"/>
+                        <constraint firstAttribute="height" constant="15" id="tNf-Ld-pNQ"/>
+                    </constraints>
+                    <state key="normal" image="up.png"/>
+                    <connections>
+                        <action selector="clickPlus:" destination="wSW-8i-coP" eventType="touchUpInside" id="gZ7-B8-0sJ"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="a0H-pd-iWi" firstAttribute="leading" secondItem="wSW-8i-coP" secondAttribute="leading" id="10W-rw-SUk"/>
@@ -73,8 +79,10 @@
             <connections>
                 <outlet property="descLabel" destination="mZm-HO-9TI" id="hBr-cq-yFi"/>
                 <outlet property="heartnoLabel" destination="ONl-6c-ZiD" id="CP5-08-Cxt"/>
+                <outlet property="minusButton" destination="UyC-qt-DSm" id="GYV-be-2v3"/>
                 <outlet property="photoView" destination="a0H-pd-iWi" id="bVZ-0L-lcm"/>
                 <outlet property="playButton" destination="0DB-CO-cJZ" id="UYy-hL-N6x"/>
+                <outlet property="plusButton" destination="L1Z-WC-5f5" id="Jf9-kI-EeH"/>
             </connections>
             <point key="canvasLocation" x="362.5" y="534.5"/>
         </view>

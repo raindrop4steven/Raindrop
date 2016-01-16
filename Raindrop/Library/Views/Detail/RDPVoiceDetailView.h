@@ -12,6 +12,7 @@
 @protocol RDPVoiceDetailViewDelegate <NSObject>
 
 - (void)voiceDetailView:(RDPVoiceDetailView*)detailView playVoiceName:(NSString*)voiceName;
+- (void)voiceDetailView:(RDPVoiceDetailView *)detailView givePrizeType:(NSString *)prizeType;
 
 @end
 
@@ -24,8 +25,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *heartnoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UIButton *plusButton;
+@property (weak, nonatomic) IBOutlet UIButton *minusButton;
 
 @property (nonatomic, strong)NSString *voiceName;
+@property (nonatomic, strong)NSString *vid;
 
 - (IBAction)playVoice:(id)sender;
+- (IBAction)clickPlus:(id)sender;
+- (IBAction)clickMinus:(id)sender;
 @end
