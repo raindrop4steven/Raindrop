@@ -274,15 +274,37 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     // Get Context
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    // New Records
-    PrizeRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"PrizeRecord" inManagedObjectContext:context];
-    
-    [record setVid:[NSNumber numberWithInteger:[detailView.vid integerValue]]];
-    
-    // Begin to save record
     NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Save record failed\n %@", [error localizedDescription]);
+    // First query for existing
+    NSFetchRequest *fetch = [[NSFetchRequest alloc ]init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PrizeRecord"
+                                              inManagedObjectContext:context];
+    [fetch setEntity:entity];
+    
+    NSInteger queryId = [detailView.vid integerValue];
+    
+    // Use Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"vid == %@", [NSNumber numberWithInteger:queryId]];
+    [fetch setPredicate:predicate];
+    
+    NSArray *results = [context executeFetchRequest:fetch error:&error];
+    
+    if ([results count] > 0) {
+        NSLog(@"Query that record");
+    } else {
+        NSLog(@"Not Query that record");
+        
+        // New Records
+        PrizeRecord *record = [NSEntityDescription insertNewObjectForEntityForName:@"PrizeRecord" inManagedObjectContext:context];
+        
+        [record setVid:[NSNumber numberWithInteger:[detailView.vid integerValue]]];
+        
+        // Begin to save record
+        
+        if (![context save:&error]) {
+            NSLog(@"Save record failed\n %@", [error localizedDescription]);
+        }
     }
 }
 
