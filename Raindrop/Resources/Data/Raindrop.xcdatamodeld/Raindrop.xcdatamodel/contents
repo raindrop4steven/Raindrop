@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
-    <entity name="ResMusic" representedClassName="ResMusic" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="PrizeRecord" representedClassName="PrizeRecord" syncable="YES">
+        <attribute name="vid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ResMusic" positionX="-765" positionY="-126" width="128" height="73"/>
+        <element name="PrizeRecord" positionX="-63" positionY="-27" width="128" height="58"/>
     </elements>
 </model>
