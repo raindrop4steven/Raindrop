@@ -85,7 +85,29 @@
         }
         
         // Send prize reqeust to server
-        // TODO
+        [self prizeVoice:self.vid type:prizeType];
     }
+}
+
+- (void)prizeVoice:(NSString *)voiceId type:(NSString *)prizeType {
+    // Get weak type of self
+    __weak typeof(self) weakSelf = self;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"steven" password:@"hello"];
+
+    NSDictionary *params = @{@"voice_id":voiceId, @"prizeType":prizeType};
+    
+    [manager POST:@"http://192.168.88.1:5000/voices/prize"
+       parameters:params constructingBodyWithBlock:nil
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+           NSLog(@"%@", responseObject);
+              NSDictionary *dict = (NSDictionary *)responseObject;
+              NSString *score = [dict objectForKey:@"score"];
+              [weakSelf.heartnoLabel setText:score];
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           NSLog(@"%@", [error localizedDescription]);
+       }];
 }
 @end
