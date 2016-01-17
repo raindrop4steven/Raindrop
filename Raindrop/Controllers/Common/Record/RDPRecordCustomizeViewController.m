@@ -8,6 +8,7 @@
 
 #import "RDPRecordCustomizeViewController.h"
 #import "RDPRecordMusicViewController.h"
+#import "RDPTabBarController.h"
 #import "RDPRecordPhotoViewController.h"
 #import "RDPMixAudioPlayer.h"
 #import "RDPMixAudioMachine.h"
@@ -93,11 +94,14 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    RDPRecordMusicViewController *recordMusicController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMusicViewController"];
-    recordMusicController.voiceData = self.voiceData;
+    RDPTabBarController *tabBarController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPTabBarController"];
+    [self presentViewController:tabBarController animated:YES completion:nil];
     
-    UINavigationController *recordNavigationController = [[UINavigationController alloc] initWithRootViewController:recordMusicController];
-    [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
+//    RDPRecordMusicViewController *recordMusicController = [mainStoryboard instantiateViewControllerWithIdentifier:@"RDPRecordMusicViewController"];
+//    recordMusicController.voiceData = self.voiceData;
+//    
+//    UINavigationController *recordNavigationController = [[UINavigationController alloc] initWithRootViewController:recordMusicController];
+//    [self.navigationController presentViewController:recordNavigationController animated:YES completion:nil];
 }
 
 // Go to choose photos

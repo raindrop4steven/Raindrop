@@ -27,6 +27,7 @@
 		CE8329571C18586A004D12C8 /* RaindropUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8329561C18586A004D12C8 /* RaindropUITests.m */; };
 		CEA6E49B1C3D643B0020A835 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */; };
 		CED1EFA01C37A2A100ACF94C /* RDPLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */; settings = {ASSET_TAGS = (); }; };
+		CEE6B4BD1C4BB70900D7823A /* RDPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6B4BC1C4BB70900D7823A /* RDPTabBarController.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D8311C2ACE8E00CD3754 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEE6D84D1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CEE6D84E1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE6D84C1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -173,6 +174,8 @@
 		CEA6E49A1C3D643B0020A835 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CED1EF9E1C37A2A100ACF94C /* RDPLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLoginManager.h; sourceTree = "<group>"; };
 		CED1EF9F1C37A2A100ACF94C /* RDPLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLoginManager.m; sourceTree = "<group>"; };
+		CEE6B4BB1C4BB70900D7823A /* RDPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTabBarController.h; sourceTree = "<group>"; };
+		CEE6B4BC1C4BB70900D7823A /* RDPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTabBarController.m; sourceTree = "<group>"; };
 		CEE6D8301C2ACE8E00CD3754 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 		CEE6D84A1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProfileInfoTableViewCell.h; sourceTree = "<group>"; };
 		CEE6D84B1C2AEE9C00CD3754 /* RDPProfileInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProfileInfoTableViewCell.m; sourceTree = "<group>"; };
@@ -560,6 +563,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CEE6B4BA1C4BB6C600D7823A /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				CEE6B4BB1C4BB70900D7823A /* RDPTabBarController.h */,
+				CEE6B4BC1C4BB70900D7823A /* RDPTabBarController.m */,
+			);
+			name = Tabbar;
+			path = Record/Tabbar;
+			sourceTree = "<group>";
+		};
 		CEE6D83E1C2AEE0400CD3754 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +752,7 @@
 		CEE88D831C1BE05900A4B62D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CEE6B4BA1C4BB6C600D7823A /* Tabbar */,
 				CEECB9B81C4A6C0800730B9D /* Profile */,
 				CEE96B0F1C377E410073BF60 /* Login */,
 				CEEC222D1C2C211B008EE300 /* Detail */,
@@ -1231,6 +1245,7 @@
 				CE66BAC91C1C6EBD004D0E68 /* RDPHotView.m in Sources */,
 				CEE96B121C377E580073BF60 /* RDPLoginViewController.m in Sources */,
 				CEEB06B61C469D1C00BF471C /* RDPTokenManager.m in Sources */,
+				CEE6B4BD1C4BB70900D7823A /* RDPTabBarController.m in Sources */,
 				CE54EA391C3AB04F00C9A155 /* RDPVoiceDownloader.m in Sources */,
 				CEEA1D771C1D994D00B74DDB /* UIColor+Raindrop.m in Sources */,
 				CEE6DEB61C1E4874008BBC19 /* RDPRecordMotionViewController.m in Sources */,
